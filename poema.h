@@ -1,0 +1,21 @@
+#ifndef POEMA_H
+#define POEMA_H
+
+#include "lectura.h"
+
+class Poema: public Lectura {
+
+protected:
+    unsigned int versos;
+
+public:
+    Poema(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor, unsigned int versos);
+    ~Poema();
+
+    // Mostrar
+    // PRE: - 
+    // POS: muestra los atributos en pantalla
+    void mostrar(); // es mostrar() sobrecargado, se le agrega la funcionalidad de mostrar los versos
+};
+
+#endif

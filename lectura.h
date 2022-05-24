@@ -20,12 +20,12 @@ public:
     // PRE: -
     // POS: realiza la carga de los datos al objeto Lectura. 
     //      - en caso de ser proveniente de un autor anonimo, autor = nullptr;
-    Lectura();
+    Lectura(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor);
 
     // Destructor
     // PRE: -
     // POS: -
-    ~Lectura(){};
+    virtual ~Lectura();
 
     // Comparar
     // PRE: -
