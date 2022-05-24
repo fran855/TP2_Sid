@@ -14,6 +14,6 @@ void Poema::mostrar(){
     cout << titulo << endl;
     cout << minutos << endl;
     cout << anio << endl;
-    cout << autor.obtener_autor() << endl;
+    cout << autor->obtener_nombre_apellido() << endl;
     cout << versos << endl;
 };
