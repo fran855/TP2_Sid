@@ -16,6 +16,8 @@ public:
   Cuento(string titulo);
 
   //Mostrar titulo
+  // PRE:
+  // POS:
   string mostrar_titulo();
 
   //Destructor
