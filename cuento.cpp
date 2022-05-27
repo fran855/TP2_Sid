@@ -1,5 +1,5 @@
 #include "cuento.h"
-
+#include <iostream>
 
   //Constructor
   cuento::cuento(string titulo);
