@@ -2,11 +2,14 @@
 #include <iostream>
 
   //Constructor
-  cuento::cuento(string titulo){
+  Cuento::cuento(string titulo){
     this->titulo = titulo;
   };
 
   //Mostrar titulo
-  cuento::string mostrar_titulo(){
+  Cuento::string mostrar_titulo(){
     cout << "Titulo del cuento:" << titulo << endl;
   };
+
+  //Destructor
+  Cuento::~cuento(){};
