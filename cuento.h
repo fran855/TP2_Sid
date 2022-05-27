@@ -3,7 +3,7 @@
 
 #include "lectura.h"
 #include <iostream>
-#include <string>
+//#include <string>
 
 using namespace std;
 
@@ -11,12 +11,12 @@ class Cuento : public Lectura {
 
 public:
   //Constructor
-  Cuento(string titulo);
+  Cuento (string titulo);
 
   //Mostrar titulo
   // PRE:
   // POS: Muestra titulo del cuento
-  string mostrar_titulo();
+  void mostrar_titulo();
 
   //Destructor
   ~ Cuento();

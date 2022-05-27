@@ -13,7 +13,7 @@ Lectura::Lectura (string titulo) {
     this -> titulo = titulo;
 }
 
-Lectura::~Lectura(){};
+Lectura::~Lectura(){}
 
 // int Lectura:comparar(Lectura* lectura){};
 
@@ -26,19 +26,19 @@ void Lectura::mostrar () {
 
 string Lectura::obtener_titulo() {
     return this -> titulo;
-};
+}
 
 unsigned int Lectura::obtener_minutos() {
     return this -> minutos;
-};
+}
 
 unsigned short int Lectura::obtener_anio() {
     return this-> anio;
-};
+}
 
 Escritor* Lectura::obtener_autor() {
     return this -> autor;
-};
+}
 
 
 

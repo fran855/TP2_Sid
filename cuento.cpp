@@ -1,12 +1,12 @@
 #include "cuento.h"
 
 //Constructor
-Cuento::Cuento(string titulo):Lectura (string titulo){
+Cuento::Cuento(string titulo) : Lectura(titulo){
   this->titulo = titulo;
 };
 
 //Mostrar titulo
-Cuento::string mostrar_titulo(){
+void Cuento::mostrar_titulo(){
   cout << "Titulo del cuento:" << titulo << endl;
 };
 
