@@ -9,6 +9,10 @@ Lectura::Lectura (string titulo, unsigned int minutos, unsigned short int anio, 
     this -> autor = autor;
 }
 
+Lectura::Lectura (string titulo) {
+    this -> titulo = titulo;
+}
+
 Lectura::~Lectura(){};
 
 // int Lectura:comparar(Lectura* lectura){};

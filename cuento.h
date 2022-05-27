@@ -1,15 +1,13 @@
 #ifndef CUENTO_H
 #define CUENTO_H
 
+#include "lectura.h"
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-class Cuento {
-
-private:
-  string titulo;
+class Cuento : public Lectura {
 
 public:
   //Constructor

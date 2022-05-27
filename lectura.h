@@ -22,7 +22,12 @@ public:
     //      - en caso de ser proveniente de un autor anonimo, autor = nullptr;
     Lectura(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor);
 
-    // Destructor
+  // Constructor
+  // PRE: -
+  // POS: realiza la carga del titulo al objeto Lectura. 
+    Lectura(string titulo);
+
+// Destructor
     // PRE: -
     // POS: -
     virtual ~Lectura();
