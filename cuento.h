@@ -11,7 +11,7 @@ class Cuento : public Lectura {
 
 public:
   //Constructor
-  Cuento (string titulo);
+  Cuento (string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor);
 
   //Mostrar titulo
   // PRE:
