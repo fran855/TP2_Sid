@@ -9,10 +9,10 @@ Escritor::Escritor(string nombre_apellido, string nacionalidad, short int anio_n
 }
 
 void Escritor::mostrar(){
-    cout << nombre_apellido << endl;
-    cout << nacionalidad << endl;
-    cout << anio_nacimiento << endl;
-    cout << anio_fallecimiento << endl;
+    cout << "Nombre y apellido: "<<nombre_apellido << endl;
+    cout << "Nacionalidad: " << nacionalidad << endl;
+    cout << "Año de nacimiento: " << anio_nacimiento << endl;
+    cout << "Año de fallecimiento: " << anio_fallecimiento << endl;
 }
 
 string Escritor::obtener_nombre_apellido(){
