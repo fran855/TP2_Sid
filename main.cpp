@@ -1,11 +1,20 @@
-#include "lectura.h"
+#include "parser_escritores.h"
 #include <fstream>
+#include <iostream>
+#include "escritor.h"
+#include "lista.h"
+
+using namespace std;
 
 int main(int argc, char * argv[]){
-    if(argc < 3){
+    /*if(argc < 3){
         cout << "¡Hola, Sid! Necesito más datos. Proba " << argv[0] << "<\"escritores.txt\"> <\"lecturas.txt\"" << endl;
         return 1;
-    }
+    }*/
+    Lista<Escritor> lista_escritores;    
+    Parser_escritores parser(argv);
+    lista_escritores = parser.parsear();
+    lista_escritores.mostrar();
 
     /*
     Lista<int> lista_lecturas;

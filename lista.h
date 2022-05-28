@@ -3,6 +3,8 @@
 
 #include "nodo.h"
 
+using namespace std;
+
 template <class Tipo>
 class Lista{
 private:
@@ -29,6 +31,11 @@ public:
 	//PRE: 1 <= pos <= obtener_cantidad()
 	//POS: devuelve el elemento que está en pos (se empieza por 1)
 	Tipo consulta(int pos);
+
+	//Mostrar
+	//PRE: -
+	//POS: muestra por pantalla los elementos de la lista
+	void mostrar();
 
     //Obtener_cantidad
     //PRE: -
@@ -130,6 +137,18 @@ template <class Tipo>
 int Lista<Tipo>::obtener_cantidad(){
 	return cantidad;
 }
+
+//mostrar
+template <class Tipo>
+void Lista<Tipo>::mostrar(){
+	Nodo<Tipo>* aux = primero;
+	while(aux != 0){
+		aux -> obtener_dato().mostrar();
+	
+		aux = aux -> obtener_siguiente();
+	}
+}
+
 
 //Destructor
 template <class Tipo>

@@ -8,16 +8,18 @@ using namespace std;
 class Escritor{
 
 private:
+    int ID;
     string nombre_apellido;
     string nacionalidad;
     short int anio_nacimiento;
     short int anio_fallecimiento;
 
 public:
+    Escritor();
     //Constructor
     //PRE: nombre_apellido, nacionalidad strings no vacías, anio_nacimiento y anio_fallecimiento > 0 o -1 si no se conoce
     //POS: construye un objeto del tipo Escritor con los parámetros ingresados
-    Escritor(string nombre_apellido, string nacionalidad, short int anio_nacimiento, short int anio_fallecimiento);
+    Escritor(int ID, string nombre_apellido, string nacionalidad, short int anio_nacimiento, short int anio_fallecimiento);
 
     //mostrar
     //PRE: -

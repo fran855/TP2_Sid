@@ -1,7 +1,8 @@
 #include <iostream>
 #include "escritor.h"
 
-Escritor::Escritor(string nombre_apellido, string nacionalidad, short int anio_nacimiento, short int anio_fallecimiento){
+Escritor::Escritor(int id, string nombre_apellido, string nacionalidad, short int anio_nacimiento, short int anio_fallecimiento){
+    this -> ID = id;
     this -> nombre_apellido = nombre_apellido;
     this -> nacionalidad = nacionalidad;
     this -> anio_nacimiento = anio_nacimiento;
@@ -35,6 +36,4 @@ void Escritor::cambiar_fallecimiento(short int nuevo_anio){
     anio_fallecimiento = nuevo_anio;
 }
 
-Escritor::~Escritor(){
-    
-}
+Escritor::~Escritor(){}
