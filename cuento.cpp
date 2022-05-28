@@ -1,13 +1,13 @@
 #include "cuento.h"
 
 //Constructor
-Cuento::Cuento(string titulo) : Lectura(titulo){
-  this->titulo = titulo;
+Cuento::Cuento(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor) : Lectura(titulo, minutos, anio, autor){
+  
 };
 
 //Mostrar titulo
 void Cuento::mostrar_titulo(){
-  cout << "Titulo del cuento:" << titulo << endl;
+  cout << "Titulo del libro:" << titulo << endl;
 };
 
 //Destructor
