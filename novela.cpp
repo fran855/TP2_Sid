@@ -2,7 +2,7 @@
 using namespace std;
 
 //Constructor
-Novela :: Novela(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor, int genero) : Lectura(titulo, minutos, anio, autor) {
+Novela :: Novela(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor, genero_t genero) : Lectura(titulo, minutos, anio, autor) {
    this->genero = genero;
 }
 
@@ -24,7 +24,7 @@ void Novela :: mostrar_genero(){
 
 
 //Obtener genero
-int Novela :: obtener_genero(){
+genero_t Novela :: obtener_genero(){
   return genero;
 }
 
