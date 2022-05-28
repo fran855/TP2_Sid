@@ -3,9 +3,10 @@
 
 #include "nodo.h"
 
+template <class Tipo>
 class Lista{
 private:
-	Nodo* primero;   //me alcanza con un puntero al primero solamente
+	Nodo<Tipo>* primero;   //me alcanza con un puntero al primero solamente
 	int cantidad;
 
 public:
@@ -15,9 +16,9 @@ public:
 	Lista();
 
 	//Alta                                                      [tomamos 1 como el inicio]
-	//PRE: e es un Dato valido y 1 <= pos <= obtener_cantidad + 1
+	//PRE: e es un Tipo valido y 1 <= pos <= obtener_cantidad + 1
 	//POS: agrega el elemento en la posición pos (se empieza por 1)
-	void alta(Dato e);
+	void alta(Tipo e, int pos);
 
 	//Baja
 	//PRE: 1 <= pos <= obtener_cantidad()
@@ -27,8 +28,12 @@ public:
 	//Consulta
 	//PRE: 1 <= pos <= obtener_cantidad()
 	//POS: devuelve el elemento que está en pos (se empieza por 1)
-	Dato consulta(int pos);
-	
+	Tipo consulta(int pos);
+
+    //Obtener_cantidad
+    //PRE: -
+    //POS: devuelve la cantidad de elementos de la lista
+    int obtener_cantidad();
 
 	//Vacía
 	//PRE: -
@@ -39,9 +44,9 @@ public:
 	~Lista();
 
 
-private:
+//private:
 	
-	Nodo* obtener_nodo(int pos);
+	Nodo<Tipo>* obtener_nodo(int pos);
 
 };
 
