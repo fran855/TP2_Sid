@@ -8,27 +8,25 @@
 using namespace std;
 
 class Novela_historica : public Novela{
-
 private:
-
   string tema;
 
 public: 
-
 //Constructor
 //PRE:
 //POS:
   Novela_historica(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor, string tema);
 
+
 //Mostrar_tema
 //PRE:
-//POS:
+//POS: Muestra el tema de la novela
   void mostrar_tema();
 
 
 //Obtener tema
 //PRE:
-//POS:
+//POS: Obtiene el tema de la novela historica
   string obtener_tema();
 
 

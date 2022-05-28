@@ -1,4 +1,5 @@
 #include "novela.h"
+using namespace std;
 
 //Constructor
 Novela :: Novela(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor, int genero) : Lectura(titulo, minutos, anio, autor) {
@@ -8,11 +9,11 @@ Novela :: Novela(string titulo, unsigned int minutos, unsigned short int anio, E
 
 // Mostrar
 void Novela::mostrar(){ 
-    cout << titulo << endl;
-    cout << minutos << endl;
-    cout << anio << endl;
-    cout << autor->obtener_nombre_apellido() << endl;
-    cout << genero << endl;
+    cout << "Titulo: " << titulo << endl;
+    cout << "Minutos aproximados: " << minutos << endl;
+    cout << "Año: " << anio << endl;
+    cout << "Autor: " << autor->obtener_nombre_apellido() << endl;
+    cout << "Genero: " << genero << endl;
 }
 
 
