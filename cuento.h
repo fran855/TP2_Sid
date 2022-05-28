@@ -2,20 +2,14 @@
 #define CUENTO_H
 
 #include "lectura.h"
-#include <iostream>
-//#include <string>
-
-using namespace std;
 
 class Cuento : public Lectura {
-
 private: 
   string libro;
 
-
 public:
   //Constructor
-  Cuento (string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor);
+  Cuento (string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor, string libro);
 
   //Mostrar titulo
   // PRE:

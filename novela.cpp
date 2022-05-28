@@ -7,7 +7,7 @@ Novela :: Novela(string titulo, unsigned int minutos, unsigned short int anio, E
 
 
 // Mostrar
-void Poema::mostrar(){ 
+void Novela::mostrar(){ 
     cout << titulo << endl;
     cout << minutos << endl;
     cout << anio << endl;

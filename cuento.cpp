@@ -1,8 +1,10 @@
 #include "cuento.h"
 
+
 //Constructor
-Cuento::Cuento(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor, string libro) : Lectura(titulo, minutos, anio, autor){
+Cuento :: Cuento(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor, string libro) : Lectura(titulo, minutos, anio, autor){
     this->libro = libro;
+
 }
 
 //Mostrar atributos
