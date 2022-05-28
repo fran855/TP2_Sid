@@ -7,11 +7,11 @@ int main(int argc, char * argv[]){
         cout << "¡Hola, Sid! Necesito más datos. Proba " << argv[0] << "<\"escritores.txt\"> <\"lecturas.txt\"" << endl;
         return 1;
     }
-    
+
     Archivo_lecturas lec(argv);
     char c;
-    lec.lecturas >> c;
-
+    lec.asignar_tipo();
+    c = lec.obtener_tipo();
     cout << c << endl;
 
 
