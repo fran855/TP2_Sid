@@ -2,7 +2,8 @@
 #include <string>
 #include "lista.h"
 #include "lectura.h"
-#include "archivos.h"
+#include "archivo.h"
+#include <fstream>
 
 using namespace std;
 
@@ -12,9 +13,11 @@ int main(int argc, char * argv[]){
         return 1;
     }
 
-    string directorio_lecturas, directorio_escritores;
-    directorio_lecturas = argv[1];
-    directorio_escritores = argv[2];
+    Archivo_lecturas lec(argv);
+    char c;
+    lec.lecturas >> c;
+
+    cout << c << endl;
 
 
     /*

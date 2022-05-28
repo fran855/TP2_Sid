@@ -3,6 +3,7 @@
 
 #include <string>
 #include "escritor.h"
+#include "novela.h"
 #include <iostream>
 
 using namespace std;

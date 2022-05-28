@@ -1,7 +1,9 @@
 #include "archivo.h"
 
-Archivo::Archivo(char** argv){
-	entrada = argv;
+Archivo_lecturas::Archivo_lecturas(char** argv){
+	lecturas.open(argv[1]);
 }
+
+
 
 
