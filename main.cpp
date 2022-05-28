@@ -1,15 +1,23 @@
 #include <iostream>
+#include <string>
 #include "lista.h"
 #include "lectura.h"
+#include "archivos.h"
 
 using namespace std;
 
 int main(int argc, char * argv[]){
-    /*if(argc < 3){
+    if(argc < 3){
         cout << "¡Hola, Sid! Necesito más datos. Proba " << argv[0] << "<\"escritores.txt\"> <\"lecturas.txt\"" << endl;
         return 1;
-    }*/
+    }
 
+    string directorio_lecturas, directorio_escritores;
+    directorio_lecturas = argv[1];
+    directorio_escritores = argv[2];
+
+
+    /*
     Lista<int> lista_lecturas;
     lista_lecturas.alta(0, 1);
     lista_lecturas.alta(1, 2);
@@ -22,7 +30,8 @@ int main(int argc, char * argv[]){
         cout << "Borrando el elemento " << lista_lecturas.consulta(0) << endl;
         lista_lecturas.baja(1);
     }
-    
+    */
+
     return 0;
 
 }
