@@ -1,29 +1,48 @@
-#ifndef NODO_H_INCLUDED
-#define NODO_H_INCLUDED
+#ifndef NODO_TEMPLATE_INCLUDED
+#define NODO_TEMPLATE_INCLUDED
 
-#include "lectura.h"
-
-typedef Lectura Dato;
+template <class Tipo>
 
 class Nodo{
 private:
-	Dato dato;
-	Nodo* anterior;             //C++ permite hacer esto
+	Tipo dato;
+	Nodo* anterior;             
 
 public:
 	//Constructor
 	//PRE: -
 	//POS: construye un nodo con d como dato y anterior en nullptr
-	Nodo(Dato d);
+	Nodo(Tipo d);
 
 	//PRE: n es un puntero válido
 	//POS: cambia el puntero anterior por n
 	void cambiar_anterior(Nodo* n);
 
-	//etc.
-	Dato obtener_dato();
+	
+	Tipo obtener_dato();
 
 	Nodo* obtener_anterior();
 };
+
+template <class Tipo>
+Nodo<Tipo>::Nodo(Tipo d){
+    dato = d;
+    anterior = nullptr;
+}
+
+template <class Tipo>
+void Nodo<Tipo>::cambiar_anterior(Nodo* n){
+	anterior = n;
+}
+
+template <class Tipo>
+Tipo Nodo<Tipo>::obtener_dato(){
+	return dato;
+}
+
+template <class Tipo>
+Nodo<Tipo>* Nodo<Tipo>::obtener_anterior(){
+	return anterior;
+}
 
 #endif
