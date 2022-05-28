@@ -1,4 +1,5 @@
 #include "novela.h"
+using namespace std;
 
 //Constructor
 Novela :: Novela(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor, int genero) : Lectura(titulo, minutos, anio, autor) {
