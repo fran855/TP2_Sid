@@ -4,14 +4,13 @@
 #include <iostream>
 #include <string>
 #include "lectura.h"
-using namespace std;
 
 typedef enum genero {DRAMA, COMEDIA, FICCION, SUSPENSO, 
 TERROR, ROMANTICA, HISTORICA} genero_t;
 
 class Novela : public Lectura{
 
-private:
+protected:
   genero_t genero;
 
 public:
@@ -19,7 +18,7 @@ public:
 //Constructor:
 //PRE:
 //POS:
-  Novela(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor, int genero);
+  Novela(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor, genero_t genero);
 
 //Mostrar genero
 //PRE:
@@ -30,7 +29,7 @@ public:
 //Mostrar titulo
 // PRE:
 // POS: Devuelve titulo del libro donde esta el cuento
-  int obtener_genero();
+  genero_t obtener_genero();
 
 
 // Mostrar
