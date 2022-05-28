@@ -9,13 +9,13 @@ using namespace std;
 
 class Novela_historica : public Novela{
 private:
-  string tema;
+  char* tema;
 
 public: 
 //Constructor
-//PRE:
+//PRE: 
 //POS:
-  Novela_historica(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor, string tema);
+  Novela_historica(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor, char* tema);
 
 
 //Mostrar_tema
@@ -27,7 +27,7 @@ public:
 //Obtener tema
 //PRE:
 //POS: Obtiene el tema de la novela historica
-  string obtener_tema();
+  char* obtener_tema();
 
 
 //DESTRUCTOR
