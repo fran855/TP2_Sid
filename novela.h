@@ -6,13 +6,13 @@
 #include "lectura.h"
 using namespace std;
 
-enum genero {DRAMA, COMEDIA, FICCION, SUSPENSO, 
-TERROR, ROMANTICA, HISTORICA};
+typedef enum genero {DRAMA, COMEDIA, FICCION, SUSPENSO, 
+TERROR, ROMANTICA, HISTORICA} genero_t;
 
 class Novela : public Lectura{
 
 private:
-  int genero;
+  genero_t genero;
 
 public:
 

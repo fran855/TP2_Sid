@@ -8,12 +8,11 @@
 
 class Archivo_lecturas{
 private:
-	
 	char tipo;
 	string titulo;
 	unsigned int minutos;
 	unsigned short int anio;
-	genero gen;
+	genero_t genero;
 	string tema;
 	string libro;
 	unsigned int versos;
@@ -31,7 +30,7 @@ private:
 	string titulo();
 	unsigned int minutos();
 	unsigned short int anio();
-	genero genero();
+	genero_t genero();
 	string tema();
 	string libro();
 	unsigned int versos();
