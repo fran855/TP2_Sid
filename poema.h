@@ -9,13 +9,23 @@ protected:
     unsigned int versos;
 
 public:
+  //Constructor
+  //PRE:
+  //POS:
     Poema(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor, unsigned int versos);
+  
+  // Mostrar
+  // PRE: - 
+  // POS: muestra los atributos en pantalla
+    void mostrar(); // es mostrar() sobrecargado, se le agrega la funcionalidad de mostrar los versos
+
+  //Destructor
+  //PRE:
+  //POS:
     ~Poema();
 
-    // Mostrar
-    // PRE: - 
-    // POS: muestra los atributos en pantalla
-    void mostrar(); // es mostrar() sobrecargado, se le agrega la funcionalidad de mostrar los versos
 };
 
+
+  
 #endif

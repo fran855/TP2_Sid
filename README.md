@@ -9,3 +9,5 @@
 - Implementé Nodo con templates y adapté Lista (en proceso)
 
 ### Lean
+- Implemente cuento, novela, novela historica (en proceso)
+- Pregunta, en los metodos mostrar (muestra atributos) podríamos poner textos que digan "Titulo de la lectura:" << titulo y asi?

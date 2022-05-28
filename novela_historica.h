@@ -7,7 +7,17 @@
 
 using namespace std;
 
-class Novela_historica{
+class Novela_historica : public Novela{
+
+private:
+
+  string tema;
+
+public: 
+
+  Novela_historica()
+  void  
+
 };
 
 #endif

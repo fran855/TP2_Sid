@@ -26,6 +26,19 @@ public:
 //POS: Muestra a que genero pertenece la novela
   void mostrar_genero();
 
+
+//Mostrar titulo
+// PRE:
+// POS: Devuelve titulo del libro donde esta el cuento
+  int obtener_genero();
+
+
+// Mostrar
+// PRE: - 
+// POS: muestra los atributos en pantalla
+    void mostrar(); // es mostrar() sobrecargado, se le agrega la funcionalidad de mostrar el genero
+
+
 //Destructor:
 //PRE:
 //POS:
