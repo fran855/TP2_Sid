@@ -42,3 +42,10 @@ void Escritor::cambiar_fallecimiento(short int nuevo_anio){
 }
 
 Escritor::~Escritor(){}
+
+void Escritor::operator=(Escritor escritor2){
+	this -> id = escritor2.id;
+	this -> nombre_apellido = escritor2.nombre_apellido;
+	this -> anio_nacimiento = escritor2.anio_nacimiento;
+	this -> anio_fallecimiento = escritor2.anio_fallecimiento;
+}

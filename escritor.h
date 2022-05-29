@@ -6,7 +6,6 @@
 using namespace std;
 
 class Escritor{
-
 private:
     int id;
     string nombre_apellido;
@@ -15,7 +14,9 @@ private:
     short int anio_fallecimiento;
 
 public:
-    Escritor(){
+		void operator=(Escritor escritor2);
+    
+		Escritor(){
         id = 0;
         nombre_apellido = "ANONIMO";
         nacionalidad = "¿?";
