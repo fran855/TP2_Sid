@@ -20,3 +20,4 @@
 - Nueva rama: archivos_desarrollo para poder editar el parser de escritores
 ### Lean
 - Implemente cuento, novela, novela historica (en proceso)
+- Implementacion en proceso de parser_lecturas
