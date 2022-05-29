@@ -12,11 +12,10 @@
 
 ## OBSERVACIONES
 ### Fran
-- Hice CLA estática pero creo que estaría bueno que sea dinámica (más adelante)
-- La lista podría ser doblemente enlazada
-- Cambiamos el enum genero por un typedef (genero_t al estilo AlgoI)
-- Implementé Nodo con templates y adapté Lista (en proceso)
-- Armé el parser de escritores pero hay problemas cuando genera los nuevos nodos (elemento pide los datos de una en el constructor) [NO FUNCIONA]
-- Nueva rama: archivos_desarrollo para poder editar el parser de escritores
-### Lean
-- Implemente cuento, novela, novela historica (en proceso)
+
+| Objeto | Estado     |
+|:------:|:----------:|
+|Escritor|  OK        |
+| Lista  | OK         |
+| Nodo   | OK         |
+|Parser  | En proceso |

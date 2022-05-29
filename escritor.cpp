@@ -2,7 +2,7 @@
 #include "escritor.h"
 
 Escritor::Escritor(int id, string nombre_apellido, string nacionalidad, short int anio_nacimiento, short int anio_fallecimiento){
-    this -> ID = id;
+    this -> id = id;
     this -> nombre_apellido = nombre_apellido;
     this -> nacionalidad = nacionalidad;
     this -> anio_nacimiento = anio_nacimiento;
@@ -10,14 +10,15 @@ Escritor::Escritor(int id, string nombre_apellido, string nacionalidad, short in
 }
 
 void Escritor::mostrar(){
+    cout << "ID: " << this -> id << endl;
     cout << "Nombre y apellido: "<<nombre_apellido << endl;
     cout << "Nacionalidad: " << nacionalidad << endl;
     cout << "Año de nacimiento: " << anio_nacimiento << endl;
     cout << "Año de fallecimiento: " << anio_fallecimiento << endl;
 }
 
-int Escritor::obtener_ID(){
-    return ID;
+int Escritor::obtener_id(){
+    return id;
 }
 
 string Escritor::obtener_nombre_apellido(){
