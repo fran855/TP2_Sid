@@ -2,9 +2,8 @@
 
 
 //Constructor
-Cuento :: Cuento(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor, string libro) : Lectura(titulo, minutos, anio, autor){
+Cuento :: Cuento(string titulo, unsigned int minutos, unsigned short int anio, string libro, Escritor* autor) : Lectura(titulo, minutos, anio, autor){
     this->libro = libro;
-
 }
 
 //Mostrar atributos
@@ -14,7 +13,7 @@ void Cuento::mostrar(){
     cout << "Titulo: " << titulo << endl;
     cout << "Minutos aproximados: " << minutos << endl;
     cout << "Año: " << anio << endl;
-    cout << "Autor: " <<autor->obtener_nombre_apellido() << endl;
+    cout << "Autor: " << autor->obtener_nombre_apellido() << endl;
     cout << "Libro: "<< libro << endl;
 }
 

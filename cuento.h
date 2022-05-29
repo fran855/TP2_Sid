@@ -9,7 +9,7 @@ private:
 
 public:
   //Constructor
-  Cuento (string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor, string libro);
+  Cuento (string titulo, unsigned int minutos, unsigned short int anio, string libro, Escritor* autor);
 
   //Mostrar titulo
   // PRE:
