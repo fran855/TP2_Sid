@@ -15,7 +15,7 @@ public:
 //Constructor
 //PRE: 
 //POS:
-  Novela_historica(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor, char* tema);
+  Novela_historica(string titulo, unsigned int minutos, unsigned short int anio, char* tema, Escritor* autor);
 
 
 //Mostrar_tema

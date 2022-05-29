@@ -50,14 +50,14 @@ genero_t Parser_lectura :: genero(){
 Lectura* Parser_lectura::procesar_datos() const {
     Lectura* lectura = NULL;
   
-    if(tipo_lectura == 'C') {
+    if(tipo_lectura == "C") {
         Lectura = new Cuento(this->titulo(), this->minutos(), this->anio(), this->libro(), this->autor());
     }
-    else if (tipo_lectura == 'N') {
-        Lectura = new Novela(this->titulo, this->minutos, this->anio, this->autor, this->genero);
+    else if (tipo_lectura == "N") {
+        Lectura = new Novela(this->titulo(), this->minutos(), this->anio(), this->genero(), this->autor());
     }
-    else if (tipo_lectura == 'P') {
-        Lectura = new Poema(this->titulo, this->minutos, this->anio, this->autor, this->versos);
+    else if (tipo_lectura == "P") {
+        Lectura = new Poema(this->titulo(), this->minutos(), this->anio(), this->versos(), this->autor());
     }
   
     return lectura;
