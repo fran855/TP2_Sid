@@ -5,8 +5,11 @@
 #include <string>
 #include "lectura.h"
 
+
 typedef enum genero {DRAMA, COMEDIA, FICCION, SUSPENSO, 
 TERROR, ROMANTICA, HISTORICA} genero_t;
+
+
 
 class Novela : public Lectura{
 
@@ -18,7 +21,7 @@ public:
 //Constructor:
 //PRE:
 //POS:
-  Novela(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor, genero_t genero);
+  Novela(string titulo, unsigned int minutos, unsigned short int anio, genero_t genero, Escritor* autor);
 
 //Mostrar genero
 //PRE:
