@@ -1,5 +1,6 @@
 #ifndef NODO_TEMPLATE_INCLUDED
 #define NODO_TEMPLATE_INCLUDED
+
 template <class Tipo>
 
 class Nodo{

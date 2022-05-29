@@ -2,6 +2,7 @@
 #define LISTA_H_INCLUDED
 
 #include "nodo.h"
+#include <iostream>
 
 using namespace std;
 
@@ -35,7 +36,7 @@ public:
 	//Mostrar
 	//PRE: -
 	//POS: muestra por pantalla los elementos de la lista
-	void mostrar();
+	//void mostrar();
 
     //Obtener_cantidad
     //PRE: -
@@ -46,6 +47,11 @@ public:
 	//PRE: -
 	//POS: devuelve true si la Lista está vacía, false de lo contrario
 	bool vacia();
+
+	//consulta_direccion
+	//PRE: 1 <= pos <= obtener_cantidad()
+	//POS: devuelve la dirección del elemento que está en pos (se empieza por 1)
+	Nodo<Tipo>* consulta_direccion(int pos);
 
 	//Destructor
 	~Lista();
@@ -138,7 +144,7 @@ int Lista<Tipo>::obtener_cantidad(){
 	return cantidad;
 }
 
-//mostrar
+/* //mostrar
 template <class Tipo>
 void Lista<Tipo>::mostrar(){
 	Nodo<Tipo>* aux = primero;
@@ -147,14 +153,26 @@ void Lista<Tipo>::mostrar(){
 	
 		aux = aux -> obtener_siguiente();
 	}
-}
+} */
 
+//consulta_direccion
+template <class Tipo>
+Nodo<Tipo>* Lista<Tipo>::consulta_direccion(int pos){
+	Nodo<Tipo>* aux = primero;
+	int contador = 1;
+	while(contador < pos){
+		aux = aux -> obtener_siguiente();
+		contador++;
+	}
+	return aux;
+}
 
 //Destructor
 template <class Tipo>
 Lista<Tipo>::~Lista<Tipo>(){
-	while(! vacia())
+	while(! vacia()){
 		baja(1);
+	}
 }
 
 #endif

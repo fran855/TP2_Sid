@@ -20,7 +20,8 @@ int main(int argc, char * argv[]){
 	
 	Parser_escritores parser(argv);
 	lista = parser.parsear();
-	lista.mostrar();
+	//lista.mostrar();
+    //cout << lista.consulta(2).obtener_id() << endl;
 
 	return 0;
 }
