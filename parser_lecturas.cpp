@@ -40,17 +40,15 @@ unsigned int Parser_lectura :: versos(){
   return stoi(auxiliar);
 }
 
-
 genero_t Parser_lectura :: genero(){
   getline(archivo_lectura, auxiliar);
   return generomap[auxiliar];
 }
 
-
 Lectura* Parser_lectura::procesar_datos() const {
     Lectura* lectura = NULL;
-  
-    if(tipo_lectura == "C") {
+  /*
+  if(tipo_lectura == "C") {
         Lectura = new Cuento(this->titulo(), this->minutos(), this->anio(), this->libro(), this->autor());
     }
     else if (tipo_lectura == "N") {
@@ -58,14 +56,22 @@ Lectura* Parser_lectura::procesar_datos() const {
     }
     else if (tipo_lectura == "P") {
         Lectura = new Poema(this->titulo(), this->minutos(), this->anio(), this->versos(), this->autor());
-    }
+    }*/
   
     return lectura;
 }
 
+Lista<Lectura> Parser_lectura :: listar_lecturas(){
+  unsigned int i = 0;
+  Lista<Lectura> lista;
+  
+  while(this->procesar_datos() != NULL){
+    lista.alta(this->procesar_datos(), ++i);
+  }
+  return lista;
+}
 
 
-//string Parser::tipo_lectura() const {
-//    return this->entrada;
-//}
+
+
 
