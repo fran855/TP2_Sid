@@ -23,7 +23,7 @@ public:
     Lista<Escritor> parsear();
 
 private:
-      
+    void generar_anonimo();
 
 };
 
