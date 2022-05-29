@@ -7,24 +7,6 @@ Parser_lectura::Parser_lectura(char* lecturas) {
     getline(archivo_lectura, tipo_lectura);
 }
 
-/*
-Lectura* Parser_lectura::procesar_datos() const {
-    Lectura* lectura = NULL;
-  
-    if(tipo_lectura == 'C') {
-        Lectura = new Cuento(this->titulo(), this->minutos(), this->anio(), this->libro(), this->autor());
-    }
-    else if (tipo_lectura == 'N') {
-        Lectura = new Novela(this->titulo, this->minutos, this->anio, this->autor, this->genero);
-    }
-    else if (tipo_lectura == 'P') {
-        Lectura = new Poema(this->titulo, this->minutos, this->anio, this->autor, this->versos);
-    }
-  
-    return lectura;
-}*/
-
-
 string Parser_lectura:: titulo(){
   getline(archivo_lectura, auxiliar);
   return auxiliar;
@@ -63,6 +45,25 @@ genero_t Parser_lectura :: genero(){
   getline(archivo_lectura, auxiliar);
   return generomap[auxiliar];
 }
+
+
+Lectura* Parser_lectura::procesar_datos() const {
+    Lectura* lectura = NULL;
+  
+    if(tipo_lectura == 'C') {
+        Lectura = new Cuento(this->titulo(), this->minutos(), this->anio(), this->libro(), this->autor());
+    }
+    else if (tipo_lectura == 'N') {
+        Lectura = new Novela(this->titulo, this->minutos, this->anio, this->autor, this->genero);
+    }
+    else if (tipo_lectura == 'P') {
+        Lectura = new Poema(this->titulo, this->minutos, this->anio, this->autor, this->versos);
+    }
+  
+    return lectura;
+}
+
+
 
 //string Parser::tipo_lectura() const {
 //    return this->entrada;
