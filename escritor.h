@@ -26,6 +26,11 @@ public:
     //POS: muestra por pantalla los datos del escritor
     void mostrar();
 
+    //obtener_ID
+    //PRE: -
+    //POS: devuelve el ID del escritor
+    int obtener_ID();
+
     //obtener_nombre_apellido
     //PRE: -
     //POS: devuelve el nombre y el apellido (juntos)

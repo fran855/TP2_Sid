@@ -16,6 +16,10 @@ void Escritor::mostrar(){
     cout << "Año de fallecimiento: " << anio_fallecimiento << endl;
 }
 
+int Escritor::obtener_ID(){
+    return ID;
+}
+
 string Escritor::obtener_nombre_apellido(){
     return nombre_apellido;
 }
