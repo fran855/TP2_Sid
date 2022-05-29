@@ -16,6 +16,6 @@
 | Objeto | Estado     |
 |:------:|:----------:|
 |Escritor|  OK        |
-| Lista  | OK         |
-| Nodo   | OK         |
-|Parser  | En proceso |
+| Lista  | No funciona|
+| Nodo   | No funciona|
+|Parser  | OK         |
