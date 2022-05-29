@@ -19,3 +19,4 @@
 - Armé el parser de escritores pero hay problemas cuando genera los nuevos nodos (elemento pide los datos de una en el constructor) [NO FUNCIONA]
 ### Lean
 - Implemente cuento, novela, novela historica (en proceso)
+- Implementacion en proceso de parser_lecturas
