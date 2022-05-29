@@ -10,8 +10,8 @@ Escritor::Escritor(int id, string nombre_apellido, string nacionalidad, short in
 }
 
 void Escritor::mostrar(){
-    cout << "ID: " << this -> id << endl;
-    cout << "Nombre y apellido: "<<nombre_apellido << endl;
+    cout << "ID: " << id << endl;
+    cout << "Nombre y apellido: "<< nombre_apellido << endl;
     cout << "Nacionalidad: " << nacionalidad << endl;
     cout << "Año de nacimiento: " << anio_nacimiento << endl;
     cout << "Año de fallecimiento: " << anio_fallecimiento << endl;

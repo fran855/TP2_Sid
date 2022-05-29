@@ -14,9 +14,10 @@ private:
     short int anio_fallecimiento;
 
 public:
-		void operator=(Escritor escritor2);
+	
+    void operator=(Escritor escritor2);
     
-		Escritor(){
+	Escritor(){
         id = 0;
         nombre_apellido = "ANONIMO";
         nacionalidad = "¿?";

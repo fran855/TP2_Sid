@@ -6,7 +6,7 @@
 using namespace std;
 
 Parser_escritores::Parser_escritores(char ** argv){
-    archivo.open(argv[1]);
+    entrada = argv[1];
 }
 
 void Parser_escritores::generar_anonimo(){
@@ -18,6 +18,7 @@ void Parser_escritores::generar_anonimo(){
 }
 
 Lista<Escritor> Parser_escritores::parsear(){
+    ifstream archivo(entrada);
     Lista<Escritor> lista_escritores; 
     
 	/*
@@ -32,16 +33,16 @@ Lista<Escritor> Parser_escritores::parsear(){
 
     while(!archivo.eof()){
         getline(archivo, auxiliar);
-				id = 5/*stoi(auxiliar)*/;
-				getline(archivo, nombre_apellido);
-				getline(archivo, nacionalidad);
-        
-				getline(archivo, auxiliar);
+		id = stoi(auxiliar);
+		getline(archivo, nombre_apellido);
+		getline(archivo, nacionalidad);
+
+		getline(archivo, auxiliar);
         if(auxiliar != "\n"){
-            anio_nacimiento = 5/*stoi(auxiliar)*/;
-            archivo >> auxiliar;
+            anio_nacimiento = stoi(auxiliar);
+            getline(archivo, auxiliar);
             if(auxiliar != "\n"){
-                anio_fallecimiento = 5/*stoi(auxiliar)*/;
+                anio_fallecimiento = stoi(auxiliar);
             }
             else{
                 anio_fallecimiento = -1;
@@ -52,15 +53,13 @@ Lista<Escritor> Parser_escritores::parsear(){
             anio_fallecimiento = -1;
         }
 
-			getline(archivo, auxiliar); //Apunta al nuevo escritor (o lee el EOF)
-      
-			Escritor nuevo_escritor(id, nombre_apellido, nacionalidad, anio_nacimiento, anio_fallecimiento);
-       lista_escritores.alta(nuevo_escritor, i++);
+		getline(archivo, auxiliar); //Apunta al nuevo escritor (o lee el EOF)     
+	    Escritor nuevo_escritor(id, nombre_apellido, nacionalidad, anio_nacimiento, anio_fallecimiento);
+        lista_escritores.alta(nuevo_escritor, i++);
     }
 	
     return lista_escritores;
 }
 
 Parser_escritores::~Parser_escritores(){
-    archivo.close();
 }

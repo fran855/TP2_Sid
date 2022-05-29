@@ -10,7 +10,7 @@ using namespace std;
 
 class Parser_escritores{
 private:
-    ifstream archivo;
+    string entrada;
     int id;
     string nombre_apellido;
     string nacionalidad;
