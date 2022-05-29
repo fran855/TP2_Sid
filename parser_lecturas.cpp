@@ -1,15 +1,10 @@
 #include "parser_lecturas.h"
-#include "lectura.h"
-#include "novela.h"
-#include "cuento.h"
-#include "poema.h"
-
 using namespace std;
 
 
 Parser_lectura::Parser_lectura(char* lecturas) {
     archivo_lectura.open(lecturas);
-    archivo_lectura >> tipo_lectura;
+    getline(archivo_lectura, tipo_lectura);
 }
 
 /*
@@ -17,7 +12,7 @@ Lectura* Parser_lectura::procesar_datos() const {
     Lectura* lectura = NULL;
   
     if(tipo_lectura == 'C') {
-        Lectura = new Cuento(this->titulo, this->minutos, this->anio, this->autor, this->libro);
+        Lectura = new Cuento(this->titulo(), this->minutos(), this->anio(), this->libro(), this->autor());
     }
     else if (tipo_lectura == 'N') {
         Lectura = new Novela(this->titulo, this->minutos, this->anio, this->autor, this->genero);
@@ -27,46 +22,47 @@ Lectura* Parser_lectura::procesar_datos() const {
     }
   
     return lectura;
-}
-
-string Parser_lectura:: titulo() const {
-  archivo_lectura >> auxiliar;
-  return auxiliar;
-}
+}*/
 
 
-unsigned int Parser_lectura:: minutos() const {
-  getline(archivo_lectura, auxiliar);
-  return stoi(auxiliar);
-}
-
-unsigned short int Parser_lectura :: anio() const {
-  getline(archivo_lectura, auxiliar);
-  return stoi(auxiliar);
-}
-
-
-Escritor* autor() const{
-  
-}
-
-string Parser_lectura :: libro() const {
+string Parser_lectura:: titulo(){
   getline(archivo_lectura, auxiliar);
   return auxiliar;
 }
 
-unsigned int Parser_lectura :: versos() const{
+unsigned int Parser_lectura:: minutos() {
   getline(archivo_lectura, auxiliar);
   return stoi(auxiliar);
 }
 
-genero_t Parser_lectura :: genero() const {
+unsigned short int Parser_lectura :: anio(){
   getline(archivo_lectura, auxiliar);
   return stoi(auxiliar);
 }
 
-*/
+/*
+Escritor* autor() {
+  getline(archivo_lectura, auxiliar);
+  auxiliar.replace (0,  1, " ");
+  int id = stoi(auxiliar);
+  return obtener_escritor(id);
+}*/
 
+string Parser_lectura :: libro(){
+  getline(archivo_lectura, auxiliar);
+  return auxiliar;
+}
+
+unsigned int Parser_lectura :: versos(){
+  getline(archivo_lectura, auxiliar);
+  return stoi(auxiliar);
+}
+
+
+genero_t Parser_lectura :: genero(){
+  getline(archivo_lectura, auxiliar);
+  return generomap[auxiliar];
+}
 
 //string Parser::tipo_lectura() const {
 //    return this->entrada;

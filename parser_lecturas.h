@@ -2,10 +2,20 @@
 #define PARSER_LECTURAS_H
 
 #include "lectura.h"
+#include "escritor.h"
+#include "novela.h"
+#include "cuento.h"
+#include "poema.h"
 #include <fstream>
 #include <string>
+#include <map>
+#include <boost/assign/list_of.hpp> 
+using namespace boost::assign;
 
-//typedef enum genero {DRAMA, COMEDIA, FICCION, SUSPENSO, TERROR, ROMANTICA, HISTORICA} genero_t;
+map<string, genero_t> generomap = map_list_of("DRAMA", DRAMA)("COMEDIA", COMEDIA)("FICCION", FICCION)("SUSPENSO", SUSPENSO)("TERROR", TERROR)("ROMANTICA", ROMANTICA)("HISTORICA", HISTORICA);
+
+
+
 
 class Parser_lectura {
 
@@ -27,20 +37,47 @@ public:
 
 private:
     ifstream archivo_lectura;
-    char tipo_lectura;
+    string tipo_lectura;
     string auxiliar;
     
     //Lectura generico
-    string titulo() const;
-    unsigned int minutos() const;
-    unsigned short int anio() const;
-    Escritor* escritor() const;
+    
+    //Titulo
+    //PRE:
+    //POS:
+    string titulo();
 
-    //Tipos
-    string libro() const;
-    unsigned int versos() const;
-    //genero_t genero() const;
+    //Minutos
+    //PRE:
+    //POS:
+    unsigned int minutos();
+    
+    //Anio
+    //PRE:
+    //POS:
+    unsigned short int anio();
 
+    //Autor
+    //PRE:
+    //POS:
+    Escritor* autor();
+
+    //Tipos de lectura
+
+    //Libro
+    //PRE:
+    //POS:
+    string libro();
+
+    //Versos
+    //PRE:
+    //POS:
+    unsigned int versos();
+
+    //Genero
+    //PRE:
+    //POS:
+    genero_t genero();
 };
 
 
