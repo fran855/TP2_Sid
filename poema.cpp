@@ -5,7 +5,7 @@
 using namespace std;
 
 //Constructor
-Poema::Poema (string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor, unsigned int versos) : Lectura(titulo, minutos, anio, autor) {
+Poema::Poema (string titulo, unsigned int minutos, unsigned short int anio, unsigned int versos, Escritor* autor) : Lectura(titulo, minutos, anio, autor) {
     this -> versos = versos;
 }
 

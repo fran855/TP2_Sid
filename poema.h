@@ -12,7 +12,7 @@ public:
   //Constructor
   //PRE:
   //POS:
-    Poema(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor, unsigned int versos);
+    Poema(string titulo, unsigned int minutos, unsigned short int anio, unsigned int versos, Escritor* autor);
   
   // Mostrar
   // PRE: - 
