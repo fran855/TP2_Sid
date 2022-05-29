@@ -9,9 +9,6 @@ Lectura::Lectura (string titulo, unsigned int minutos, unsigned short int anio, 
     this -> autor = autor;
 }
 
-Lectura::Lectura (string titulo) {
-    this -> titulo = titulo;
-}
 
 Lectura::~Lectura(){}
 
@@ -40,5 +37,12 @@ Escritor* Lectura::obtener_autor() {
     return this -> autor;
 }
 
+
+void Lectura::operator=(Lectura lectura2){
+  this -> titulo = lectura2.titulo;
+  this -> minutos = lectura2.minutos;
+  this -> anio = lectura2.anio;
+  this -> autor = lectura2.autor;
+}
 
 
