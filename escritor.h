@@ -17,13 +17,6 @@ public:
 	
     void operator=(Escritor escritor2);
     
-	Escritor(){
-        id = 0;
-        nombre_apellido = "ANONIMO";
-        nacionalidad = "¿?";
-        anio_nacimiento = -1;
-        anio_fallecimiento = -1;
-    };
     //Constructor
     //PRE: nombre_apellido, nacionalidad strings no vacías, anio_nacimiento y anio_fallecimiento > 0 o -1 si no se conoce
     //POS: construye un objeto del tipo Escritor con los parámetros ingresados

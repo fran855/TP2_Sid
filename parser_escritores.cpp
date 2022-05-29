@@ -55,6 +55,7 @@ Lista<Escritor> Parser_escritores::parsear(){
 
 		getline(archivo, auxiliar); //Apunta al nuevo escritor (o lee el EOF)     
 	    Escritor nuevo_escritor(id, nombre_apellido, nacionalidad, anio_nacimiento, anio_fallecimiento);
+        //nuevo_escritor.mostrar(); /*prueba*/
         lista_escritores.alta(nuevo_escritor, i++);
     }
 	

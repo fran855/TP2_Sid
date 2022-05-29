@@ -19,3 +19,5 @@
 | Lista  | No funciona|
 | Nodo   | No funciona|
 |Parser  | OK         |
+
+- El problema está en la lista -> creación del nodo

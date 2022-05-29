@@ -20,7 +20,7 @@ int main(int argc, char * argv[]){
 	
 	Parser_escritores parser(argv);
 	lista = parser.parsear();
-	//lista.mostrar();
+	lista.mostrar();
 
 	return 0;
 }
