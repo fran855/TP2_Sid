@@ -12,7 +12,7 @@ Lectura::Lectura (string titulo, unsigned int minutos, unsigned short int anio, 
 
 Lectura::~Lectura(){}
 
-// int Lectura:comparar(Lectura* lectura){};
+//int Lectura::comparar(Lectura* lectura){};
 
 void Lectura::mostrar () {
     cout << titulo << endl;
