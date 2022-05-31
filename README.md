@@ -18,6 +18,18 @@
 - Implementé Nodo con templates y adapté Lista (en proceso)
 - Armé el parser de escritores pero hay problemas cuando genera los nuevos nodos (elemento pide los datos de una en el constructor) [NO FUNCIONA]
 - Nueva rama: archivos_desarrollo para poder editar el parser de escritores
+
+| Objeto | Estado     |
+|:------:|:----------:|
+|Escritor|  OK        |
+| Lista  | OK|
+| Nodo   | OK|
+|Parser  | OK         |
+| Valgrin | OK |
+
+Compilación: g++ main_prueba_escritores.cpp parser_escritores.cpp escritor.cpp -o main
+Ejecución: ./main "prueba_escritores.txt"
+
 ### Lean
 - Implemente cuento, novela, novela historica (en proceso)
 - Implementacion en proceso de parser_lecturas

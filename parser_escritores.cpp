@@ -1,50 +1,64 @@
 #include "parser_escritores.h"
 #include "escritor.h"
+#include <iostream>
+#include <string>
 
-Parser_escritores::Parser_escritores(char ** argv){
-    archivo.open(argv[1]);
+using namespace std;
+
+Parser_escritores::Parser_escritores(Lista<Escritor> * lista, char ** argv){
+    entrada = argv[1];
+    lista_escritores = lista;
 }
 
-Lista<Escritor> Parser_escritores::parsear(){
-    Lista<Escritor> lista_escritores;
-    
-    string auxiliar;
-
-    int i = 0;
+void Parser_escritores::generar_anonimo(){
     id = 0;
     nombre_apellido = "ANONIMO";
     nacionalidad = "¿?";
     anio_nacimiento = -1;
     anio_fallecimiento = -1;
+}
 
+void Parser_escritores::parsear(){
+    ifstream archivo(entrada);
+    
+	/*
+	this -> generar_anonimo();
+	
     Escritor nuevo_escritor(id, nombre_apellido, nacionalidad, anio_nacimiento, anio_fallecimiento);
-    lista_escritores.alta(nuevo_escritor, i++);
+    lista_escritores.alta(nuevo_escritor, 0);
+    */
+	
+    string auxiliar;
+    int i = 1;
 
     while(!archivo.eof()){
-        archivo >> id;
-        archivo >> nombre_apellido;
-        archivo >> nacionalidad;
-        
-        archivo >> auxiliar;
-        if(auxiliar != "\n"){
-            anio_nacimiento = stoi(auxiliar);
-            archivo >> auxiliar;
-            if(auxiliar != "\n"){
-                anio_fallecimiento = stoi(auxiliar);
-            }
-            else{
-                anio_fallecimiento = -1;
-            }
-        }
-        else{
+        getline(archivo, auxiliar);
+      	auxiliar.replace(0, 1, " ");
+		id = stoi(auxiliar);
+		getline(archivo, nombre_apellido);
+		getline(archivo, nacionalidad);
+
+		getline(archivo, auxiliar);
+        if(auxiliar.empty()){
             anio_nacimiento = -1;
             anio_fallecimiento = -1;
+        } else{
+            anio_nacimiento = stoi(auxiliar);
+            getline(archivo, auxiliar);
+            if(auxiliar.empty()){
+                anio_fallecimiento = -1;
+            } else{
+                anio_fallecimiento = stoi(auxiliar);
+		        getline(archivo, auxiliar); //Apunta al nuevo escritor (o lee el EOF)     
+            }
         }
-        
-        Escritor escritor(id, nombre_apellido, nacionalidad, anio_nacimiento, anio_fallecimiento);
-        lista_escritores.alta(escritor, i);
+
+	    Escritor nuevo_escritor(id, nombre_apellido, nacionalidad, anio_nacimiento, anio_fallecimiento);    
+        lista_escritores -> alta(nuevo_escritor, i++);
     }
-    
-    archivo.close();
-    return lista_escritores;
+
+    return;
+}
+
+Parser_escritores::~Parser_escritores(){
 }

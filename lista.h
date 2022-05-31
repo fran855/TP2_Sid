@@ -2,6 +2,7 @@
 #define LISTA_H_INCLUDED
 
 #include "nodo.h"
+#include <iostream>
 
 using namespace std;
 
@@ -12,6 +13,7 @@ private:
 	int cantidad;
 
 public:
+	void operator=(Lista<Tipo> lista2);
 	//Constructor
 	//PRE: -
 	//POS: Construye una Lista vacía
@@ -46,6 +48,11 @@ public:
 	//PRE: -
 	//POS: devuelve true si la Lista está vacía, false de lo contrario
 	bool vacia();
+
+	//consulta_direccion
+	//PRE: 1 <= pos <= obtener_cantidad()
+	//POS: devuelve la dirección del elemento que está en pos (se empieza por 1)
+	Nodo<Tipo>* consulta_direccion(int pos);
 
 	//Destructor
 	~Lista();
@@ -149,12 +156,30 @@ void Lista<Tipo>::mostrar(){
 	}
 }
 
+//consulta_direccion
+template <class Tipo>
+Nodo<Tipo>* Lista<Tipo>::consulta_direccion(int pos){
+	Nodo<Tipo>* aux = primero;
+	int contador = 1;
+	while(contador < pos){
+		aux = aux -> obtener_siguiente();
+		contador++;
+	}
+	return aux;
+}
 
 //Destructor
 template <class Tipo>
 Lista<Tipo>::~Lista<Tipo>(){
-	while(! vacia())
+	while(! vacia()){
 		baja(1);
+	}
+}
+
+template <class Tipo>
+void Lista<Tipo>::operator=(Lista<Tipo> lista2){
+	this -> primero = lista2.primero;
+	this -> cantidad = lista2.cantidad;
 }
 
 #endif
