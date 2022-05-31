@@ -49,11 +49,6 @@ public:
 	//POS: devuelve true si la Lista está vacía, false de lo contrario
 	bool vacia();
 
-	//consulta_direccion
-	//PRE: 1 <= pos <= obtener_cantidad()
-	//POS: devuelve la dirección del elemento que está en pos (se empieza por 1)
-	Nodo<Tipo>* consulta_direccion(int pos);
-
 	//Destructor
 	~Lista();
 
@@ -154,18 +149,6 @@ void Lista<Tipo>::mostrar(){
 	
 		aux = aux -> obtener_siguiente();
 	}
-}
-
-//consulta_direccion
-template <class Tipo>
-Nodo<Tipo>* Lista<Tipo>::consulta_direccion(int pos){
-	Nodo<Tipo>* aux = primero;
-	int contador = 1;
-	while(contador < pos){
-		aux = aux -> obtener_siguiente();
-		contador++;
-	}
-	return aux;
 }
 
 //Destructor

@@ -7,48 +7,48 @@ Parser_lectura::Parser_lectura(char* lecturas) {
     getline(archivo_lectura, tipo_lectura);
 }
 
-string Parser_lectura:: titulo(){
+string Parser_lectura::titulo(){
   getline(archivo_lectura, auxiliar);
   return auxiliar;
 }
 
-unsigned int Parser_lectura:: minutos() {
+unsigned int Parser_lectura::minutos() {
   getline(archivo_lectura, auxiliar);
   return stoi(auxiliar);
 }
 
-unsigned short int Parser_lectura :: anio(){
+unsigned short int Parser_lectura::anio(){
   getline(archivo_lectura, auxiliar);
   return stoi(auxiliar);
 }
 
 
-Nodo<Escritor>* autor() {
+Escritor* Parser_lectura::autor(Lista<Escritor>* lista_escritores) {
   getline(archivo_lectura, auxiliar);
   auxiliar.replace (0,  1, " ");
   int id = stoi(auxiliar);
-  return consulta_direccion(id);
+  return (lista_escritores -> consulta(id)).obtener_direccion();
 }
 
 
-string Parser_lectura :: libro(){
+string Parser_lectura::libro(){
   getline(archivo_lectura, auxiliar);
   return auxiliar;
 }
 
-unsigned int Parser_lectura :: versos(){
+unsigned int Parser_lectura::versos(){
   getline(archivo_lectura, auxiliar);
   return stoi(auxiliar);
 }
 
-genero_t Parser_lectura :: genero(){
+genero_t Parser_lectura::genero(){
   getline(archivo_lectura, auxiliar);
   return string_to_genero(auxiliar);
 }
 
 Lectura Parser_lectura::procesar_datos() {
    Lectura lectura;
-  /
+  
   if(tipo_lectura == "C") {
         Lectura = Cuento(this->titulo(), this->minutos(), this->anio(), this->libro(), this->autor());
     }
@@ -63,7 +63,7 @@ Lectura Parser_lectura::procesar_datos() {
 }
 
 
-Lista<Lectura> Parser_lectura :: listar_lecturas(){
+Lista<Lectura> Parser_lectura::listar_lecturas(){
   unsigned int i = 0;
   Lista<Lectura> lista;
   
@@ -72,8 +72,3 @@ Lista<Lectura> Parser_lectura :: listar_lecturas(){
   }
   return lista;
 }
-
-
-
-
-

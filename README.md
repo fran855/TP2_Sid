@@ -10,6 +10,9 @@
     - Cuento
 - Escritor
 
+## Open Issues
+- Implementé la obtención del escritor (en la clase Escritor y en el Parser de lecturas [v2]) pero hay problemas en procesar datos si no me equivoco y algunas implementaciones de ese archivo
+
 ## OBSERVACIONES
 ### Fran
 - Hice CLA estática pero creo que estaría bueno que sea dinámica (más adelante)

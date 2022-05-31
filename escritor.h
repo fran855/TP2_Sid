@@ -59,6 +59,11 @@ public:
     //POS: modifica anio_fallecimiento del escritor por nuevo_anio
     void cambiar_fallecimiento(short int nuevo_anio);
 
+    //obtener_direccion
+    //PRE:
+    //POS:
+    Escritor * obtener_direccion();
+
     //Destructor
     ~Escritor();
 };

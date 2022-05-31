@@ -52,7 +52,7 @@ private:
     unsigned int versos;
     genero_t genero;
 
-    Escritor* obtener_autor();
+    Escritor* autor(Lista<Escritor>* lista_escritores);
     char* obtener_tema(string tema);
 };
 
