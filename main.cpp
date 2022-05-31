@@ -24,8 +24,8 @@ int main(int argc, char * argv[]){
  
 	Lista<Escritor> lista;
 	
-	Parser_escritores parser(argv);
-	lista = parser.parsear();
+	Parser_escritores parser(&lista, argv);
+	parser.parsear();
 	//lista.mostrar();
     // lista.obtener_nodo(1)->obtener_dato().mostrar();
 	// lista.obtener_nodo(2)->obtener_dato().mostrar();

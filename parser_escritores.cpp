@@ -5,8 +5,9 @@
 
 using namespace std;
 
-Parser_escritores::Parser_escritores(char ** argv){
+Parser_escritores::Parser_escritores(Lista<Escritor> * lista, char ** argv){
     entrada = argv[1];
+    lista_escritores = lista;
 }
 
 void Parser_escritores::generar_anonimo(){
@@ -17,9 +18,8 @@ void Parser_escritores::generar_anonimo(){
     anio_fallecimiento = -1;
 }
 
-Lista<Escritor> Parser_escritores::parsear(){
+void Parser_escritores::parsear(){
     ifstream archivo(entrada);
-    Lista<Escritor> lista_escritores; 
     
 	/*
 	this -> generar_anonimo();
@@ -58,11 +58,12 @@ Lista<Escritor> Parser_escritores::parsear(){
 	    Escritor nuevo_escritor(id, nombre_apellido, nacionalidad, anio_nacimiento, anio_fallecimiento);
         //nuevo_escritor.mostrar(); /*prueba*/
         cout << "PRE-ALTA" << endl;
-        lista_escritores.alta(nuevo_escritor, i++);
+        
+        lista_escritores -> alta(nuevo_escritor, i++);
         cout << "POST-ALTA" << endl;
     }
     cout << "FIN PARSER" << endl;
-    return lista_escritores;
+    return;
 }
 
 Parser_escritores::~Parser_escritores(){

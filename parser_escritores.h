@@ -11,6 +11,7 @@ using namespace std;
 class Parser_escritores{
 private:
     string entrada;
+    Lista<Escritor> * lista_escritores;
     int id;
     string nombre_apellido;
     string nacionalidad;
@@ -18,9 +19,9 @@ private:
     short int anio_fallecimiento;
 
 public:
-    Parser_escritores(char ** argv);
+    Parser_escritores(Lista<Escritor> * lista, char ** argv);
     ~Parser_escritores();
-    Lista<Escritor> parsear();
+    void parsear();
 
 private:
     void generar_anonimo();
