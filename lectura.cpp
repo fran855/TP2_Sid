@@ -9,6 +9,12 @@ Lectura::Lectura (string titulo, unsigned int minutos, unsigned short int anio, 
     this -> autor = autor;
 }
 
+Lectura::Lectura() {
+    this -> titulo = "¿?";
+    this -> minutos = 0;
+    this -> anio = 0;
+    this -> autor = nullptr;
+}
 
 Lectura::~Lectura(){}
 
