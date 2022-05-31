@@ -12,6 +12,20 @@
 
 ## Open Issues
 - Implementé la obtención del escritor (en la clase Escritor y en el Parser de lecturas [v2]) pero hay problemas en procesar datos si no me equivoco y algunas implementaciones de ese archivo
+- Para las comparaciones de lectura:
+
+```
+((lista.consulta(0)).obtener_elemento()).comparar(((lista.consulta(1)).obtener_elemento())
+
+nodo1 = lista.consulta(0)
+nodo2 = lista.comsulta(1)
+
+lectura1 = nodo1.obtener_elemento()
+lectura2 = nodo2.obtener_elemento()
+
+lectura1.comparar(lectura2)
+```
+
 
 ## OBSERVACIONES
 ### Fran
