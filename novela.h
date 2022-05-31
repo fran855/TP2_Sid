@@ -4,12 +4,7 @@
 #include <iostream>
 #include <string>
 #include "lectura.h"
-
-
-typedef enum genero {DRAMA, COMEDIA, FICCION, SUSPENSO, 
-TERROR, ROMANTICA, HISTORICA} genero_t;
-
-
+#include "genero.h"
 
 class Novela : public Lectura{
 

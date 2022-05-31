@@ -1,6 +1,5 @@
-#include "string_to_genero.h"
+#include "genero.h"
 
-// typedef enum genero {DRAMA, COMEDIA, FICCION, SUSPENSO, TERROR, ROMANTICA, HISTORICA} genero_t;
 
 genero_t string_to_genero(string genero){
   if (genero == "DRAMA")

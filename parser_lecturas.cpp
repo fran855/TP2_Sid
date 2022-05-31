@@ -22,13 +22,15 @@ unsigned short int Parser_lectura :: anio(){
   return stoi(auxiliar);
 }
 
-/*
-Escritor* autor() {
+
+Nodo<Escritor>* autor() {
   getline(archivo_lectura, auxiliar);
   auxiliar.replace (0,  1, " ");
   int id = stoi(auxiliar);
-  return obtener_escritor(id);
-}*/
+  return consulta_direccion(id);
+}
+
+
 
 string Parser_lectura :: libro(){
   getline(archivo_lectura, auxiliar);
@@ -42,11 +44,11 @@ unsigned int Parser_lectura :: versos(){
 
 genero_t Parser_lectura :: genero(){
   getline(archivo_lectura, auxiliar);
-  return generomap[auxiliar];
+  return string_to_genero(auxiliar);
 }
 
-Lectura* Parser_lectura::procesar_datos() const {
-    Lectura* lectura = NULL;
+Lectura Parser_lectura::procesar_datos() {
+   Lectura lectura;
   /*
   if(tipo_lectura == "C") {
         Lectura = new Cuento(this->titulo(), this->minutos(), this->anio(), this->libro(), this->autor());
@@ -61,11 +63,12 @@ Lectura* Parser_lectura::procesar_datos() const {
     return lectura;
 }
 
+
 Lista<Lectura> Parser_lectura :: listar_lecturas(){
   unsigned int i = 0;
   Lista<Lectura> lista;
   
-  while(this->procesar_datos() != NULL){
+  while(this->procesar_datos()){
     lista.alta(this->procesar_datos(), ++i);
   }
   return lista;
