@@ -2,7 +2,6 @@
 #include "escritor.h"
 
 Escritor::Escritor(){
-    cout << "Constructor por default" << endl;
     this -> id = 0;
     this -> nombre_apellido = "ANONIMO";
     this -> nacionalidad = "¿?";
@@ -11,7 +10,6 @@ Escritor::Escritor(){
 }
 
 Escritor::Escritor(int id, string nombre_apellido, string nacionalidad, short int anio_nacimiento, short int anio_fallecimiento){
-    cout << "Constructor específico" << endl;
     this -> id = id;
     this -> nombre_apellido = nombre_apellido;
     this -> nacionalidad = nacionalidad;
@@ -52,7 +50,6 @@ void Escritor::cambiar_fallecimiento(short int nuevo_anio){
 }
 
 Escritor::~Escritor(){
-    cout << "Destructor de escritor" << endl;
 }
 
 void Escritor::operator=(Escritor escritor2){

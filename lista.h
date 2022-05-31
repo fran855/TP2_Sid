@@ -37,7 +37,7 @@ public:
 	//Mostrar
 	//PRE: -
 	//POS: muestra por pantalla los elementos de la lista
-	//void mostrar();
+	void mostrar();
 
     //Obtener_cantidad
     //PRE: -
@@ -89,23 +89,18 @@ Nodo<Tipo>* Lista<Tipo>::obtener_nodo(int pos){
 //Alta
 template <class Tipo>
 void Lista<Tipo>::alta(Tipo e, int pos){
-	cout << "!!!!Antes de crear el nodo" << endl;
 	Nodo<Tipo>* nuevo = new Nodo<Tipo>(e);
-	cout << "!!!!Despues de crear el nodo" << endl;
 	if(pos == 1){
 		nuevo -> cambiar_siguiente(primero);
 		primero = nuevo;
-		cout << "FLAG3" << endl;
 	}
 	else{
 		//tengo un dato que quiero agregar entre dos nodos -> busco la posicion (menos uno porque tengo que configurar el puntero así me guardo el anterior), mi nuevo dato apunta al siguiente del anterior y ese anterior ahora tiene que apuntar al nuevo dato
 		Nodo<Tipo>* anterior = obtener_nodo(pos - 1);
 		nuevo -> cambiar_siguiente(anterior -> obtener_siguiente());
 		anterior -> cambiar_siguiente(nuevo);
-		cout << "FLAG4" << endl;
 	}
 	cantidad++;
-	cout << "FLAG5" << endl;
 }
 
 //Baja
@@ -150,7 +145,7 @@ int Lista<Tipo>::obtener_cantidad(){
 	return cantidad;
 }
 
-/* //mostrar
+//mostrar
 template <class Tipo>
 void Lista<Tipo>::mostrar(){
 	Nodo<Tipo>* aux = primero;
@@ -159,7 +154,7 @@ void Lista<Tipo>::mostrar(){
 	
 		aux = aux -> obtener_siguiente();
 	}
-} */
+}
 
 //consulta_direccion
 template <class Tipo>

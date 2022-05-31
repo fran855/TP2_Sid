@@ -16,8 +16,8 @@
 | Objeto | Estado     |
 |:------:|:----------:|
 |Escritor|  OK        |
-| Lista  | No funciona|
-| Nodo   | No funciona|
+| Lista  | OK|
+| Nodo   | OK|
 |Parser  | OK         |
 
-- El problema está en la lista -> creación del nodo
+- Falta procesar ID entre paréntesis

@@ -1,11 +1,27 @@
 1
-Jorge Luis Borges
+Julio Cortázar
 argentino
-1899
-1986
+1914
+1984
 
 2
-Edgar
+Mary Shelley
+británica
+1797
+1851
+
+3
+Stephen Edwin King
 estadounidense
-1809
-1849
+1947
+
+4
+Alfonsina Storni
+argentina
+1892
+1938
+
+5
+Ken Follet
+galés
+1949
