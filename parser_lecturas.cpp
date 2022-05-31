@@ -31,7 +31,6 @@ Nodo<Escritor>* autor() {
 }
 
 
-
 string Parser_lectura :: libro(){
   getline(archivo_lectura, auxiliar);
   return auxiliar;
@@ -49,16 +48,16 @@ genero_t Parser_lectura :: genero(){
 
 Lectura Parser_lectura::procesar_datos() {
    Lectura lectura;
-  /*
+  /
   if(tipo_lectura == "C") {
-        Lectura = new Cuento(this->titulo(), this->minutos(), this->anio(), this->libro(), this->autor());
+        Lectura = Cuento(this->titulo(), this->minutos(), this->anio(), this->libro(), this->autor());
     }
     else if (tipo_lectura == "N") {
-        Lectura = new Novela(this->titulo(), this->minutos(), this->anio(), this->genero(), this->autor());
+        Lectura = Novela(this->titulo(), this->minutos(), this->anio(), this->genero(), this->autor());
     }
     else if (tipo_lectura == "P") {
-        Lectura = new Poema(this->titulo(), this->minutos(), this->anio(), this->versos(), this->autor());
-    }*/
+        Lectura = Poema(this->titulo(), this->minutos(), this->anio(), this->versos(), this->autor());
+    }
   
     return lectura;
 }
