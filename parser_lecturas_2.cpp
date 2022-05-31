@@ -61,5 +61,5 @@ Lista<Lectura> Parser_lectura:: listar_lecturas(){
     lista_lecturas.alta(procesar_datos(), ++contador);
     getline(archivo_lectura, auxiliar);
   }
-  
+  return lista_lecturas;
 }

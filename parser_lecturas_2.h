@@ -55,3 +55,5 @@ private:
     Escritor* obtener_autor();
     char* obtener_tema(string tema);
 };
+
+#endif
