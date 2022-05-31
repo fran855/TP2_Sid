@@ -19,5 +19,7 @@
 | Lista  | OK|
 | Nodo   | OK|
 |Parser  | OK         |
+| Valgrin | OK |
 
-- Estado: revisando Valgrind
+Compilación: g++ main_prueba_escritores.cpp parser_escritores.cpp escritor.cpp -o main
+Ejecución: ./main "prueba_escritores.txt"
