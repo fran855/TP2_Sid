@@ -9,7 +9,7 @@ Lectura::Lectura (string titulo, unsigned int minutos, unsigned short int anio, 
     this -> autor = autor;
 }
 
-Lectura::Lectura() {
+Lectura::Lectura () {
     this -> titulo = "¿?";
     this -> minutos = 0;
     this -> anio = 0;
@@ -18,13 +18,23 @@ Lectura::Lectura() {
 
 Lectura::~Lectura(){}
 
-// int Lectura:comparar(Lectura* lectura){};
+int Lectura::comparar(Lectura* lectura){
+    int resultado;
+    if (this -> anio < lectura -> obtener_anio())
+        resultado = -1;
+    else if (this -> anio == lectura -> obtener_anio())
+        resultado = 0;
+    else
+        resultado = 1;
+    return resultado;
+};
 
 void Lectura::mostrar () {
     cout << titulo << endl;
     cout << minutos << endl;
     cout << anio << endl;
-    cout << autor -> obtener_nombre_apellido() << endl; // Aca iria el metodo para obtener el nombre y apellido del autor
+    if(autor)
+        cout << autor -> obtener_nombre_apellido() << endl;
 }
 
 string Lectura::obtener_titulo() {

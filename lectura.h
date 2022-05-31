@@ -23,9 +23,7 @@ public:
     //      - en caso de ser proveniente de un autor anonimo, autor = nullptr;
     Lectura(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor);
 
-    //Constructor
-    //PRE:
-    //POS:
+    // Constructor por defecto  
     Lectura();
 
     //Sobrecarga operador
