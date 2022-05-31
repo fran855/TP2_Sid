@@ -13,6 +13,7 @@ private:
 	int cantidad;
 
 public:
+	void operator=(Lista<Tipo> lista2);
 	//Constructor
 	//PRE: -
 	//POS: Construye una Lista vacía
@@ -88,18 +89,23 @@ Nodo<Tipo>* Lista<Tipo>::obtener_nodo(int pos){
 //Alta
 template <class Tipo>
 void Lista<Tipo>::alta(Tipo e, int pos){
+	cout << "!!!!Antes de crear el nodo" << endl;
 	Nodo<Tipo>* nuevo = new Nodo<Tipo>(e);
+	cout << "!!!!Despues de crear el nodo" << endl;
 	if(pos == 1){
 		nuevo -> cambiar_siguiente(primero);
 		primero = nuevo;
+		cout << "FLAG3" << endl;
 	}
 	else{
 		//tengo un dato que quiero agregar entre dos nodos -> busco la posicion (menos uno porque tengo que configurar el puntero así me guardo el anterior), mi nuevo dato apunta al siguiente del anterior y ese anterior ahora tiene que apuntar al nuevo dato
 		Nodo<Tipo>* anterior = obtener_nodo(pos - 1);
 		nuevo -> cambiar_siguiente(anterior -> obtener_siguiente());
 		anterior -> cambiar_siguiente(nuevo);
+		cout << "FLAG4" << endl;
 	}
 	cantidad++;
+	cout << "FLAG5" << endl;
 }
 
 //Baja
@@ -173,6 +179,12 @@ Lista<Tipo>::~Lista<Tipo>(){
 	while(! vacia()){
 		baja(1);
 	}
+}
+
+template <class Tipo>
+void Lista<Tipo>::operator=(Lista<Tipo> lista2){
+	this -> primero = lista2.primero;
+	this -> cantidad = lista2.cantidad;
 }
 
 #endif

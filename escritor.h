@@ -17,13 +17,7 @@ public:
 	
     void operator=(Escritor escritor2);
     
-    Escritor(){
-        this -> id = 0;
-        this -> nombre_apellido = "ANONIMO";
-        this -> nacionalidad = "¿?";
-        this -> anio_nacimiento = -1;
-        this -> anio_fallecimiento = -1; 
-    }
+    Escritor();
 
     //Constructor
     //PRE: nombre_apellido, nacionalidad strings no vacías, anio_nacimiento y anio_fallecimiento > 0 o -1 si no se conoce
