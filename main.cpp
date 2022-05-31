@@ -28,7 +28,6 @@ int main(int argc, char * argv[]){
 	parser.parsear();
 	lista -> mostrar();
     
-
 	// lista.obtener_nodo(1)->obtener_dato().mostrar();
 	// lista.obtener_nodo(2)->obtener_dato().mostrar();
 

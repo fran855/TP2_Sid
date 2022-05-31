@@ -33,6 +33,7 @@ void Parser_escritores::parsear(){
 
     while(!archivo.eof()){
         getline(archivo, auxiliar);
+      	auxiliar.replace(0, 1, " ");
 		id = stoi(auxiliar);
 		getline(archivo, nombre_apellido);
 		getline(archivo, nacionalidad);

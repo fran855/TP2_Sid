@@ -20,4 +20,4 @@
 | Nodo   | OK|
 |Parser  | OK         |
 
-- Falta procesar ID entre paréntesis
+- Estado: revisando Valgrind
