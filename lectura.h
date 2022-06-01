@@ -36,12 +36,19 @@ public:
     // POS: -
     virtual ~Lectura();
 
-    // Comparar
-    // PRE: -
+    // Comparar anios
+    // PRE:  lectura debe ser un puntero valido
     // POS:  devuelve – 1 si la lectura que llama es menor a la que se pasa por parámetro
     //       devuelve 1 si la que llama es mayor a la que se pasa por parámetro
     //       devuelve 0 si son iguales
-    int comparar(Lectura* lectura);
+    int comparar(Lectura& lectura);
+
+    // Comparar minutos de lectura
+    // PRE: lectura debe ser un puntero valido
+    // POS: devuelve – 1 si la lectura que llama tiene un tiempo de lectura menor a la que se pasa por parámetro
+    //      devuelve 1 si la que llama tiene un tiempo de lectura mayor a la que se pasa por parámetro
+    //      devuelve 0 si son iguales
+    int comparar(Lectura& lectura, char m);
 
     // Mostrar
     // PRE: - 
