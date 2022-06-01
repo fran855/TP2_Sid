@@ -13,16 +13,6 @@ int main(int argc, char * argv[]){
 
   Parser_escritores parser(lista_escritores, argv);
 	parser.parsear();
-  //lista_escritores -> mostrar();
-  //Lista<Lectura>*  lista = new Lista<Lectura>;
-
-  Parser_lectura parser_lectura(argv);
-  parser_lectura.procesar_datos(lista_escritores, lista_lecturas);
-  
-  //hola -> mostrar();
-  //parser_lectura.procesar_datos(lista_escritores, lista_lecturas);
-  //lista_lecturas -> mostrar();
-  
   delete lista_escritores;
   delete lista_lecturas;
 

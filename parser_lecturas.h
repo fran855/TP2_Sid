@@ -35,11 +35,10 @@ public:
     //POS:
     Lista<Lectura> listar_lecturas(Lista<Escritor>* lista_escritores);
 */
-    string auxiliar;
-    Escritor* obtener_autor(Lista<Escritor>* lista_escritores);
-    ifstream archivo_lectura;
 private:
+    ifstream archivo_lectura;
     string tipo_lectura;
+    string auxiliar;
 
     //Lectura generico
     
@@ -47,6 +46,7 @@ private:
     unsigned int minutos;
     unsigned short int anio;
     Escritor* autor;
+    Escritor* obtener_autor(Lista<Escritor>* lista_escritores);
 
     //Especificos
     char* tema;
