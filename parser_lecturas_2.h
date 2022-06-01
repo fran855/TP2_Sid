@@ -22,18 +22,19 @@ public:
     //Procesar datos
     //PRE:
     //POS:
-    Lectura procesar_datos(Lista<Escritor>* lista_escritores);
+    void procesar_datos(Lista<Escritor>* lista_escritores, Lista<Lectura>* lista_lecturas);
 
     //Destructor
     //PRE:
     //POS:
     ~Parser_lectura();
 
+/*
     //Lista
     //PRE:
     //POS:
     Lista<Lectura> listar_lecturas(Lista<Escritor>* lista_escritores);
-
+*/
 private:
     ifstream archivo_lectura;
     string tipo_lectura;

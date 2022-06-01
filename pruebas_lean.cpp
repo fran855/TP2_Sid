@@ -12,7 +12,7 @@ int main(int argc, char * argv[]){
 	Parser_escritores parser(lista_escritores, argv);
 	parser.parsear();
   lista_escritores -> mostrar();
-  Lista<Lectura>*  lista = new Lista<Lectura>;
+//  Lista<Lectura>*  lista = new Lista<Lectura>;
 //  lista.Parser_lectura(argv[1]);
 //  lista.procesar_datos(Lista<Escritor>* lista_escritores);
   

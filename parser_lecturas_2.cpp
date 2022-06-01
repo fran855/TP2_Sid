@@ -19,40 +19,48 @@ char* Parser_lectura::obtener_tema(string tema){
   return copia;
 }
 
-Lectura Parser_lectura:: procesar_datos(Lista<Escritor>* lista_escritores){
-  Lectura lectura;
+void Parser_lectura:: procesar_datos(Lista<Escritor>* lista_escritores, Lista<Lectura>* lista_lecturas){
+  int contador = 0;
 
-  getline(archivo_lectura, tipo_lectura);
-  getline(archivo_lectura, titulo);    //titulo
-  getline(archivo_lectura, auxiliar);  //minutos
-  minutos = stoi(auxiliar);
-  getline(archivo_lectura, auxiliar);  //anio
-  anio = stoi(auxiliar);
-  
-  if (tipo_lectura == "C"){
-    getline(archivo_lectura, libro);
-    autor = obtener_autor(lista_escritores);
-    lectura = Cuento(titulo, minutos, anio, libro, autor);
-  }
-  else if (tipo_lectura == "N"){
-    getline(archivo_lectura, auxiliar);
-    genero = string_to_genero(auxiliar);
-    getline(archivo_lectura, auxiliar);
-    tema = obtener_tema(auxiliar);
-    autor = obtener_autor(lista_escritores);
+  while(!archivo_lectura.eof()){
+    getline(archivo_lectura, tipo_lectura);
+    getline(archivo_lectura, titulo);    //titulo
+    getline(archivo_lectura, auxiliar);  //minutos
+    minutos = stoi(auxiliar);
+    getline(archivo_lectura, auxiliar);  //anio
+    anio = stoi(auxiliar);
     
-    if (genero == HISTORICA){
-      lectura = Novela_historica(titulo, minutos, anio, tema, autor);
+    if (tipo_lectura == "C"){
+      getline(archivo_lectura, libro);
+      autor = obtener_autor(lista_escritores);
+      Cuento cuento(titulo, minutos, anio, libro, autor);
+      lista_lecturas -> alta(cuento, ++contador);
     }
-
-    lectura = Novela(titulo, minutos, anio, genero, autor);
+    else if (tipo_lectura == "N"){
+      getline(archivo_lectura, auxiliar);
+      genero = string_to_genero(auxiliar);
+      getline(archivo_lectura, auxiliar);
+      tema = obtener_tema(auxiliar);
+      autor = obtener_autor(lista_escritores);
+      
+      if (genero == HISTORICA){
+        Novela_historica novela_historica(titulo, minutos, anio, tema, autor);
+        lista_lecturas -> alta(novela_historica, ++contador);
+      }else{
+        Novela novela(titulo, minutos, anio, genero, autor);
+        lista_lecturas -> alta(novela, ++contador);
+      }
+    }
+    else if (tipo_lectura == "P") {
+          Poema poema(titulo, minutos, anio, versos, autor);
+          lista_lecturas -> alta(poema, ++contador);
+    }
+  
+    getline(archivo_lectura, auxiliar); //saca el separador
   }
-  else if (tipo_lectura == "P") {
-        lectura = Poema(titulo, minutos, anio, versos, autor);
-    }
-  return lectura;
 }
 
+/*
 Lista<Lectura> Parser_lectura:: listar_lecturas(Lista<Escritor>* lista_escritores){
   Lista<Lectura> lista_lecturas;
   int contador = 0;
@@ -63,3 +71,4 @@ Lista<Lectura> Parser_lectura:: listar_lecturas(Lista<Escritor>* lista_escritore
   }
   return lista_lecturas;
 }
+*/
