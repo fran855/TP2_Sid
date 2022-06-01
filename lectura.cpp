@@ -46,6 +46,9 @@ void Lectura::mostrar () {
     cout << anio << endl;
     if(autor)
         cout << autor -> obtener_nombre_apellido() << endl;
+    else{
+        cout << "ANONIMO" << endl;
+    }
 }
 
 string Lectura::obtener_titulo() {

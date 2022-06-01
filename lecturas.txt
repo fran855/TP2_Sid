@@ -1,16 +1,9 @@
-C
-Casa Tomada
-20
-1951
-Bestiario
-(1)
-
 N
 Rayuela
 2900
 1963
 FICCION
-(1)
+(3)
 
 N
 Misery
@@ -24,14 +17,14 @@ Voy a dormir
 1
 1938
 14
-(1)
+(4)
 
 N
 Frankestein
 1600
 1818
 TERROR
-(1)
+(5)
 
 N
 Una columna de fuego
@@ -39,4 +32,4 @@ Una columna de fuego
 2017
 HISTORICA
 Guerra de religiones en Europa en la segunda mitad del siglo XVI
-(1)
+(4)

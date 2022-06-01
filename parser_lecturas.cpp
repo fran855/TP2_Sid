@@ -9,7 +9,8 @@ Escritor* Parser_lectura::obtener_autor(Lista<Escritor>* lista_escritores){
   getline(archivo_lectura, auxiliar);
   auxiliar.replace (0,  1, " ");
   int id = stoi(auxiliar);
-  return (lista_escritores -> consulta(id)).obtener_direccion();
+  Escritor * hola = lista_escritores -> consulta(id).obtener_direccion();
+  return hola;
 }
 
 char* Parser_lectura::obtener_tema(string tema){
@@ -39,24 +40,25 @@ void Parser_lectura:: procesar_datos(Lista<Escritor>* lista_escritores, Lista<Le
     else if (tipo_lectura == "N"){
       getline(archivo_lectura, auxiliar);
       genero = string_to_genero(auxiliar);
-      getline(archivo_lectura, auxiliar);
-      tema = obtener_tema(auxiliar);
-      autor = obtener_autor(lista_escritores);
       
       if (genero == HISTORICA){
+        getline(archivo_lectura, auxiliar);
+        tema = obtener_tema(auxiliar);
+        autor = obtener_autor(lista_escritores);
         Novela_historica novela_historica(titulo, minutos, anio, tema, autor);
         lista_lecturas -> alta(novela_historica, ++contador);
       }else{
+        autor = obtener_autor(lista_escritores);
         Novela novela(titulo, minutos, anio, genero, autor);
         lista_lecturas -> alta(novela, ++contador);
       }
+      lista_lecturas -> consulta(1).mostrar();
     }
     else if (tipo_lectura == "P") {
           Poema poema(titulo, minutos, anio, versos, autor);
           lista_lecturas -> alta(poema, ++contador);
     }
   
-    lista_lecturas -> mostrar();
     getline(archivo_lectura, auxiliar); //saca el separador
   }
 }

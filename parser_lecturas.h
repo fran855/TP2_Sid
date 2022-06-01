@@ -35,10 +35,11 @@ public:
     //POS:
     Lista<Lectura> listar_lecturas(Lista<Escritor>* lista_escritores);
 */
-private:
-    ifstream archivo_lectura;
-    string tipo_lectura;
     string auxiliar;
+    Escritor* obtener_autor(Lista<Escritor>* lista_escritores);
+    ifstream archivo_lectura;
+private:
+    string tipo_lectura;
 
     //Lectura generico
     
@@ -54,7 +55,6 @@ private:
     genero_t genero;
 
     char* obtener_tema(string tema);
-    Escritor* obtener_autor(Lista<Escritor>* lista_escritores);
 };
 
 #endif
