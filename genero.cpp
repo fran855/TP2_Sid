@@ -1,6 +1,5 @@
 #include "genero.h"
 
-
 genero_t string_to_genero(string genero){
   if (genero == "DRAMA")
     return DRAMA;
@@ -14,6 +13,6 @@ genero_t string_to_genero(string genero){
     return TERROR;
   else if (genero == "ROMANTICA")
     return ROMANTICA;
-  else if (genero == "HISTORICA")
+  else
     return HISTORICA;
 }

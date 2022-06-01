@@ -9,8 +9,7 @@ Escritor* Parser_lectura::obtener_autor(Lista<Escritor>* lista_escritores){
   getline(archivo_lectura, auxiliar);
   auxiliar.replace (0,  1, " ");
   int id = stoi(auxiliar);
-  Escritor * hola = lista_escritores -> consulta(id).obtener_direccion();
-  return hola;
+  return lista_escritores -> consulta(id).obtener_direccion();
 }
 
 char* Parser_lectura::obtener_tema(string tema){
@@ -49,10 +48,10 @@ void Parser_lectura:: procesar_datos(Lista<Escritor>* lista_escritores, Lista<Le
         lista_lecturas -> alta(novela_historica, ++contador);
       }else{
         autor = obtener_autor(lista_escritores);
+        autor->mostrar();
         Novela novela(titulo, minutos, anio, genero, autor);
         lista_lecturas -> alta(novela, ++contador);
       }
-      lista_lecturas -> consulta(1).mostrar();
     }
     else if (tipo_lectura == "P") {
           Poema poema(titulo, minutos, anio, versos, autor);
