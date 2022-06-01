@@ -13,13 +13,13 @@ void Novela::mostrar(){
     cout << "Minutos aproximados: " << minutos << endl;
     cout << "Año: " << anio << endl;
     cout << "Autor: " << autor->obtener_nombre_apellido() << endl;
-    cout << "Genero: " << genero << endl;
+    cout << "Genero: " << genero_to_string(genero) << endl;
 }
 
 
 //Mostrar genero
 void Novela :: mostrar_genero(){
-  cout << "Genero: " << this->genero << endl;
+  cout << "Genero: " << genero_to_string(genero) << endl;
 }
 
 
