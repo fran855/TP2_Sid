@@ -4,7 +4,7 @@
 #include "lectura.h"
 #include "lista.h"
 #include "escritor.h"
-#include "novela.h"
+#include "novela_historica.h"
 #include "cuento.h"
 #include "poema.h"
 #include <fstream>
@@ -17,67 +17,44 @@ public:
     //Constructor
     //PRE:
     //POS:
-    Parser_lectura(char* lecturas);
+    Parser_lectura(char** argv);
     
     //Procesar datos
     //PRE:
     //POS:
-    Lectura procesar_datos();
+    void procesar_datos(Lista<Escritor>* lista_escritores, Lista<Lectura>* lista_lecturas);
 
     //Destructor
     //PRE:
     //POS:
-    ~Parser_lectura();
+    ~Parser_lectura(){};
 
+/*
     //Lista
     //PRE:
     //POS:
-    Lista<Lectura> listar_lecturas();
-
+    Lista<Lectura> listar_lecturas(Lista<Escritor>* lista_escritores);
+*/
 private:
     ifstream archivo_lectura;
     string tipo_lectura;
     string auxiliar;
-        
+
     //Lectura generico
     
-    //Titulo
-    //PRE:
-    //POS:
-    string titulo();
+    string titulo;
+    unsigned int minutos;
+    unsigned short int anio;
+    Escritor* autor;
 
-    //Minutos
-    //PRE:
-    //POS:
-    unsigned int minutos();
-    
-    //Anio
-    //PRE:
-    //POS:
-    unsigned short int anio();
+    //Especificos
+    char* tema;
+    string libro;
+    unsigned int versos;
+    genero_t genero;
 
-    //Autor
-    //PRE:
-    //POS:
-    Nodo<Escritor>* autor();
-
-    //Tipos de lectura
-
-    //Libro
-    //PRE:
-    //POS:
-    string libro();
-
-    //Versos
-    //PRE:
-    //POS:
-    unsigned int versos();
-
-    //Genero
-    //PRE:
-    //POS:
-    genero_t genero();
+    char* obtener_tema(string tema);
+    Escritor* obtener_autor(Lista<Escritor>* lista_escritores);
 };
 
-
-#endif 
+#endif

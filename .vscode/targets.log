@@ -1,57 +1,32 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
+make: *** No rule to make target 'parser_lecturas.o', needed by 'sid'.  Stop.
 
 # GNU Make 4.2.1
- 
 # Built for x86_64-pc-linux-gnu
- 
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
- 
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
- 
 # This is free software: you are free to change and redistribute it.
- 
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
- 
-# Make data base, printed on Wed Jun  1 13:59:16 2022
- 
+# Make data base, printed on Wed Jun  1 14:38:15 2022
 
 # Variables
- 
 
- 
 # 'override' directive
- 
 GNUMAKEFLAGS := 
- 
 # automatic
- 
 <D = $(patsubst %/,%,$(dir $<))
- 
 # automatic
- 
 ?F = $(notdir $?)
- 
 # environment
- 
 DESKTOP_SESSION = ubuntu
- 
 # default
- 
 .SHELLFLAGS := -c
- 
 # environment
- 
 XDG_SESSION_CLASS = user
- 
 # environment
- 
 XDG_SESSION_TYPE = x11
- 
 # environment
- 
 VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
@@ -73,8 +48,8 @@ SHELL = /bin/sh
 VSCODE_NLS_CONFIG = {"locale":"es-419","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/share/code/code
-# makefile (from 'makefile', line 2)
-CFLAGS = -Wall -Wconversion -Werror
+# makefile (from 'makefile', line 1)
+CFLAGS = 
 # environment
 JOURNAL_STREAM = 8:34533
 # environment
@@ -171,7 +146,7 @@ MAKECMDGOALS := all
 QT_IM_MODULE = ibus
 # environment
 SHLVL = 0
-# makefile (from 'makefile', line 1)
+# makefile (from 'makefile', line 2)
 CC = g++
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
@@ -182,7 +157,7 @@ MAKE_VERSION := 4.2.1
 # environment
 USER = fran
 # makefile
-.DEFAULT_GOAL := 
+.DEFAULT_GOAL := all
 # environment
 XDG_CURRENT_DESKTOP = Unity
 # automatic
@@ -238,7 +213,7 @@ LANG = C
 # environment
 VSCODE_PID = 26404
 # variable set hash-table stats:
-# Load=100/1024=10%, Rehash=0, Collisions=13/124=10%
+# Load=100/1024=10%, Rehash=0, Collisions=13/125=10%
 
 # Pattern-specific Variable Values
 
@@ -246,9 +221,9 @@ VSCODE_PID = 26404
 
 # Directories
 
-# . (device 2053, inode 2883677): 35 files, no impossibilities.
+# . (device 2053, inode 2883677): 36 files, no impossibilities.
 
-# 35 files, no impossibilities in 1 directories.
+# 36 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -256,19 +231,165 @@ VSCODE_PID = 26404
 
 # Files
 
+parser_escritores.o: parser_escritores.cpp parser_escritores.h escritor.cpp escritor.h lista.h nodo.h
+#  Implicit rule search has not been done.
+#  Last modified 2022-06-01 14:37:14.766867227
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile', line 19):
+	$(CC) $(CFLAGS) -o parser_escritores.o -c parser_escritores.cpp
+
+clear:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 40):
+	rm *.o
+
 # Not a target:
-all:
+cuento.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: sid clear
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has not been updated.
 
+lectura.o: lectura.cpp lectura.h
+#  Implicit rule search has not been done.
+#  Last modified 2022-06-01 14:37:14.326862247
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile', line 13):
+	$(CC) $(CFLAGS) -o lectura.o -c lectura.cpp
+
+# Not a target:
+cuento.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+genero.o: genero.cpp genero.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 34):
+	$(CC) $(CFLAGS) -o genero.o -c genero.cpp
+
+# Not a target:
+parser_lecturas_2.h:
+ 
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+sid: main.cpp lectura.o escritor.o parser_escritores.o parser_lecturas.o novela.o novela_historica.o cuento.o genero.o poema.o
+#  Implicit rule search has not been done.
+#  Last modified 2022-06-01 14:35:33.037593636
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 7):
+	$(CC) $(CFLAGS) main.cpp -o sid lectura.o escritor.o parser_escritores.o parser_lecturas.o novela.o novela_historica.o cuento.o genero.o poema.o 
+
+# Not a target:
+novela_historica.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+escritor.o: escritor.cpp escritor.h
+#  Implicit rule search has not been done.
+#  Last modified 2022-06-01 14:37:14.534864601
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile', line 16):
+	$(CC) $(CFLAGS) -o escritor.o -c escritor.cpp
+
+# Not a target:
+poema.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+parser_lecturas_2.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+novela_historica.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+nodo.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-31 15:45:10.702586947
+#  File has been updated.
+#  Successfully updated.
+
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-01 13:59:15.506216656
+#  Last modified 2022-06-01 14:37:27.543009953
 #  File has been updated.
 #  Successfully updated.
+
+# Not a target:
+poema.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+parser_lecturas.o:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+main.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 14:35:27.509516877
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+novela.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+lista.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-31 16:10:03.01008204
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+novela.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+parser_escritores.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-31 15:45:10.702586947
+#  File has been updated.
+#  Successfully updated.
+
+cuento.o: cuento.cpp cuento.h lectura.cpp lectura.h escritor.cpp escritor.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 31):
+	$(CC) $(CFLAGS) -o cuento.o -c cuento.cpp
 
 # Not a target:
 .DEFAULT:
@@ -276,20 +397,95 @@ makefile:
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+lectura.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 14:10:24.495401411
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+parser_escritores.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-31 15:45:10.702586947
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+genero.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+lectura.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 14:10:19.807401723
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+genero.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+parser_lecturas_2.o: parser_lecturas_2.cpp parser_lecturas_2.h lectura.cpp lectura.h escritor.cpp escritor.h lista.h nodo.h cuento.cpp cuento.h poema.cpp poema.h genero.cpp genero.h novela.cpp novela.h novela_historica.cpp novela_historica.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 22):
+	$(CC) $(CFLAGS) -o parser_lecturas_2.o -c parser_lecturas_2.cpp
+
+# Not a target:
+escritor.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-31 16:09:48.882076912
+#  File has been updated.
+#  Successfully updated.
+
+novela_historica.o: novela_historica.cpp novela_historica.h novela.cpp novela.h lectura.cpp lectura.h genero.cpp genero.h escritor.cpp escritor.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 28):
+	$(CC) $(CFLAGS) -o novela_historica.o -c novela_historica.cpp
+
+poema.o: poema.cpp poema.h lectura.cpp lectura.h escritor.cpp escritor.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 37):
+	$(CC) $(CFLAGS) -o poema.o -c poema.cpp
+
+# Not a target:
+escritor.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-31 16:09:47.638076453
+#  File has been updated.
+#  Successfully updated.
+
+novela.o: novela.cpp novela.h lectura.cpp lectura.h genero.cpp genero.h escritor.cpp escritor.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 25):
+	$(CC) $(CFLAGS) -o novela.o -c novela.cpp
+
 # files hash-table stats:
-# Load=4/1024=0%, Rehash=0, Collisions=0/14=0%
+# Load=37/1024=4%, Rehash=0, Collisions=1/130=1%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 40 / storage = 500 B / avg = 12 B
-# current buf: size = 8162 B / used = 500 B / count = 40 / avg = 12 B
+# strcache buffers: 1 (0) / strings = 51 / storage = 617 B / avg = 12 B
+# current buf: size = 8162 B / used = 617 B / count = 51 / avg = 12 B
 
-# strcache performance: lookups = 44 / hit rate = 9%
+# strcache performance: lookups = 141 / hit rate = 63%
 # hash-table stats:
-# Load=40/8192=0%, Rehash=0, Collisions=1/44=2%
-# Finished Make data base on Wed Jun  1 13:59:16 2022
+# Load=51/8192=1%, Rehash=0, Collisions=1/141=1%
+# Finished Make data base on Wed Jun  1 14:38:15 2022
 
  

@@ -34,7 +34,7 @@ public:
 // Destructor
     // PRE: -
     // POS: -
-    ~Lectura();
+    virtual ~Lectura();
 
     // Comparar anios
     // PRE:  lectura debe ser un puntero valido
