@@ -29,11 +29,11 @@ int Lectura::comparar(Lectura& lectura){
     return resultado;
 };
 
-int Lectura::comparar(Lectura& lectura, char m){
+int Lectura::comparar(Lectura* lectura, char m){
     int resultado;
-    if (this -> minutos < lectura.obtener_minutos())
+    if (this -> minutos < lectura -> obtener_minutos())
         resultado = -1;
-    else if (this -> minutos == lectura.obtener_minutos())
+    else if (this -> minutos == lectura -> obtener_minutos())
         resultado = 0;
     else
         resultado = 1;

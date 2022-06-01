@@ -1,8 +1,6 @@
 #ifndef NODO_TEMPLATE_INCLUDED
 #define NODO_TEMPLATE_INCLUDED
 
-#include <iostream>
-#include "escritor.h"
 template <class Tipo>
 
 class Nodo{
@@ -11,7 +9,6 @@ private:
 	Nodo* siguiente;             
 
 public:
-	void operator=(Nodo<Tipo> nodo2);
 	//Constructor
 	//PRE: -
 	//POS: construye un nodo con d como dato y siguiente en nullptr
@@ -23,9 +20,12 @@ public:
 	
 	Tipo obtener_dato();
 
+	Tipo* obtener_dato(char m);
+
 	Nodo* obtener_siguiente();
 
-	~Nodo();
+	void operator=(Nodo nodo_2);
+
 };
 
 template <class Tipo>
@@ -45,18 +45,20 @@ Tipo Nodo<Tipo>::obtener_dato(){
 }
 
 template <class Tipo>
+Tipo* Nodo<Tipo>::obtener_dato(char m){
+	return &dato;
+}
+
+template <class Tipo>
 Nodo<Tipo>* Nodo<Tipo>::obtener_siguiente(){
 	return siguiente;
 }
 
-//Destructor
 template <class Tipo>
-Nodo<Tipo>::~Nodo<Tipo>(){
-}
+void Nodo<Tipo>::operator=(Nodo nodo_2){
+	this -> dato = nodo_2.dato;
+	this -> siguiente = nodo_2.siguiente;
+};
 
-template <class Tipo>
-void Nodo<Tipo>::operator=(Nodo<Tipo> nodo2){
-	this -> dato = nodo2.dato;
-	this -> siguiente = nodo2.siguiente;
-}
+
 #endif

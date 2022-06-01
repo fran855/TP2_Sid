@@ -31,7 +31,7 @@ public:
     //POS:
     void operator= (Lectura lectura2);
   
-// Destructor
+    // Destructor
     // PRE: -
     // POS: -
     virtual ~Lectura();
@@ -48,7 +48,7 @@ public:
     // POS: devuelve – 1 si la lectura que llama tiene un tiempo de lectura menor a la que se pasa por parámetro
     //      devuelve 1 si la que llama tiene un tiempo de lectura mayor a la que se pasa por parámetro
     //      devuelve 0 si son iguales
-    int comparar(Lectura& lectura, char m);
+    int comparar(Lectura* lectura, char m);
 
     // Mostrar
     // PRE: - 

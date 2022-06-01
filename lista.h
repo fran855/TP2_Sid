@@ -2,7 +2,7 @@
 #define LISTA_H_INCLUDED
 
 #include "nodo.h"
-#include <iostream>
+#include "lectura.h"
 
 using namespace std;
 
@@ -13,7 +13,6 @@ private:
 	int cantidad;
 
 public:
-	void operator=(Lista<Tipo> lista2);
 	//Constructor
 	//PRE: -
 	//POS: Construye una Lista vacía
@@ -34,6 +33,11 @@ public:
 	//POS: devuelve el elemento que está en pos (se empieza por 1)
 	Tipo consulta(int pos);
 
+	//Consulta
+	//PRE: 1 <= pos <= obtener_cantidad()
+	//POS: devuelve el elemento que está en pos (se empieza por 1)
+	Tipo* consulta(int pos, char m);
+	
 	//Mostrar
 	//PRE: -
 	//POS: muestra por pantalla los elementos de la lista
@@ -48,6 +52,15 @@ public:
 	//PRE: -
 	//POS: devuelve true si la Lista está vacía, false de lo contrario
 	bool vacia();
+
+	// Sobrecarga del operador =
+	void operator=(Lista<Tipo> lista2);
+
+	// Encuentra el nodo con el menor tiempo de lectura
+	// PRE: nodo_1 tiene que ser un puntero valido.
+	// POS: Devuelve un puntero al nodo del menor elemento.
+	Nodo<Tipo>* encontrar_minimo(Nodo<Tipo>* nodo_1, unsigned int minutos_anterior);
+
 
 	//Destructor
 	~Lista();
@@ -128,6 +141,18 @@ Tipo Lista<Tipo>::consulta(int pos){
 	return aux -> obtener_dato();
 }
 
+//Consulta
+template <class Tipo>
+Tipo* Lista<Tipo>::consulta(int pos, char m){
+	Nodo<Tipo>* aux = primero;
+	int contador = 1;
+	while(contador < pos){
+			aux = aux -> obtener_siguiente();
+			contador++;
+	}
+	return &(aux -> obtener_dato());
+}
+
 //Vacia
 template <class Tipo>
 bool Lista<Tipo>::vacia(){
@@ -146,23 +171,47 @@ void Lista<Tipo>::mostrar(){
 	Nodo<Tipo>* aux = primero;
 	while(aux != 0){
 		aux -> obtener_dato().mostrar();
+		cout << endl;
 	
 		aux = aux -> obtener_siguiente();
 	}
 }
 
+
 //Destructor
 template <class Tipo>
 Lista<Tipo>::~Lista<Tipo>(){
-	while(! vacia()){
+	while(! vacia())
 		baja(1);
-	}
 }
 
 template <class Tipo>
 void Lista<Tipo>::operator=(Lista<Tipo> lista2){
 	this -> primero = lista2.primero;
-	this -> cantidad = lista2.cantidad;
+	this -> cantidad = cantidad;
+};
+
+template <class Tipo>
+Nodo<Tipo>* Lista<Tipo>::encontrar_minimo(Nodo<Tipo>* nodo_1, unsigned int minutos_anterior){
+
+	Nodo<Tipo>* cursor = primero;
+	Nodo<Tipo>* minimo = primero;
+
+	for (int i = 1; i <= cantidad; i++){
+		if (minimo == nodo_1)
+			minimo = cursor -> obtener_siguiente();
+
+		int comparacion = (cursor -> obtener_dato('m')) -> comparar(minimo -> obtener_dato('m'), 'm');
+
+		if ((comparacion == -1) && (cursor != nodo_1) && ((cursor -> obtener_dato('m')) -> obtener_minutos() >= minutos_anterior))
+			minimo = cursor;
+		
+		cursor = cursor -> obtener_siguiente();
+
+	}
+	
+	return minimo;
 }
+
 
 #endif

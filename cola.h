@@ -2,15 +2,16 @@
 #define COLA_H_INCLUDED
 
 #include "lectura.h"
-#include "nodo.h"
+#include "nodo_puntero.h"
+#include "lista.h"
 
 using namespace std;
 
 template <class Tipo> class Cola {
   // Atributos
 private:
-  Nodo<Tipo>* primero;
-  Nodo<Tipo>* ultimo;
+  Nodo_puntero<Tipo>* primero;
+  Nodo_puntero<Tipo>* ultimo;
 
   // Metodos
 public:
@@ -38,7 +39,12 @@ public:
   // Vacía
   // PRE: -
   // POS: devuelve true si la Cola está vacía, false de lo contrario
-  bool vacia();
+  bool vacia();  
+
+  // Toma una lista y arma una cola ordenada
+  // PRE: lista debe ser un puntero valido a una lista
+  // POS: -
+  void encolar(Lista<Tipo>* lista);
 
   // Destructor
   ~Cola();
@@ -54,7 +60,7 @@ Cola<Tipo>::Cola(){
 // Alta
 template <class Tipo>
 void Cola<Tipo>::alta(Tipo* elemento){
-	Nodo<Tipo>* nuevo = new Nodo<Tipo>(elemento);
+	Nodo_puntero<Tipo>* nuevo = new Nodo_puntero<Tipo>(elemento);
 	if (primero)
     ultimo -> cambiar_siguiente(nuevo);
   else 
@@ -65,14 +71,7 @@ void Cola<Tipo>::alta(Tipo* elemento){
 // Baja
 template <class Tipo>
 void Cola<Tipo>::baja(){
-  /* Implementacion de andy que esta mal
-	Nodo<Tipo>* borrar = ultimo;
-	primero = primero -> obtener_siguiente();
-  if (!primero)
-    ultimo = nullptr;
-	delete borrar;
-  */
-  Nodo<Tipo>* borrar = primero;
+  Nodo_puntero<Tipo>* borrar = primero;
   primero = primero -> obtener_siguiente();
   if (ultimo -> obtener_siguiente()){
     ultimo = ultimo -> obtener_siguiente();
@@ -99,5 +98,19 @@ Cola<Tipo>::~Cola(){
   while(!vacia())
     baja();
 }
+
+// Voy a recorrer la lista y armar la cola
+template <class Tipo>  
+void Cola<Tipo>::encolar(Lista<Tipo>* lista){
+  Nodo<Tipo>* minimo = nullptr;
+  unsigned int minutos_anterior = 0;
+
+  for (int i = 0; i < lista -> obtener_cantidad(); i++){
+    minimo = lista -> encontrar_minimo(minimo, minutos_anterior);
+    alta(minimo -> obtener_dato('p'));
+    minutos_anterior = ((minimo -> obtener_dato()).obtener_minutos());
+  }
+  
+};
 
 #endif
