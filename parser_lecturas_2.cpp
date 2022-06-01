@@ -5,11 +5,11 @@ Parser_lectura::Parser_lectura(char* lecturas) {
   archivo_lectura.open(lecturas);
 }
 
-Escritor* Parser_lectura::obtener_autor(){
+Escritor* Parser_lectura::obtener_autor(Lista<Escritor>* lista_escritores){
   getline(archivo_lectura, auxiliar);
   auxiliar.replace (0,  1, " ");
   int id = stoi(auxiliar);
-  return consulta_direccion(id);
+  return (lista_escritores -> consulta(id)).obtener_direccion();
 }
 
 char* Parser_lectura::obtener_tema(string tema){
@@ -19,7 +19,7 @@ char* Parser_lectura::obtener_tema(string tema){
   return copia;
 }
 
-Lectura Parser_lectura:: procesar_datos(){
+Lectura Parser_lectura:: procesar_datos(Lista<Escritor>* lista_escritores){
   Lectura lectura;
 
   getline(archivo_lectura, tipo_lectura);
@@ -31,7 +31,7 @@ Lectura Parser_lectura:: procesar_datos(){
   
   if (tipo_lectura == "C"){
     getline(archivo_lectura, libro);
-    autor = obtener_autor();
+    autor = obtener_autor(lista_escritores);
     lectura = Cuento(titulo, minutos, anio, libro, autor);
   }
   else if (tipo_lectura == "N"){
@@ -39,7 +39,7 @@ Lectura Parser_lectura:: procesar_datos(){
     genero = string_to_genero(auxiliar);
     getline(archivo_lectura, auxiliar);
     tema = obtener_tema(auxiliar);
-    autor = obtener_autor();
+    autor = obtener_autor(lista_escritores);
     
     if (genero == HISTORICA){
       lectura = Novela_historica(titulo, minutos, anio, tema, autor);
@@ -53,12 +53,12 @@ Lectura Parser_lectura:: procesar_datos(){
   return lectura;
 }
 
-Lista<Lectura> Parser_lectura:: listar_lecturas(){
+Lista<Lectura> Parser_lectura:: listar_lecturas(Lista<Escritor>* lista_escritores){
   Lista<Lectura> lista_lecturas;
   int contador = 0;
   
   while(!archivo_lectura.eof()){
-    lista_lecturas.alta(procesar_datos(), ++contador);
+    lista_lecturas.alta(procesar_datos(lista_escritores), ++contador);
     getline(archivo_lectura, auxiliar);
   }
   return lista_lecturas;

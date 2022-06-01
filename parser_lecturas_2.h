@@ -22,7 +22,7 @@ public:
     //Procesar datos
     //PRE:
     //POS:
-    Lectura procesar_datos();
+    Lectura procesar_datos(Lista<Escritor>* lista_escritores);
 
     //Destructor
     //PRE:
@@ -32,7 +32,7 @@ public:
     //Lista
     //PRE:
     //POS:
-    Lista<Lectura> listar_lecturas();
+    Lista<Lectura> listar_lecturas(Lista<Escritor>* lista_escritores);
 
 private:
     ifstream archivo_lectura;
@@ -52,8 +52,8 @@ private:
     unsigned int versos;
     genero_t genero;
 
-    Escritor* autor(Lista<Escritor>* lista_escritores);
     char* obtener_tema(string tema);
+    Escritor* obtener_autor(Lista<Escritor>* lista_escritores);
 };
 
 #endif
