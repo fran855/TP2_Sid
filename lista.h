@@ -144,12 +144,15 @@ int Lista<Tipo>::obtener_cantidad(){
 template <class Tipo>
 void Lista<Tipo>::mostrar(){
 	Nodo<Tipo>* aux = primero;
-	while(aux != 0){
+	while(aux -> obtener_siguiente() != 0){
 		aux -> obtener_dato() -> mostrar();
-	
 		aux = aux -> obtener_siguiente();
 		cout << endl;
 	}
+
+	aux -> obtener_dato() -> mostrar();
+	aux = aux -> obtener_siguiente();
+
 }
 
 //Destructor
