@@ -11,8 +11,12 @@ int main(int argc, char * argv[]){
   Lista<Escritor>* lista_escritores = new Lista<Escritor>;
 	Lista<Lectura>* lista_lecturas = new Lista<Lectura>;
 
-  Parser_escritores parser(lista_escritores, argv);
-	parser.parsear();
+  Parser_escritores parser_escritores(lista_escritores, argv);
+	parser_escritores.parsear();
+
+  Parser_lectura parser_lecturas(argv);
+  parser_lecturas.procesar_datos(lista_escritores, lista_lecturas);
+  lista_lecturas->mostrar();
   delete lista_escritores;
   delete lista_lecturas;
 

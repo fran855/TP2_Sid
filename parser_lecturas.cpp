@@ -9,8 +9,7 @@ Escritor* Parser_lectura::obtener_autor(Lista<Escritor>* lista_escritores){
   getline(archivo_lectura, auxiliar);
   auxiliar.replace (0,  1, " ");
   int id = stoi(auxiliar);
-  
-  lista_escritores -> consulta(id).obtener_direccion()
+  return lista_escritores -> obtener_direccion(id);
 }
 
 char* Parser_lectura::obtener_tema(string tema){

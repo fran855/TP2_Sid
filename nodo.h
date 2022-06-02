@@ -25,6 +25,8 @@ public:
 
 	Nodo* obtener_siguiente();
 
+	Tipo * obtener_direccion_elemento();
+
 	~Nodo();
 };
 
@@ -42,6 +44,11 @@ void Nodo<Tipo>::cambiar_siguiente(Nodo* n){
 template <class Tipo>
 Tipo Nodo<Tipo>::obtener_dato(){
 	return dato;
+}
+
+template <class Tipo>
+Tipo * Nodo<Tipo>::obtener_direccion_elemento(){
+	return &dato;
 }
 
 template <class Tipo>

@@ -49,9 +49,9 @@ void Escritor::cambiar_fallecimiento(short int nuevo_anio){
     anio_fallecimiento = nuevo_anio;
 }
 
-Escritor* Escritor::obtener_direccion(){
+/* Escritor* Escritor::obtener_direccion(){
     return this;
-}
+} */
 
 Escritor::~Escritor(){
 }

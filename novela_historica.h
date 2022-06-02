@@ -29,6 +29,7 @@ public:
 //POS: Obtiene el tema de la novela historica
   char* obtener_tema();
 
+  void mostrar();
 
 //DESTRUCTOR
 //PRE:

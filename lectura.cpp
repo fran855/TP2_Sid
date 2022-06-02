@@ -41,14 +41,13 @@ int Lectura::comparar(Lectura& lectura, char m){
 };
 
 void Lectura::mostrar () {
+    /*
     cout << titulo << endl;
     cout << minutos << endl;
     cout << anio << endl;
     if(autor)
         cout << autor -> obtener_nombre_apellido() << endl;
-    else{
-        cout << "ANONIMO" << endl;
-    }
+    */
 }
 
 string Lectura::obtener_titulo() {

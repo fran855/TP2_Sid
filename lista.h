@@ -49,6 +49,8 @@ public:
 	//POS: devuelve true si la Lista está vacía, false de lo contrario
 	bool vacia();
 
+	Tipo * obtener_direccion(int pos);
+
 	//Destructor
 	~Lista();
 
@@ -138,6 +140,17 @@ bool Lista<Tipo>::vacia(){
 template <class Tipo>
 int Lista<Tipo>::obtener_cantidad(){
 	return cantidad;
+}
+
+template <class Tipo>
+Tipo * Lista<Tipo>::obtener_direccion(int pos){
+	Nodo<Tipo>* aux = primero;
+	int contador = 1;
+	while(contador < pos){
+			aux = aux -> obtener_siguiente();
+			contador++;
+	}
+	return aux -> obtener_direccion_elemento();
 }
 
 //mostrar

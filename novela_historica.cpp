@@ -16,5 +16,10 @@ char* Novela_historica::obtener_tema(){
   return tema;
 }
 
+void Novela_historica::mostrar(){
+  Novela::mostrar();
+  mostrar_tema();
+}
+
 //Destructor
 Novela_historica::~Novela_historica(){}
