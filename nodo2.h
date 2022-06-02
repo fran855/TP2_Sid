@@ -1,46 +1,46 @@
-#ifndef NODO_TEMPLATE_INCLUDED
-#define NODO_TEMPLATE_INCLUDED
+#ifndef NODO2_TEMPLATE_INCLUDED
+#define NODO2_TEMPLATE_INCLUDED
 
 template <class Tipo>
 
 class Nodo{
 private:
-	Tipo dato;
+	Tipo* dato;
 	Nodo* siguiente;             
 
 public:
 	//Constructor
 	//PRE: -
 	//POS: construye un nodo con d como dato y siguiente en nullptr
-	Nodo(Tipo d);
+	Nodo(Tipo* d);
 
 	//PRE: n es un puntero válido
 	//POS: cambia el puntero siguiente por n
-	void cambiar_siguiente(Nodo* n);
+	void cambiar_siguiente(Nodo<Tipo>* n);
 	
 	Tipo obtener_dato();
 
 	Tipo* obtener_dato(char m);
 
-	Nodo* obtener_siguiente();
+	Nodo<Tipo>* obtener_siguiente();
 
 	void operator=(Nodo nodo_2);
 
 };
 
 template <class Tipo>
-Nodo<Tipo>::Nodo(Tipo d){
+Nodo<Tipo>::Nodo(Tipo* d){
     dato = d;
     siguiente = nullptr;
 }
 
 template <class Tipo>
-void Nodo<Tipo>::cambiar_siguiente(Nodo* n){
+void Nodo<Tipo>::cambiar_siguiente(Nodo<Tipo>* n){
 	siguiente = n;
 }
 
 template <class Tipo>
-Tipo Nodo<Tipo>::obtener_dato(){
+Tipo* Nodo<Tipo>::obtener_dato(){
 	return dato;
 }
 
