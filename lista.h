@@ -22,7 +22,7 @@ public:
 	//Alta                                                      [tomamos 1 como el inicio]
 	//PRE: e es un Tipo valido y 1 <= pos <= obtener_cantidad + 1
 	//POS: agrega el elemento en la posición pos (se empieza por 1)
-	void alta(Tipo e, int pos);
+	void alta(Tipo* elemento, int pos);
 
 	//Baja
 	//PRE: 1 <= pos <= obtener_cantidad()
@@ -32,7 +32,7 @@ public:
 	//Consulta
 	//PRE: 1 <= pos <= obtener_cantidad()
 	//POS: devuelve el elemento que está en pos (se empieza por 1)
-	Tipo consulta(int pos);
+	Tipo* consulta(int pos);
 
 	//Mostrar
 	//PRE: -
@@ -48,8 +48,6 @@ public:
 	//PRE: -
 	//POS: devuelve true si la Lista está vacía, false de lo contrario
 	bool vacia();
-
-	Tipo * obtener_direccion(int pos);
 
 	//Destructor
 	~Lista();
@@ -85,8 +83,8 @@ Nodo<Tipo>* Lista<Tipo>::obtener_nodo(int pos){
 
 //Alta
 template <class Tipo>
-void Lista<Tipo>::alta(Tipo e, int pos){
-	Nodo<Tipo>* nuevo = new Nodo<Tipo>(e);
+void Lista<Tipo>::alta(Tipo* elemento, int pos){
+	Nodo<Tipo>* nuevo = new Nodo<Tipo>(elemento);
 	if(pos == 1){
 		nuevo -> cambiar_siguiente(primero);
 		primero = nuevo;
@@ -120,7 +118,7 @@ void Lista<Tipo>::baja(int pos){
 
 //Consulta
 template <class Tipo>
-Tipo Lista<Tipo>::consulta(int pos){
+Tipo* Lista<Tipo>::consulta(int pos){
 	Nodo<Tipo>* aux = primero;
 	int contador = 1;
 	while(contador < pos){
@@ -142,25 +140,15 @@ int Lista<Tipo>::obtener_cantidad(){
 	return cantidad;
 }
 
-template <class Tipo>
-Tipo * Lista<Tipo>::obtener_direccion(int pos){
-	Nodo<Tipo>* aux = primero;
-	int contador = 1;
-	while(contador < pos){
-			aux = aux -> obtener_siguiente();
-			contador++;
-	}
-	return aux -> obtener_direccion_elemento();
-}
-
 //mostrar
 template <class Tipo>
 void Lista<Tipo>::mostrar(){
 	Nodo<Tipo>* aux = primero;
 	while(aux != 0){
-		aux -> obtener_dato().mostrar();
+		aux -> obtener_dato() -> mostrar();
 	
 		aux = aux -> obtener_siguiente();
+		cout << endl;
 	}
 }
 

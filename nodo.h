@@ -7,7 +7,7 @@ template <class Tipo>
 
 class Nodo{
 private:
-	Tipo dato;
+	Tipo* dato;
 	Nodo* siguiente;             
 
 public:
@@ -15,40 +15,34 @@ public:
 	//Constructor
 	//PRE: -
 	//POS: construye un nodo con d como dato y siguiente en nullptr
-	Nodo(Tipo d);
+	Nodo(Tipo* d);
 
 	//PRE: n es un puntero válido
 	//POS: cambia el puntero siguiente por n
-	void cambiar_siguiente(Nodo* n);
+	void cambiar_siguiente(Nodo<Tipo>* n);
 	
-	Tipo obtener_dato();
+	Tipo* obtener_dato();
 
-	Nodo* obtener_siguiente();
+	Nodo<Tipo>* obtener_siguiente();
 
-	Tipo * obtener_direccion_elemento();
 
 	~Nodo();
 };
 
 template <class Tipo>
-Nodo<Tipo>::Nodo(Tipo d){
+Nodo<Tipo>::Nodo(Tipo* d){
     dato = d;
     siguiente = nullptr;
 }
 
 template <class Tipo>
-void Nodo<Tipo>::cambiar_siguiente(Nodo* n){
+void Nodo<Tipo>::cambiar_siguiente(Nodo<Tipo>* n){
 	siguiente = n;
 }
 
 template <class Tipo>
-Tipo Nodo<Tipo>::obtener_dato(){
+Tipo* Nodo<Tipo>::obtener_dato(){
 	return dato;
-}
-
-template <class Tipo>
-Tipo * Nodo<Tipo>::obtener_direccion_elemento(){
-	return &dato;
 }
 
 template <class Tipo>
@@ -59,6 +53,7 @@ Nodo<Tipo>* Nodo<Tipo>::obtener_siguiente(){
 //Destructor
 template <class Tipo>
 Nodo<Tipo>::~Nodo<Tipo>(){
+	delete dato;
 }
 
 template <class Tipo>

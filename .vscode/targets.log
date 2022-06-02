@@ -8,7 +8,7 @@ make: *** No rule to make target 'parser_lecturas.o', needed by 'sid'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jun  1 14:38:15 2022
+# Make data base, printed on Thu Jun  2 10:43:49 2022
 
 # Variables
 
@@ -101,7 +101,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 26404
+GIO_LAUNCHED_DESKTOP_FILE_PID = 55702
 # automatic
 %F = $(notdir $%)
 # environment
@@ -151,7 +151,7 @@ CC = g++
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-965b9091-5c29-4ab8-97c6-58a0aa2b6daa.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-40e2715c-88de-4f67-a736-87dfa881ad5c.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -211,7 +211,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 26404
+VSCODE_PID = 55702
 # variable set hash-table stats:
 # Load=100/1024=10%, Rehash=0, Collisions=13/125=10%
 
@@ -221,9 +221,9 @@ VSCODE_PID = 26404
 
 # Directories
 
-# . (device 2053, inode 2883677): 36 files, no impossibilities.
+# . (device 2053, inode 2883677): 34 files, no impossibilities.
 
-# 36 files, no impossibilities in 1 directories.
+# 34 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -233,7 +233,7 @@ VSCODE_PID = 26404
 
 parser_escritores.o: parser_escritores.cpp parser_escritores.h escritor.cpp escritor.h lista.h nodo.h
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-01 14:37:14.766867227
+#  Last modified 2022-06-02 10:41:08.930692847
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 19):
@@ -260,7 +260,7 @@ all: sid clear
 
 lectura.o: lectura.cpp lectura.h
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-01 14:37:14.326862247
+#  Last modified 2022-06-02 10:35:27.039050396
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 13):
@@ -288,7 +288,7 @@ parser_lecturas_2.h:
 
 sid: main.cpp lectura.o escritor.o parser_escritores.o parser_lecturas.o novela.o novela_historica.o cuento.o genero.o poema.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-01 14:35:33.037593636
+#  Last modified 2022-06-02 09:53:01.002382373
 #  File has not been updated.
 #  recipe to execute (from 'makefile', line 7):
 	$(CC) $(CFLAGS) main.cpp -o sid lectura.o escritor.o parser_escritores.o parser_lecturas.o novela.o novela_historica.o cuento.o genero.o poema.o 
@@ -301,7 +301,7 @@ novela_historica.h:
 
 escritor.o: escritor.cpp escritor.h
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-01 14:37:14.534864601
+#  Last modified 2022-06-02 10:35:27.235051326
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 16):
@@ -328,14 +328,14 @@ novela_historica.cpp:
 # Not a target:
 nodo.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-31 15:45:10.702586947
+#  Last modified 2022-06-02 10:07:03.902368612
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-01 14:37:27.543009953
+#  Last modified 2022-06-02 10:43:47.597386364
 #  File has been updated.
 #  Successfully updated.
 
@@ -354,7 +354,7 @@ parser_lecturas.o:
 # Not a target:
 main.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-01 14:35:27.509516877
+#  Last modified 2022-06-02 10:41:24.510935451
 #  File has been updated.
 #  Successfully updated.
 
@@ -367,7 +367,7 @@ novela.h:
 # Not a target:
 lista.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-31 16:10:03.01008204
+#  Last modified 2022-06-02 10:40:29.666105455
 #  File has been updated.
 #  Successfully updated.
 
@@ -400,14 +400,14 @@ cuento.o: cuento.cpp cuento.h lectura.cpp lectura.h escritor.cpp escritor.h
 # Not a target:
 lectura.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-01 14:10:24.495401411
+#  Last modified 2022-06-02 10:03:28.159639584
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 parser_escritores.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-31 15:45:10.702586947
+#  Last modified 2022-06-02 10:34:27.806848637
 #  File has been updated.
 #  Successfully updated.
 
@@ -420,7 +420,7 @@ genero.h:
 # Not a target:
 lectura.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-01 14:10:19.807401723
+#  Last modified 2022-06-02 10:03:28.159639584
 #  File has been updated.
 #  Successfully updated.
 
@@ -440,7 +440,7 @@ parser_lecturas_2.o: parser_lecturas_2.cpp parser_lecturas_2.h lectura.cpp lectu
 # Not a target:
 escritor.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-31 16:09:48.882076912
+#  Last modified 2022-06-02 10:24:47.996883517
 #  File has been updated.
 #  Successfully updated.
 
@@ -461,7 +461,7 @@ poema.o: poema.cpp poema.h lectura.cpp lectura.h escritor.cpp escritor.h
 # Not a target:
 escritor.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-31 16:09:47.638076453
+#  Last modified 2022-06-02 10:24:54.865043119
 #  File has been updated.
 #  Successfully updated.
 
@@ -480,12 +480,12 @@ novela.o: novela.cpp novela.h lectura.cpp lectura.h genero.cpp genero.h escritor
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 51 / storage = 617 B / avg = 12 B
-# current buf: size = 8162 B / used = 617 B / count = 51 / avg = 12 B
+# strcache buffers: 1 (0) / strings = 49 / storage = 593 B / avg = 12 B
+# current buf: size = 8162 B / used = 593 B / count = 49 / avg = 12 B
 
-# strcache performance: lookups = 141 / hit rate = 63%
+# strcache performance: lookups = 139 / hit rate = 64%
 # hash-table stats:
-# Load=51/8192=1%, Rehash=0, Collisions=1/141=1%
-# Finished Make data base on Wed Jun  1 14:38:15 2022
+# Load=49/8192=1%, Rehash=0, Collisions=1/139=1%
+# Finished Make data base on Thu Jun  2 10:43:49 2022
 
  

@@ -17,7 +17,7 @@ public:
 	
     void operator=(Escritor escritor2);
     
-    Escritor();
+    //Escritor();
 
     //Constructor
     //PRE: nombre_apellido, nacionalidad strings no vacías, anio_nacimiento y anio_fallecimiento > 0 o -1 si no se conoce

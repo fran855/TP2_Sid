@@ -40,15 +40,6 @@ int Lectura::comparar(Lectura& lectura, char m){
     return resultado;
 };
 
-void Lectura::mostrar () {
-    /*
-    cout << titulo << endl;
-    cout << minutos << endl;
-    cout << anio << endl;
-    if(autor)
-        cout << autor -> obtener_nombre_apellido() << endl;
-    */
-}
 
 string Lectura::obtener_titulo() {
     return this -> titulo;
@@ -67,11 +58,9 @@ Escritor* Lectura::obtener_autor() {
 }
 
 
-void Lectura::operator=(Lectura lectura2){
-  this -> titulo = lectura2.titulo;
+/* void Lectura::operator=(Lectura lectura2){
+  this -> titulo = lectura2. titulo;
   this -> minutos = lectura2.minutos;
   this -> anio = lectura2.anio;
   this -> autor = lectura2.autor;
-}
-
-
+} */

@@ -29,8 +29,8 @@ public:
     //Sobrecarga operador
     //PRE:
     //POS:
-    void operator= (Lectura lectura2);
-  
+/*     void operator= (Lectura lectura2);
+ */  
 // Destructor
     // PRE: -
     // POS: -
@@ -53,7 +53,7 @@ public:
     // Mostrar
     // PRE: - 
     // POS: muestra los atributos en pantalla
-    void mostrar();
+    virtual void mostrar() = 0;
 
     // Obtener titulo
     // PRE: -
