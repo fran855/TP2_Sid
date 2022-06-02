@@ -145,11 +145,29 @@ void Menu::listar_lecturas_anios(){
 
 }
 
-/*
 void Menu::listar_lecturas_escritor(){
-    int id;
+    string nombre_apellido;
     cout << MSJ_LISTAR_LECTURAS_ESCRITOR << endl;
-    //Implementar mostrar(escritor) podemos recorrer la lista y mostrar los que tengan el mismo ID de escritor 
+    getline(cin, nombre_apellido, '\n');
+    Nodo<Lectura>* nodo_actual = lista_lecturas -> obtener_nodo(1);
+
+    if(nombre_apellido == "ANONIMO"){
+        while(nodo_actual -> obtener_siguiente() != NULL){
+            if(nodo_actual -> obtener_dato() -> obtener_autor() == NULL){       
+                nodo_actual -> obtener_dato() -> mostrar();
+            }
+            nodo_actual = nodo_actual -> obtener_siguiente();
+        }
+    }else{
+        while(nodo_actual -> obtener_siguiente() != NULL){
+            if(nodo_actual -> obtener_dato() -> obtener_autor() != NULL){       
+                if(nodo_actual -> obtener_dato() -> obtener_autor() -> obtener_nombre_apellido() == nombre_apellido){
+                    nodo_actual -> obtener_dato() -> mostrar();
+                }
+            }
+        nodo_actual = nodo_actual -> obtener_siguiente();
+        }
+    }
 }
 
 void Menu::listar_novelas_genero(){
@@ -157,10 +175,19 @@ void Menu::listar_novelas_genero(){
     genero_t genero;
     cout << MSJ_INGRESAR_GENERO << endl;
     cin >> aux;
-    genero.string_to_genero(aux);
-    //Implementar mostrar(genero)
+    genero = string_to_genero(aux);
+
+    Nodo<Lectura>* nodo_actual = lista_lecturas -> obtener_nodo(1);
+
+    while(nodo_actual -> obtener_siguiente() != NULL){      
+        if(nodo_actual -> obtener_dato() -> obtener_genero() == genero){
+            nodo_actual -> obtener_dato() -> mostrar();
+        }
+        nodo_actual = nodo_actual -> obtener_siguiente();
+    }
 }
 
+/*
 void Menu::crear_cola(){
     bool fue_leido;
     Cola<Lectura> la_cola;

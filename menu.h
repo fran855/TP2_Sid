@@ -6,6 +6,7 @@
 #include "lista.h"
 #include "escritor.h"
 #include "lectura.h"
+#include "novela.h"
 #include "genero.h"
 
 using namespace std;
@@ -21,7 +22,7 @@ const string MSJ_BAJA_LISTA = "Ingrese la posicion en la lista de la lectura que
 const string MSJ_ESCRITOR_FALLECIMIENTO = "Inrgese el nuemero de referencia al autor cuyo fallecimiento quiere actualizar:";
 const string MSJ_ANIO_FALLECIMIENTO = "Inrgese el anio actualizado de fallecimiento:";
 const string MSJ_INTERVALO_ANIOS = "Ingrese el intervalo de anios deseado:";
-const string MSJ_LISTAR_LECTURAS_ESCRITOR = "Ingrese el ID del escritor para ver sus obras:";
+const string MSJ_LISTAR_LECTURAS_ESCRITOR = "Ingrese el nombre y apellido del escritor para ver sus obras:";
 const string MSJ_INGRESAR_GENERO = "Ingrese el genero de las obras que quiere buscar:";
 const string MSJ_MOSTRAR_COLA = "Se muestra el siguiente elemento de la cola:";
 const string MSJ_HA_LEIDO = "¿Ha sido leida la obra? Ingresar 1 (verdadero) o 0 (falso)";
@@ -67,17 +68,15 @@ public:
 
     //void listar_escritores();
 
-    //void listar_escritores();
-
     //void mostrar_lectura_random();
 
     //void listar_lecturas_todas();
 
     void listar_lecturas_anios();
 
-    //void listar_lecturas_escritor();
+    void listar_lecturas_escritor();
 
-    //void listar_novelas_genero();
+    void listar_novelas_genero();
 
     //void crear_cola();
 

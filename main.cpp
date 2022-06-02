@@ -19,7 +19,7 @@ int main(int argc, char * argv[]){
   //lista_lecturas->mostrar();
   
   Menu menu(lista_lecturas, lista_escritores);
-  menu.listar_lecturas_anios();
+  menu.listar_novelas_genero();
 
   delete lista_escritores;
   delete lista_lecturas;
