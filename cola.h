@@ -2,7 +2,7 @@
 #define COLA_H_INCLUDED
 
 #include "lectura.h"
-#include "nodo_puntero.h"
+#include "nodo.h"
 #include "lista.h"
 
 using namespace std;
@@ -10,11 +10,11 @@ using namespace std;
 template <class Tipo> class Cola {
   // Atributos
 private:
-  Nodo_puntero<Tipo>* primero;
-  Nodo_puntero<Tipo>* ultimo;
+public:
+  Nodo<Tipo>* primero;
+  Nodo<Tipo>* ultimo;
 
   // Metodos
-public:
   // Constructor
   // PRE: -
   // POS: Construye una Cola vacía
@@ -31,10 +31,10 @@ public:
   // devolverlo]
   void baja();
 
-  // Consulta
+  // Mostrar
   // PRE: la Pila no puede estar vacía
   // POS: muestra los datos del elemento al principio de la Cola (pero no modifica)
-  void consulta();
+  void mostrar();
 
   // Vacía
   // PRE: -
@@ -60,7 +60,7 @@ Cola<Tipo>::Cola(){
 // Alta
 template <class Tipo>
 void Cola<Tipo>::alta(Tipo* elemento){
-	Nodo_puntero<Tipo>* nuevo = new Nodo_puntero<Tipo>(elemento);
+	Nodo<Tipo>* nuevo = new Nodo<Tipo>(elemento);
 	if (primero)
     ultimo -> cambiar_siguiente(nuevo);
   else 
@@ -71,19 +71,20 @@ void Cola<Tipo>::alta(Tipo* elemento){
 // Baja
 template <class Tipo>
 void Cola<Tipo>::baja(){
-  Nodo_puntero<Tipo>* borrar = primero;
+  Nodo<Tipo>* borrar = primero;
   primero = primero -> obtener_siguiente();
-  if (ultimo -> obtener_siguiente()){
+/*   if (ultimo -> obtener_siguiente()){
     ultimo = ultimo -> obtener_siguiente();
-  };
+  } */
   delete borrar;
   
 }
 
 // Consulta
 template <class Tipo>
-void Cola<Tipo>::consulta(){
+void Cola<Tipo>::mostrar(){
   primero -> obtener_dato() -> mostrar();
+  cout << endl;
 }
 
 // Vacia
@@ -103,12 +104,12 @@ Cola<Tipo>::~Cola(){
 template <class Tipo>  
 void Cola<Tipo>::encolar(Lista<Tipo>* lista){
   Nodo<Tipo>* minimo = nullptr;
-  unsigned int minutos_anterior = 0;
+  unsigned int minutos_anterior = 0;    //guarda la cantidad de minutos del mínimo actual
 
   for (int i = 0; i < lista -> obtener_cantidad(); i++){
     minimo = lista -> encontrar_minimo(minimo, minutos_anterior);
-    alta(minimo -> obtener_dato('p'));
-    minutos_anterior = ((minimo -> obtener_dato()).obtener_minutos());
+    alta(minimo -> obtener_dato());
+    minutos_anterior = ((minimo -> obtener_dato()) -> obtener_minutos());
   }
   
 };

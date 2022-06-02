@@ -57,7 +57,7 @@ public:
 	void operator=(Lista<Tipo> lista2);
 
 	// Encuentra el nodo con el menor tiempo de lectura
-	// PRE: nodo_1 tiene que ser un puntero valido.
+	// PRE: nodo_1 tiene que ser un puntero valido, lista no vacía
 	// POS: Devuelve un puntero al nodo del menor elemento.
 	Nodo<Tipo>* encontrar_minimo(Nodo<Tipo>* nodo_1, unsigned int minutos_anterior);
 
@@ -204,9 +204,10 @@ Nodo<Tipo>* Lista<Tipo>::encontrar_minimo(Nodo<Tipo>* nodo_1, unsigned int minut
 		if (minimo == nodo_1)
 			minimo = cursor -> obtener_siguiente();
 
-		int comparacion = (cursor -> obtener_dato('m')) -> comparar(minimo -> obtener_dato('m'), 'm');
+		int comparacion = (cursor -> obtener_dato()) -> comparar(minimo -> obtener_dato(), 'm');
 
-		if ((comparacion == -1) && (cursor != nodo_1) && ((cursor -> obtener_dato('m')) -> obtener_minutos() >= minutos_anterior))
+		//cursor != nodo_1 verifica que el minimo que encontraste no sea el que ya sabias que era el minimo
+		if ((comparacion == -1) && (cursor != nodo_1) && ((cursor -> obtener_dato()) -> obtener_minutos() >= minutos_anterior))
 			minimo = cursor;
 		
 		cursor = cursor -> obtener_siguiente();
