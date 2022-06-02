@@ -22,6 +22,7 @@ public:
 
 	Nodo<Tipo>* obtener_siguiente();
 
+	~Nodo<Tipo>();
 
 };
 
