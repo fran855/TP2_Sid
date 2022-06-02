@@ -13,8 +13,12 @@ void Cuento::mostrar(){
     cout << "Titulo: " << titulo << endl;
     cout << "Minutos aproximados: " << minutos << endl;
     cout << "Año: " << anio << endl;
-    cout << "Autor: " << autor->obtener_nombre_apellido() << endl;
     cout << "Libro: "<< libro << endl;
+    if(!autor){
+      cout << "Autor: ANONIMO" << endl;
+    }else{
+      cout << "Autor: " << autor -> obtener_nombre_apellido() << endl;
+    }
 }
 
 //Mostrar titulo

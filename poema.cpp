@@ -15,8 +15,12 @@ void Poema::mostrar(){
     cout << "Titulo: " << titulo << endl;
     cout << "Minutos aproximados: " << minutos << endl;
     cout << "Año: " << anio << endl;
-    cout << "Autor: " << autor->obtener_nombre_apellido() << endl;
     cout << "Versos: " << versos << endl;
+    if(!autor){
+      cout << "Autor: ANONIMO" << endl;
+    }else{
+      cout << "Autor: " << autor -> obtener_nombre_apellido() << endl;
+    }
 }
 
 

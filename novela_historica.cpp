@@ -6,19 +6,22 @@ Novela_historica :: Novela_historica(string titulo, unsigned int minutos, unsign
   this->genero = HISTORICA;
 }
 
-//Mostrar tema
-void Novela_historica::mostrar_tema(){
-  cout << "Tema: " << tema << endl;  
-}
-
 //Obtener tema
 char* Novela_historica::obtener_tema(){
   return tema;
 }
 
 void Novela_historica::mostrar(){
-  Novela::mostrar();
-  mostrar_tema();
+  cout << "Titulo: " << titulo << endl;
+  cout << "Minutos aproximados: " << minutos << endl;
+  cout << "Año: " << anio << endl;
+  cout << "Genero: " << genero_to_string(genero) << endl;
+  cout << "Tema: " << tema << endl;  
+  if(!autor){
+      cout << "Autor: ANONIMO" << endl;
+  }else{
+      cout << "Autor: " << autor -> obtener_nombre_apellido() << endl;
+  }
 }
 
 //Destructor

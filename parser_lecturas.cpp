@@ -7,6 +7,9 @@ Parser_lectura::Parser_lectura(char** argv) {
 
 Escritor* Parser_lectura::obtener_autor(Lista<Escritor>* lista_escritores){
   getline(archivo_lectura, auxiliar);
+  if(auxiliar == "ANONIMO"){
+    return nullptr;
+  }
   auxiliar.replace (0,  1, " ");
   int id = stoi(auxiliar);
   return lista_escritores -> consulta(id);

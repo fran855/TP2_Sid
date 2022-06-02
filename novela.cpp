@@ -12,8 +12,12 @@ void Novela::mostrar(){
     cout << "Titulo: " << titulo << endl;
     cout << "Minutos aproximados: " << minutos << endl;
     cout << "Año: " << anio << endl;
-    cout << "Autor: " << autor->obtener_nombre_apellido() << endl;
     cout << "Genero: " << genero_to_string(genero) << endl;
+    if(!autor){
+      cout << "Autor: ANONIMO" << endl;
+    }else{
+      cout << "Autor: " << autor -> obtener_nombre_apellido() << endl;
+    }
 }
 
 
