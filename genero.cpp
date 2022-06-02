@@ -1,5 +1,6 @@
 #include "genero.h"
 
+//String to genero
 genero_t string_to_genero(string genero){
   if (genero == "DRAMA")
     return DRAMA;
@@ -17,7 +18,7 @@ genero_t string_to_genero(string genero){
     return HISTORICA;
 }
 
-
+//Genero to string
 string genero_to_string(genero_t genero){
   if (genero == DRAMA)
     return "DRAMA";
