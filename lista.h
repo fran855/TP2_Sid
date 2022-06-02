@@ -32,11 +32,6 @@ public:
 	//PRE: 1 <= pos <= obtener_cantidad()
 	//POS: devuelve el elemento que está en pos (se empieza por 1)
 	Tipo* consulta(int pos);
-
-	//Consulta
-	//PRE: 1 <= pos <= obtener_cantidad()
-	//POS: devuelve el elemento que está en pos (se empieza por 1)
-	Tipo* consulta(int pos, char m);
 	
 	//Mostrar
 	//PRE: -
@@ -57,7 +52,7 @@ public:
 	void operator=(Lista<Tipo> lista2);
 
 	// Encuentra el nodo con el menor tiempo de lectura
-	// PRE: nodo_1 tiene que ser un puntero valido, lista no vacía
+	// PRE: nodo_1 tiene que ser un puntero valido.
 	// POS: Devuelve un puntero al nodo del menor elemento.
 	Nodo<Tipo>* encontrar_minimo(Nodo<Tipo>* nodo_1, unsigned int minutos_anterior);
 
@@ -141,18 +136,6 @@ Tipo* Lista<Tipo>::consulta(int pos){
 	return aux -> obtener_dato();
 }
 
-//Consulta
-template <class Tipo>
-Tipo* Lista<Tipo>::consulta(int pos, char m){
-	Nodo<Tipo>* aux = primero;
-	int contador = 1;
-	while(contador < pos){
-			aux = aux -> obtener_siguiente();
-			contador++;
-	}
-	return &(aux -> obtener_dato());
-}
-
 //Vacia
 template <class Tipo>
 bool Lista<Tipo>::vacia(){
@@ -177,6 +160,7 @@ void Lista<Tipo>::mostrar(){
 
 	aux -> obtener_dato() -> mostrar();
 	aux = aux -> obtener_siguiente();
+
 }
 
 
@@ -203,10 +187,9 @@ Nodo<Tipo>* Lista<Tipo>::encontrar_minimo(Nodo<Tipo>* nodo_1, unsigned int minut
 		if (minimo == nodo_1)
 			minimo = cursor -> obtener_siguiente();
 
-		int comparacion = (cursor -> obtener_dato()) -> comparar(minimo -> obtener_dato(), 'm');
+		int comparacion = (cursor -> obtener_dato('m')) -> comparar(minimo -> obtener_dato('m'), 'm');
 
-		//cursor != nodo_1 verifica que el minimo que encontraste no sea el que ya sabias que era el minimo
-		if ((comparacion == -1) && (cursor != nodo_1) && ((cursor -> obtener_dato()) -> obtener_minutos() >= minutos_anterior))
+		if ((comparacion == -1) && (cursor != nodo_1) && ((cursor -> obtener_dato('m')) -> obtener_minutos() >= minutos_anterior))
 			minimo = cursor;
 		
 		cursor = cursor -> obtener_siguiente();

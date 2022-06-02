@@ -47,6 +47,8 @@ private:
     unsigned short int anio;
     Escritor* autor;
     Escritor* obtener_autor(Lista<Escritor>* lista_escritores);
+    Escritor* obtener_autor(Lista<Escritor>* lista_escritores, string auxiliar);
+
 
     //Especificos
     char* tema;
