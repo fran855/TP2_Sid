@@ -4,7 +4,7 @@
 #include <iostream>
 #include "escritor.h"
 #include "lista.h"
-
+#include "menu.h"
 
 int main(int argc, char * argv[]){
   
@@ -16,8 +16,11 @@ int main(int argc, char * argv[]){
   //lista_escritores -> mostrar();
   Parser_lectura parser_lecturas(argv);
   parser_lecturas.procesar_datos(lista_escritores, lista_lecturas);
-  lista_lecturas->mostrar();
+  //lista_lecturas->mostrar();
   
+  Menu menu(lista_lecturas, lista_escritores);
+  menu.listar_lecturas_anios();
+
   delete lista_escritores;
   delete lista_lecturas;
 
