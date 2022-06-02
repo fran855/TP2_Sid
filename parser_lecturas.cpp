@@ -9,7 +9,7 @@ Escritor* Parser_lectura::obtener_autor(Lista<Escritor>* lista_escritores){
   getline(archivo_lectura, auxiliar);
   auxiliar.replace (0,  1, " ");
   int id = stoi(auxiliar);
-  return lista_escritores -> obtener_direccion(id);
+  return lista_escritores -> consulta(id);
 }
 
 char* Parser_lectura::obtener_tema(string tema){
@@ -21,7 +21,7 @@ char* Parser_lectura::obtener_tema(string tema){
 
 void Parser_lectura:: procesar_datos(Lista<Escritor>* lista_escritores, Lista<Lectura>* lista_lecturas){
   int contador = 0;
-
+  Lectura* nueva_lectura;
   while(!archivo_lectura.eof()){
     getline(archivo_lectura, tipo_lectura);
     getline(archivo_lectura, titulo);    //titulo
@@ -29,12 +29,12 @@ void Parser_lectura:: procesar_datos(Lista<Escritor>* lista_escritores, Lista<Le
     minutos = stoi(auxiliar);
     getline(archivo_lectura, auxiliar);  //anio
     anio = stoi(auxiliar);
-    
+
     if (tipo_lectura == "C"){
       getline(archivo_lectura, libro);
       autor = obtener_autor(lista_escritores);
-      Cuento cuento(titulo, minutos, anio, libro, autor);
-      lista_lecturas -> alta(cuento, ++contador);
+      nueva_lectura = new Cuento(titulo, minutos, anio, libro, autor);
+      lista_lecturas -> alta(nueva_lectura, ++contador);
     }
     else if (tipo_lectura == "N"){
       getline(archivo_lectura, auxiliar);
@@ -44,17 +44,20 @@ void Parser_lectura:: procesar_datos(Lista<Escritor>* lista_escritores, Lista<Le
         getline(archivo_lectura, auxiliar);
         tema = obtener_tema(auxiliar);
         autor = obtener_autor(lista_escritores);
-        Novela_historica novela_historica(titulo, minutos, anio, tema, autor);
-        lista_lecturas -> alta(novela_historica, ++contador);
+        nueva_lectura = new Novela_historica(titulo, minutos, anio, tema, autor);
+        lista_lecturas -> alta(nueva_lectura, ++contador);
       }else{
         autor = obtener_autor(lista_escritores);
-        Novela novela(titulo, minutos, anio, genero, autor);
-        lista_lecturas -> alta(novela, ++contador);
+        nueva_lectura = new Novela(titulo, minutos, anio, genero, autor);
+        lista_lecturas -> alta(nueva_lectura, ++contador);
       }
     }
     else if (tipo_lectura == "P") {
-          Poema poema(titulo, minutos, anio, versos, autor);
-          lista_lecturas -> alta(poema, ++contador);
+      getline(archivo_lectura, auxiliar);
+      versos = stoi(auxiliar);
+      autor = obtener_autor(lista_escritores);
+      nueva_lectura = new Poema(titulo, minutos, anio, versos, autor);
+      lista_lecturas -> alta(nueva_lectura, ++contador);
     }
   
     getline(archivo_lectura, auxiliar); //saca el separador

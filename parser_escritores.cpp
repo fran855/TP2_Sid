@@ -53,7 +53,7 @@ void Parser_escritores::parsear(){
             }
         }
 
-	    Escritor nuevo_escritor(id, nombre_apellido, nacionalidad, anio_nacimiento, anio_fallecimiento);    
+	    Escritor* nuevo_escritor = new Escritor(id, nombre_apellido, nacionalidad, anio_nacimiento, anio_fallecimiento);    
         lista_escritores -> alta(nuevo_escritor, i++);
     }
 
