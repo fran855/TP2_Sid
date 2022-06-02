@@ -1,3 +1,6 @@
+#ifndef GENERO_H_INCLUDED
+#define GENERO_H_INCLUDED
+
 #include <string>
 using namespace std;
 
@@ -9,3 +12,5 @@ TERROR, ROMANTICA, HISTORICA} genero_t;
 genero_t string_to_genero(string genero);
 
 string genero_to_string(genero_t genero);
+
+#endif
