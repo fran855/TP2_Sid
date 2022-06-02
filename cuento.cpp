@@ -6,9 +6,7 @@ Cuento :: Cuento(string titulo, unsigned int minutos, unsigned short int anio, s
     this->libro = libro;
 }
 
-//Mostrar atributos
-//PRE:
-//POS:
+//Mostrar
 void Cuento::mostrar(){ 
     cout << "Titulo: " << titulo << endl;
     cout << "Minutos aproximados: " << minutos << endl;
@@ -22,8 +20,6 @@ void Cuento::mostrar(){
 }
 
 //Mostrar titulo
-// PRE:
-// POS: Devuelve titulo del libro donde esta el cuento
 string Cuento :: obtener_libro(){
   return libro;
 }

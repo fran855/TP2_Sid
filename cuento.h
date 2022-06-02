@@ -9,15 +9,17 @@ private:
 
 public:
   //Constructor
+  //PRE: titulo y libro no deben ser vacios, minutos > 0 y anio > 0.
+  //POS: Devuelve un objeto Cuento.
   Cuento (string titulo, unsigned int minutos, unsigned short int anio, string libro, Escritor* autor);
 
-  //Mostrar titulo
-  // PRE:
+  //Mostrar libro
+  // PRE: - 
   // POS: Muestra titulo del libro donde esta el cuento
   void mostrar_libro();
 
   //Mostrar titulo
-  // PRE:
+  // PRE: - 
   // POS: Devuelve titulo del libro donde esta el cuento
   string obtener_libro();
 
