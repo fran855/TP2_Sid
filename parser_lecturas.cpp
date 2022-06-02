@@ -53,8 +53,11 @@ void Parser_lectura:: procesar_datos(Lista<Escritor>* lista_escritores, Lista<Le
       }
     }
     else if (tipo_lectura == "P") {
-        nueva_lectura = new Poema(titulo, minutos, anio, versos, autor);
-        lista_lecturas -> alta(nueva_lectura, ++contador);
+      getline(archivo_lectura, auxiliar);
+      versos = stoi(auxiliar);
+      autor = obtener_autor(lista_escritores);
+      nueva_lectura = new Poema(titulo, minutos, anio, versos, autor);
+      lista_lecturas -> alta(nueva_lectura, ++contador);
     }
   
     getline(archivo_lectura, auxiliar); //saca el separador
