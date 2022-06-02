@@ -177,7 +177,6 @@ void Lista<Tipo>::mostrar(){
 
 	aux -> obtener_dato() -> mostrar();
 	aux = aux -> obtener_siguiente();
-
 }
 
 

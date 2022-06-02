@@ -19,17 +19,17 @@ int main(int argc, char * argv[]){
 
   Cola <Lectura> cola;
   cola.encolar(lista_lecturas);
-  
-  cola.primero->obtener_dato()->mostrar();
+  cola.mostrar();
+  /* cola.primero->obtener_dato()->mostrar();
   cola.primero->obtener_siguiente()->obtener_dato()->mostrar();
   cola.primero->obtener_siguiente()->obtener_siguiente()->obtener_dato()->mostrar();
   cola.primero->obtener_siguiente()->obtener_siguiente()->obtener_siguiente()->obtener_dato()->mostrar();
   cola.primero->obtener_siguiente()->obtener_siguiente()->obtener_siguiente()->obtener_siguiente()->obtener_dato()->mostrar();
   cola.primero->obtener_siguiente()->obtener_siguiente()->obtener_siguiente()->obtener_siguiente()->obtener_siguiente()->obtener_dato()->mostrar();
   cola.primero->obtener_siguiente()->obtener_siguiente()->obtener_siguiente()->obtener_siguiente()->obtener_siguiente()->obtener_siguiente()->obtener_dato()->mostrar();
-
-  delete lista_escritores;
-  delete lista_lecturas;
+ */
+//  delete lista_escritores;
+//  delete lista_lecturas;
 
   return 0;
 }

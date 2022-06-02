@@ -46,7 +46,7 @@ public:
     //      devuelve 1 si la que llama tiene un tiempo de lectura mayor a la que se pasa por parámetro
     //      devuelve 0 si son iguales
     int comparar(Lectura* lectura, char m);
-
+ 
     // Mostrar
     // PRE: - 
     // POS: muestra los atributos en pantalla
