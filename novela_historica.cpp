@@ -25,4 +25,6 @@ void Novela_historica::mostrar(){
 }
 
 //Destructor
-Novela_historica::~Novela_historica(){}
+Novela_historica::~Novela_historica(){
+  delete[] tema;
+}
