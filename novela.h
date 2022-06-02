@@ -14,18 +14,18 @@ protected:
 public:
 
 //Constructor:
-//PRE:
-//POS:
+//PRE: titulo no debe ser vacio, minutos > 0, anio > 0, genero debe ser de los disponibles en el enum.
+//POS: devuelve un objeto Novela.
   Novela(string titulo, unsigned int minutos, unsigned short int anio, genero_t genero, Escritor* autor);
 
 //Mostrar genero
-//PRE:
+//PRE: -
 //POS: Muestra a que genero pertenece la novela
   void mostrar_genero();
 
 
 //Mostrar titulo
-// PRE:
+// PRE: -
 // POS: Devuelve titulo del libro donde esta el cuento
   genero_t obtener_genero();
 
@@ -38,7 +38,7 @@ public:
 
 //Destructor:
 //PRE:
-//POS:
+//POS: 
 ~Novela();
 
 };
