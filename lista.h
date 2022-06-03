@@ -57,9 +57,9 @@ public:
 	void operator=(Lista<Tipo> lista2);
 
 	// Encuentra el nodo con el menor tiempo de lectura
-	// PRE: nodo_1 tiene que ser un puntero valido.
+	// PRE: minimo_anterior tiene que ser un puntero valido.
 	// POS: Devuelve un puntero al nodo del menor elemento.
-	Nodo<Tipo>* encontrar_minimo(Nodo<Tipo>* nodo_1, unsigned int minutos_anterior);
+	Nodo<Tipo>* encontrar_minimo(Nodo<Tipo>* minimo_anterior, unsigned int minutos_anterior);
 
 
 	//Destructor
@@ -195,23 +195,59 @@ void Lista<Tipo>::operator=(Lista<Tipo> lista2){
 };
 
 template <class Tipo>
-Nodo<Tipo>* Lista<Tipo>::encontrar_minimo(Nodo<Tipo>* nodo_1, unsigned int minutos_anterior){
+Nodo<Tipo>* Lista<Tipo>::encontrar_minimo(Nodo<Tipo>* minimo_anterior, unsigned int minutos_anterior){
 
 	Nodo<Tipo>* cursor = primero;
+	Nodo<Tipo>* cursor_siguiente = cursor -> obtener_siguiente();
+	Nodo<Tipo>* minimo = primero;
+	
+	while (cursor_siguiente != nullptr) {
+
+		int es_menor = (cursor -> obtener_dato()) -> comparar(cursor_siguiente -> obtener_dato(), 'm');
+		int es_menor_que_minimo = (cursor -> obtener_dato()) -> comparar(minimo -> obtener_dato(), 'm');
+		// if (minimo != nullptr) // Caso donde es la primera vez que recorre 
+		// 	(cursor -> obtener_dato()) -> comparar(minimo -> obtener_dato(), 'm');
+
+		if (es_menor == 1 && es_menor_que_minimo == 1)	// Caso donde es el menor de los dos, y es menor que el minimo
+			minimo = cursor;
+
+		// Avanza al siguiente elemento de la lista
+		cursor = cursor_siguiente;
+		cursor_siguiente = cursor -> obtener_siguiente();
+	}
+
+	/* if (minimo_anterior == nullptr)
+		minimo_anterior = primero;
+
+	Nodo<Tipo>* cursor = primero;
+	Nodo<Tipo>* cursor_siguiente = cursor -> obtener_siguiente();
 	Nodo<Tipo>* minimo = primero;
 
-	for (int i = 1; i <= cantidad; i++){
-		if (minimo == nodo_1)
-			minimo = cursor -> obtener_siguiente();
 
-		int comparacion = (cursor -> obtener_dato('m')) -> comparar(minimo -> obtener_dato('m'), 'm');
+	while (cursor_siguiente != nullptr) {
+		int es_menor = (cursor -> obtener_dato()) -> comparar(cursor_siguiente -> obtener_dato(), 'm');
 
-		if ((comparacion == -1) && (cursor != nodo_1) && ((cursor -> obtener_dato('m')) -> obtener_minutos() >= minutos_anterior))
+		// if (es_menor == -1 && (cursor != minimo_anterior) && (cursor -> obtener_dato() -> obtener_minutos() >= minutos_anterior)){
+		// 	minimo = cursor;
+		// }
+
+		if (minimo == nullptr && es_menor == -1){
 			minimo = cursor;
+		}
 		
-		cursor = cursor -> obtener_siguiente();
 
-	}
+		if (es_menor == -1 && (cursor -> obtener_dato()) -> comparar(minimo -> obtener_dato(), 'c') == 1){
+			minimo = cursor;
+		}
+	
+		// Avanza al siguiente elemento de la lista
+		cursor = cursor_siguiente;
+		cursor_siguiente = cursor -> obtener_siguiente();
+	};
+
+	if (minimo == nullptr){
+		minimo = cursor;
+	} */
 	
 	return minimo;
 }

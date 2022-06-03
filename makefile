@@ -3,7 +3,7 @@ CC = g++
 
 all: sid clear
 
-sid: main.cpp lectura.o escritor.o parser_escritores.o parser_lecturas.o novela.o novela_historica.o cuento.o genero.o poema.o
+sid: main.cpp cola.h lectura.o escritor.o parser_escritores.o parser_lecturas.o novela.o novela_historica.o cuento.o genero.o poema.o
 	$(CC) $(CFLAGS) main.cpp -o sid lectura.o escritor.o parser_escritores.o parser_lecturas.o novela.o novela_historica.o cuento.o genero.o poema.o 
 
 # main.o : main.cpp lecturas.cpp escritor.cpp parser_escritor.cpp parser_lectura.cpp novela.cpp novela_historica.cpp cuento.cpp genero.cpp poema.cpp lecturas.h escritor.h parser_escritor.h parser_lectura.h novela.h novela_historica.h cuento.h genero.h poema.h

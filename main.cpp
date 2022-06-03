@@ -4,6 +4,7 @@
 #include <iostream>
 #include "escritor.h"
 #include "lista.h"
+#include "cola.h"
 
 
 int main(int argc, char * argv[]){
@@ -17,6 +18,22 @@ int main(int argc, char * argv[]){
   Parser_lectura parser_lecturas(argv);
   parser_lecturas.procesar_datos(lista_escritores, lista_lecturas);
   lista_lecturas->mostrar();
+
+  cout << "-------------------------------------------" << endl;
+  cout << "Se crea la cola ordenada" << endl;
+
+  Cola<Lectura> la_cola;
+  la_cola.encolar(lista_lecturas);
+
+  cout << "-------------------------------------------" << endl;
+  cout << "Se muestra el proximo elemento de la cola:" << endl;
+  while (!la_cola.vacia()) {
+    la_cola.consulta();
+    la_cola.baja();
+    cout << endl;
+  }
+
+
   
   delete lista_escritores;
   delete lista_lecturas;
