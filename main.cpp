@@ -5,6 +5,7 @@
 #include "escritor.h"
 #include "lista.h"
 #include "menu.h"
+#include "cola.h"
 
 int main(int argc, char * argv[]){
   
@@ -13,10 +14,8 @@ int main(int argc, char * argv[]){
 
   Parser_escritores parser_escritores(lista_escritores, argv);
 	parser_escritores.parsear();
-  //lista_escritores -> mostrar();
   Parser_lectura parser_lecturas(argv);
   parser_lecturas.procesar_datos(lista_escritores, lista_lecturas);
-  //lista_lecturas->mostrar();
   
   Menu menu(lista_lecturas, lista_escritores);
   menu.ejecutar_menu();
