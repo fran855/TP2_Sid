@@ -1,6 +1,8 @@
 #ifndef POEMA_H
 #define POEMA_H
 
+#include <iostream>
+#include <string>
 #include "lectura.h"
 
 class Poema: public Lectura {

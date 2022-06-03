@@ -1,7 +1,4 @@
 #include "parser_escritores.h"
-#include "escritor.h"
-#include <iostream>
-#include <string>
 
 using namespace std;
 

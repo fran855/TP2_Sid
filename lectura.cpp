@@ -1,6 +1,6 @@
-#include <iostream>
+
 #include "lectura.h"
-#include "escritor.h"
+
 
 Lectura::Lectura (string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor) {
     this -> titulo = titulo;
