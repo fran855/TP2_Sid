@@ -13,11 +13,12 @@ Menu::Menu(Lista<Lectura> *lista_lecturas, Lista<Escritor> *listar_escritores)
 {
     this->lista_lecturas = lista_lecturas;
     this->lista_escritores = listar_escritores;
+    this -> cola_creada = false;
 
     srand(time(NULL)); // Inicializar semilla
 }
 
-void Menu::ejecutar_menu()
+void Menu::ejecutar_menu(Cola<Lectura>* cola_lecturas)
 {
     string auxiliar;
     do
@@ -92,7 +93,7 @@ void Menu::ejecutar_menu()
             break;
 
         case CREAR_COLA:
-            crear_cola();
+            crear_cola(cola_lecturas);
             cout << RAYITAS << endl;
             cout << endl;
             break;
@@ -354,29 +355,32 @@ void Menu::listar_novelas_genero()
     }
 }
 
-void Menu::crear_cola(){
-    bool fue_leido;
-    string auxiliar;
+void Menu::crear_cola(Cola<Lectura>* cola_lecturas){
+        string auxiliar;
+        char fue_leido;
+
+        if(cola_creada == false){
+            cola_lecturas -> encolar(lista_lecturas);
+            cola_creada = true;
+        }
     
-    Cola<Lectura> cola_lecturas;
-
-    cola_lecturas.encolar(lista_lecturas);
-    
-    cout << MSJ_MOSTRAR_COLA << endl;
-    cola_lecturas.consulta();
-
-    cout << MSJ_HA_LEIDO << endl;
-    cin >> fue_leido;
-    getline(cin, auxiliar, '\n'); // Limpiar buffer
-
-    fue_leido = tolower(fue_leido);
-
-    while(fue_leido == 's'){
-        cola_lecturas.baja();
         cout << MSJ_MOSTRAR_COLA << endl;
-        cola_lecturas.consulta();
+        cola_lecturas -> consulta();
+
         cout << MSJ_HA_LEIDO << endl;
         cin >> fue_leido;
         getline(cin, auxiliar, '\n'); // Limpiar buffer
-    }
+
+        fue_leido = tolower(fue_leido);
+
+        if(cola_lecturas -> vacia()){
+            cout << MSJ_COLA_VACIA << endl;
+        }else{
+            cola_lecturas -> baja();
+            cout << MSJ_MOSTRAR_COLA << endl;
+            cola_lecturas -> consulta();
+        }   
+}
+
+Menu::~Menu(){
 }

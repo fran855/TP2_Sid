@@ -8,6 +8,7 @@
 #include "lectura.h"
 #include "novela.h"
 #include "genero.h"
+#include "cola.h"
 
 using namespace std;
 
@@ -35,6 +36,7 @@ const string MSJ_INGRESAR_NOMBRE = "Ingrese el nombre y apellido del escritor:";
 const string MSJ_INGRESAR_NACIONALIDAD = "Ingrese la nacionalidad del escritor:";
 const string MSJ_INGRESAR_NACIMIENTO = "Ingrese el año de nacimiento del escritor:";
 const string MSJ_INGRESAR_FALLECIMIENTO = "Ingrese el año de fallecimiento del escritor:";
+const string MSJ_COLA_VACIA = "¡No hay más lecturas! Hiciste feliz a Sid :)";
 const string RAYITAS = "-----------------------------------------------------";
 
 enum Opciones_menu {
@@ -57,17 +59,19 @@ private:
     int eleccion;
     Lista<Escritor>* lista_escritores;
     Lista<Lectura>* lista_lecturas;
+    Cola<Lectura>* cola_lecturas;
+    bool cola_creada;
 
 public:
     // Constructor por defecto
     Menu(Lista<Lectura>* lista_lecturas, Lista<Escritor>* listar_escritores);
 
     // Destructor por defecto
-    ~Menu(){};
+    ~Menu();
 
     // Ejecuta el menu para que el usuario pueda ingresar la accion por realizar
     // PRE: INGRESAR UN NÚMERO
-    void ejecutar_menu();
+    void ejecutar_menu(Cola<Lectura>* cola_lecturas);
 
     void nueva_lectura();
 
@@ -90,7 +94,7 @@ public:
 
     void listar_novelas_genero();
 
-    void crear_cola();
+    void crear_cola(Cola<Lectura>* cola_lecturas);
 
 private:
     Escritor* obtener_autor(Lista<Escritor>* lista_escritores);

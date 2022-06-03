@@ -21,7 +21,7 @@ private:
 public:
     Parser_escritores(Lista<Escritor> * lista, char ** argv);
     ~Parser_escritores();
-    void parsear();
+    void procesar_datos();
 
 private:
     void generar_anonimo();

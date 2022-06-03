@@ -18,15 +18,8 @@ void Parser_escritores::generar_anonimo(){
     anio_fallecimiento = -1;
 }
 
-void Parser_escritores::parsear(){
+void Parser_escritores::procesar_datos(){
     ifstream archivo(entrada);
-    
-	/*
-	this -> generar_anonimo();
-	
-    Escritor nuevo_escritor(id, nombre_apellido, nacionalidad, anio_nacimiento, anio_fallecimiento);
-    lista_escritores.alta(nuevo_escritor, 0);
-    */
 	
     string auxiliar;
     int i = 1;
