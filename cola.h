@@ -84,6 +84,7 @@ void Cola<Tipo>::baja(){
 template <class Tipo>
 void Cola<Tipo>::consulta(){
   primero -> obtener_dato() -> mostrar();
+  cout << endl;
 }
 
 // Vacia
@@ -107,8 +108,8 @@ void Cola<Tipo>::encolar(Lista<Tipo>* lista){
 
   for (int i = 0; i < lista -> obtener_cantidad(); i++){
     minimo = lista -> encontrar_minimo(minimo, minutos_anterior);
-    alta(minimo -> obtener_dato('p'));
-    minutos_anterior = ((minimo -> obtener_dato()).obtener_minutos());
+    alta(minimo -> obtener_dato());
+    minutos_anterior = ((minimo -> obtener_dato()) -> obtener_minutos());
   }
   
 };

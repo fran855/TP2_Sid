@@ -16,10 +16,18 @@ int main(int argc, char * argv[]){
 	parser_escritores.parsear();
   Parser_lectura parser_lecturas(argv);
   parser_lecturas.procesar_datos(lista_escritores, lista_lecturas);
-  
+  /*
   Menu menu(lista_lecturas, lista_escritores);
   menu.ejecutar_menu();
+*/
 
+  Cola <Lectura>* cola_lecturas = new Cola<Lectura>;
+  cola_lecturas->encolar(lista_lecturas);
+  while(!cola_lecturas->vacia()){
+    cola_lecturas->consulta();
+    cola_lecturas->baja();
+  }
+  
   delete lista_escritores;
   delete lista_lecturas;
 
