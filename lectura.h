@@ -41,7 +41,7 @@ public:
     // POS:  devuelve – 1 si la lectura que llama es menor a la que se pasa por parámetro
     //       devuelve 1 si la que llama es mayor a la que se pasa por parámetro
     //       devuelve 0 si son iguales
-    int comparar(Lectura& lectura);
+    int comparar(Lectura* lectura);
 
     // Comparar minutos de lectura
     // PRE: lectura debe ser un puntero valido

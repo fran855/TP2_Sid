@@ -20,7 +20,9 @@ int main(int argc, char * argv[]){
   lista_lecturas->mostrar();
 
   cout << "-------------------------------------------" << endl;
-  cout << "Se crea la cola ordenada" << endl;
+
+  
+  /* cout << "Se crea la cola ordenada" << endl;
 
   Cola<Lectura> la_cola;
   la_cola.encolar(lista_lecturas);
@@ -31,7 +33,7 @@ int main(int argc, char * argv[]){
     la_cola.consulta();
     la_cola.baja();
     cout << endl;
-  }
+  } */
 
 
   

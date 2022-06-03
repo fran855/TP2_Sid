@@ -37,7 +37,7 @@ void Parser_lectura:: procesar_datos(Lista<Escritor>* lista_escritores, Lista<Le
       getline(archivo_lectura, libro);
       autor = obtener_autor(lista_escritores);
       nueva_lectura = new Cuento(titulo, minutos, anio, libro, autor);
-      lista_lecturas -> alta(nueva_lectura, ++contador);
+      lista_lecturas -> alta(nueva_lectura);
     }
     else if (tipo_lectura == "N"){
       getline(archivo_lectura, auxiliar);
@@ -48,11 +48,11 @@ void Parser_lectura:: procesar_datos(Lista<Escritor>* lista_escritores, Lista<Le
         tema = obtener_tema(auxiliar);
         autor = obtener_autor(lista_escritores);
         nueva_lectura = new Novela_historica(titulo, minutos, anio, tema, autor);
-        lista_lecturas -> alta(nueva_lectura, ++contador);
+        lista_lecturas -> alta(nueva_lectura);
       }else{
         autor = obtener_autor(lista_escritores);
         nueva_lectura = new Novela(titulo, minutos, anio, genero, autor);
-        lista_lecturas -> alta(nueva_lectura, ++contador);
+        lista_lecturas -> alta(nueva_lectura);
       }
     }
     else if (tipo_lectura == "P") {
@@ -60,7 +60,7 @@ void Parser_lectura:: procesar_datos(Lista<Escritor>* lista_escritores, Lista<Le
       versos = stoi(auxiliar);
       autor = obtener_autor(lista_escritores);
       nueva_lectura = new Poema(titulo, minutos, anio, versos, autor);
-      lista_lecturas -> alta(nueva_lectura, ++contador);
+      lista_lecturas -> alta(nueva_lectura);
     }
   
     getline(archivo_lectura, auxiliar); //saca el separador

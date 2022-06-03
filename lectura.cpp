@@ -18,11 +18,11 @@ Lectura::Lectura () {
 
 Lectura::~Lectura(){}
 
-int Lectura::comparar(Lectura& lectura){
+int Lectura::comparar(Lectura* lectura){
     int resultado;
-    if (this -> anio < lectura.obtener_anio())
+    if (this -> anio < lectura -> obtener_anio())
         resultado = -1;
-    else if (this -> anio == lectura.obtener_anio())
+    else if (this -> anio == lectura -> obtener_anio())
         resultado = 0;
     else
         resultado = 1;

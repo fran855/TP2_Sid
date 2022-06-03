@@ -18,10 +18,15 @@ public:
 	//POS: Construye una Lista vacía
 	Lista();
 
-	//Alta                                                      [tomamos 1 como el inicio]
+	//Alta por posicion                                    [tomamos 1 como el inicio]
 	//PRE: e es un Tipo valido y 1 <= pos <= obtener_cantidad + 1
 	//POS: agrega el elemento en la posición pos (se empieza por 1)
 	void alta(Tipo* elemento, int pos);
+
+	//Alta ordenada
+	//PRE: elemento es un puntero valido
+	//POS: inserta de manera ordenada el elemento en la lista
+	void alta(Tipo* elemento);
 
 	//Baja
 	//PRE: 1 <= pos <= obtener_cantidad()
@@ -94,7 +99,7 @@ Nodo<Tipo>* Lista<Tipo>::obtener_nodo(int pos){
 }
 
 
-//Alta
+ //Alta
 template <class Tipo>
 void Lista<Tipo>::alta(Tipo* elemento, int pos){
 	Nodo<Tipo>* nuevo = new Nodo<Tipo>(elemento);
@@ -109,6 +114,41 @@ void Lista<Tipo>::alta(Tipo* elemento, int pos){
 		anterior -> cambiar_siguiente(nuevo);
 	}
 	cantidad++;
+} 
+
+template <class Tipo>
+void Lista<Tipo>::alta(Tipo* elemento){
+Nodo<Tipo>* nuevo = new Nodo<Tipo>(elemento);
+	
+	bool fue_ubicada = false;
+
+	// Caso donde la lista se encuentra vacia
+	if (primero == nullptr){
+		primero = nuevo;
+		cantidad++;
+		fue_ubicada = true;
+	} else if ((nuevo -> obtener_dato()) -> comparar(primero -> obtener_dato()) == -1 && fue_ubicada == false) {	//caso donde es menor que el primero
+		nuevo -> cambiar_siguiente(primero);
+		primero = nuevo;
+		cantidad++;
+		fue_ubicada = true;
+	} else if (fue_ubicada == false) {
+
+		// Localizando el nodo antes de la insersion
+		Nodo<Tipo>* actual = primero;
+
+		// Cuando tengo 2 o mas elementos / 
+		while (actual -> obtener_siguiente() != nullptr && (nuevo -> obtener_dato()) -> comparar(actual -> obtener_siguiente() -> obtener_dato()) == 1 && fue_ubicada == false) {
+			actual = actual -> obtener_siguiente();
+		};
+
+		if (fue_ubicada == false){
+			nuevo -> cambiar_siguiente(actual -> obtener_siguiente());
+			actual -> cambiar_siguiente(nuevo);
+			cantidad++;
+			fue_ubicada = true;
+		}
+	}
 }
 
 //Baja
