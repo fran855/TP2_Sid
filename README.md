@@ -16,3 +16,8 @@
 
 ## Etapa 2
 - Si funcionó, extender los cambios
+
+
+## Nuevos cambios
+- Agregar validaciones cuando entra texto (no de si es null o no sino de si esta mal escrito)
+- Cuando se ordene la lista, chequear mostrar por años

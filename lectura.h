@@ -4,6 +4,7 @@
 #include <string>
 #include "escritor.h"
 #include <iostream>
+#include "genero.h"
 
 using namespace std;
 
@@ -29,8 +30,8 @@ public:
     //Sobrecarga operador
     //PRE:
     //POS:
-/*     void operator= (Lectura lectura2);
- */  
+    //void operator= (Lectura lectura2);
+
 // Destructor
     // PRE: -
     // POS: -
@@ -74,6 +75,7 @@ public:
     // PRE: -
     // POS: devulve un puntero a un objeto de tipo Escritor
     Escritor* obtener_autor();
+
 };
 
 #endif

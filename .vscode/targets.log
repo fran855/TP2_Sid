@@ -13,7 +13,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
  
 
  
-# Make data base, printed on Thu Jun  2 17:07:44 2022
+# Make data base, printed on Thu Jun  2 22:08:22 2022
  
 
 # Variables
@@ -41,26 +41,47 @@ DESKTOP_SESSION = ubuntu
 .SHELLFLAGS := -c
  
 # environment
+ 
 XDG_SESSION_CLASS = user
+ 
 # environment
+ 
 XDG_SESSION_TYPE = x11
+ 
 # environment
+ 
 VSCODE_LOG_NATIVE = false
+ 
 # automatic
+ 
 ?D = $(patsubst %/,%,$(dir $?))
+ 
 # environment
+ 
 IM_CONFIG_PHASE = 1
+ 
 # automatic
+ 
 @D = $(patsubst %/,%,$(dir $@))
+ 
 # environment
+ 
 XAUTHORITY = /run/user/1000/gdm/Xauthority
+ 
 # environment
+ 
 GDMSESSION = ubuntu
+ 
 # environment
+ 
 XMODIFIERS = @im=ibus
+ 
 # makefile
+ 
 CURDIR := /home/fran/Documentos/Algoritmos/TP2_Sid
+ 
 # makefile
+ 
 SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"es-419","availableLanguages":{},"_languagePackSupport":true}
@@ -109,7 +130,9 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
+ 
 INVOCATION_ID = 9598f6512f3c4f36b23c72ec4c114841
+ 
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -239,9 +262,9 @@ VSCODE_PID = 72318
 
 # Directories
 
-# . (device 2053, inode 2883677): 34 files, no impossibilities.
+# . (device 2053, inode 2883677): 47 files, no impossibilities.
 
-# 34 files, no impossibilities in 1 directories.
+# 47 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -251,15 +274,16 @@ VSCODE_PID = 72318
 
 parser_escritores.o: parser_escritores.cpp parser_escritores.h escritor.cpp escritor.h lista.h nodo.h
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-06-02 22:07:14.589056973
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'makefile', line 19):
 	$(CC) $(CFLAGS) -o parser_escritores.o -c parser_escritores.cpp
 
 # Not a target:
 menu.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-02 17:06:07.677933456
+#  Last modified 2022-06-02 21:36:50.89755042
 #  File has been updated.
 #  Successfully updated.
 
@@ -267,14 +291,15 @@ clear:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 43):
+#  recipe to execute (from 'makefile', line 46):
 	rm *.o
 
 # Not a target:
 cuento.h:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-06-02 16:17:21.039110163
+#  File has been updated.
+#  Successfully updated.
 
 all: sid clear
 #  Command line target.
@@ -285,23 +310,26 @@ all: sid clear
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 
-lectura.o: lectura.cpp lectura.h
+lectura.o: lectura.cpp lectura.h genero.h
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-06-02 22:07:14.1090518
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'makefile', line 13):
 	$(CC) $(CFLAGS) -o lectura.o -c lectura.cpp
 
 # Not a target:
 cuento.cpp:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-06-02 16:20:19.058196542
+#  File has been updated.
+#  Successfully updated.
 
 genero.o: genero.cpp genero.h
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-06-02 22:07:15.693068847
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'makefile', line 34):
 	$(CC) $(CFLAGS) -o genero.o -c genero.cpp
 
@@ -311,31 +339,28 @@ parser_lecturas_2.h:
 #  Modification time never checked.
 #  File has not been updated.
 
-sid: main.cpp menu.o lectura.o escritor.o parser_escritores.o parser_lecturas.o novela.o novela_historica.o cuento.o genero.o poema.o
+sid: main.cpp menu.o lectura.o escritor.o parser_escritores.o parser_lecturas.o novela.o novela_historica.o cuento.o genero.o poema.o funciones.o
 #  Implicit rule search has not been done.
-#  File does not exist.
+#  Last modified 2022-06-02 21:39:14.760248806
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 #  recipe to execute (from 'makefile', line 7):
- 
-	$(CC) $(CFLAGS) main.cpp -o sid menu.o lectura.o escritor.o parser_escritores.o parser_lecturas.o novela.o novela_historica.o cuento.o genero.o poema.o 
- 
+	$(CC) $(CFLAGS) main.cpp -o sid menu.o lectura.o escritor.o parser_escritores.o parser_lecturas.o novela.o novela_historica.o cuento.o genero.o poema.o funciones.o
 
- 
 # Not a target:
- 
 novela_historica.h:
- 
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-06-02 14:44:16.157554002
+#  File has been updated.
+#  Successfully updated.
 
 escritor.o: escritor.cpp escritor.h
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-06-02 22:07:14.317054042
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'makefile', line 16):
 	$(CC) $(CFLAGS) -o escritor.o -c escritor.cpp
 
@@ -347,9 +372,10 @@ escritor.o: escritor.cpp escritor.h
 
 # Not a target:
 poema.h:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-06-02 14:44:16.157554002
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 parser_lecturas_2.cpp:
@@ -359,47 +385,64 @@ parser_lecturas_2.cpp:
 
 # Not a target:
 novela_historica.cpp:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-06-02 16:33:30.943639755
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 nodo.h:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-06-02 14:44:16.157554002
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-02 17:07:32.628671824
+#  Last modified 2022-06-02 22:08:16.565663539
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 poema.cpp:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-06-02 16:22:29.464183103
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
+ 
 parser_lecturas.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+ 
+#  Implicit rule search has been done.
+ 
+#  Last modified 2022-06-02 22:07:14.845059732
+ 
+#  File has been updated.
+ 
+#  Successfully updated.
+
+# Not a target:
+funciones.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-02 22:06:04.200212675
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 main.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-02 17:05:23.632957092
+#  Last modified 2022-06-02 21:02:39.856038852
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 novela.h:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-06-02 14:44:16.157554002
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 lista.h:
@@ -409,28 +452,38 @@ lista.h:
 #  Successfully updated.
 
 # Not a target:
+funciones.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-02 22:06:10.564296378
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
 novela.cpp:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-06-02 20:33:10.817701115
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 menu.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-02 17:04:06.044376023
+#  Last modified 2022-06-02 22:05:43.455929028
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 parser_escritores.h:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-05-31 15:45:10.702586947
+#  File has been updated.
+#  Successfully updated.
 
 cuento.o: cuento.cpp cuento.h lectura.cpp lectura.h escritor.cpp escritor.h
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-06-02 22:07:15.541067214
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'makefile', line 31):
 	$(CC) $(CFLAGS) -o cuento.o -c cuento.cpp
 
@@ -443,21 +496,23 @@ cuento.o: cuento.cpp cuento.h lectura.cpp lectura.h escritor.cpp escritor.h
 # Not a target:
 lectura.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-02 16:17:21.039110163
+#  Last modified 2022-06-02 21:31:55.303013852
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 parser_escritores.cpp:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-06-02 14:44:16.157554002
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 genero.h:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-06-02 17:12:51.223992691
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 lectura.cpp:
@@ -468,9 +523,10 @@ lectura.cpp:
 
 # Not a target:
 genero.cpp:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-06-02 14:44:16.157554002
+#  File has been updated.
+#  Successfully updated.
 
 parser_lecturas_2.o: parser_lecturas_2.cpp parser_lecturas_2.h lectura.cpp lectura.h escritor.cpp escritor.h lista.h nodo.h cuento.cpp cuento.h poema.cpp poema.h genero.cpp genero.h novela.cpp novela.h novela_historica.cpp novela_historica.h
 #  Implicit rule search has not been done.
@@ -488,15 +544,17 @@ escritor.h:
 
 novela_historica.o: novela_historica.cpp novela_historica.h novela.cpp novela.h lectura.cpp lectura.h genero.cpp genero.h escritor.cpp escritor.h
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-06-02 22:07:15.341065065
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'makefile', line 28):
 	$(CC) $(CFLAGS) -o novela_historica.o -c novela_historica.cpp
 
 poema.o: poema.cpp poema.h lectura.cpp lectura.h escritor.cpp escritor.h
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-06-02 22:07:15.941071511
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'makefile', line 37):
 	$(CC) $(CFLAGS) -o poema.o -c poema.cpp
 
@@ -507,54 +565,63 @@ escritor.cpp:
 #  File has been updated.
 #  Successfully updated.
 
-novela.o: novela.cpp novela.h lectura.cpp lectura.h genero.cpp genero.h escritor.cpp escritor.h
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'makefile', line 25):
-	$(CC) $(CFLAGS) -o novela.o -c novela.cpp
-
-menu.o: menu.cpp menu.h escritor.cpp escritor.h lista.h lectura.cpp lectura.h
+funciones.o: funciones.cpp funciones.h
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: ''
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
-# @ := menu.o
+# @ := funciones.o
 # automatic
 # % := 
 # automatic
 # * := 
 # automatic
-# + := menu.cpp menu.h escritor.cpp escritor.h lista.h lectura.cpp lectura.h
+# + := funciones.cpp funciones.h
 # automatic
 # | := 
 # automatic
-# < := menu.cpp
+# < := funciones.cpp
 # automatic
-# ^ := menu.cpp menu.h escritor.cpp escritor.h lista.h lectura.cpp lectura.h
+# ^ := funciones.cpp funciones.h
 # automatic
-# ? := menu.cpp menu.h escritor.cpp escritor.h lista.h lectura.cpp lectura.h
+# ? := funciones.cpp funciones.h
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/13=8%
+#  recipe to execute (from 'makefile', line 43):
+	$(CC) $(CFLAGS) -o funciones.o -c funciones.cpp
+
+novela.o: novela.cpp novela.h lectura.cpp lectura.h genero.cpp genero.h escritor.cpp escritor.h
+#  Implicit rule search has not been done.
+#  Last modified 2022-06-02 22:07:15.097062444
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile', line 25):
+	$(CC) $(CFLAGS) -o novela.o -c novela.cpp
+
+menu.o: menu.cpp menu.h escritor.cpp escritor.h lista.h lectura.cpp lectura.h funciones.cpp funciones.h
+#  Implicit rule search has not been done.
+#  Last modified 2022-06-02 22:07:13.905049599
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'makefile', line 40):
 	$(CC) $(CFLAGS) -o menu.o -c menu.cpp
 
 # files hash-table stats:
-# Load=40/1024=4%, Rehash=0, Collisions=3/143=2%
+# Load=43/1024=4%, Rehash=0, Collisions=4/153=3%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 54 / storage = 633 B / avg = 11 B
-# current buf: size = 8162 B / used = 633 B / count = 54 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 57 / storage = 671 B / avg = 11 B
+# current buf: size = 8162 B / used = 671 B / count = 57 / avg = 11 B
 
-# strcache performance: lookups = 150 / hit rate = 64%
+# strcache performance: lookups = 171 / hit rate = 66%
 # hash-table stats:
-# Load=54/8192=1%, Rehash=0, Collisions=1/150=1%
-# Finished Make data base on Thu Jun  2 17:07:44 2022
+# Load=57/8192=1%, Rehash=0, Collisions=1/171=1%
+# Finished Make data base on Thu Jun  2 22:08:22 2022
 
  
