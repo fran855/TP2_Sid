@@ -204,9 +204,9 @@ Nodo<Tipo>* Lista<Tipo>::encontrar_minimo(Nodo<Tipo>* nodo_1, unsigned int minut
 		if (minimo == nodo_1)
 			minimo = cursor -> obtener_siguiente();
 
-		int comparacion = (cursor -> obtener_dato('m')) -> comparar(minimo -> obtener_dato('m'), 'm');
+		int comparacion = (cursor -> obtener_dato()) -> comparar(minimo -> obtener_dato(), 'm');
 
-		if ((comparacion == -1) && (cursor != nodo_1) && ((cursor -> obtener_dato('m')) -> obtener_minutos() >= minutos_anterior))
+		if ((comparacion == -1) && (cursor != nodo_1) && ((cursor -> obtener_dato()) -> obtener_minutos() >= minutos_anterior))
 			minimo = cursor;
 		
 		cursor = cursor -> obtener_siguiente();
