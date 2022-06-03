@@ -16,6 +16,7 @@ const string MSJ_INGRESAR_TIPO_LECTURA = "Ingrese N (Novela), C (Cuento) o P (Po
 const string MSJ_INGRESAR_TITULO = "Ingrese el titulo de la obra:";
 const string MSJ_INGRESAR_LIBRO = "Ingrese el libro:";
 const string MSJ_INGRESAR_TEMA = "Ingrese el tema:";
+const string MSJ_INGRESAR_GENERO = "Ingrese el genero:";
 const string MSJ_INGRESAR_VERSOS = "Ingrese la cantidad de versos:";
 const string MSJ_INGRESAR_MINUTOS = "Ingrese los minutos estimados de lectura";
 const string MSJ_INGRESAR_ANIO = "Ingrese el año de publicacion de la obra:";
@@ -26,9 +27,9 @@ const string MSJ_ESCRITOR_FALLECIMIENTO = "Inrgese el nombre y apellido del auto
 const string MSJ_ANIO_FALLECIMIENTO = "Inrgese el anio actualizado de fallecimiento:";
 const string MSJ_INTERVALO_ANIOS = "Ingrese el intervalo de anios deseado:";
 const string MSJ_LISTAR_LECTURAS_ESCRITOR = "Ingrese el nombre y apellido del escritor para ver sus obras:";
-const string MSJ_INGRESAR_GENERO = "Ingrese el genero de las obras que quiere buscar:";
-const string MSJ_MOSTRAR_COLA = "Se muestra el siguiente elemento de la cola:";
-const string MSJ_HA_LEIDO = "¿Ha sido leida la obra? Ingresar 1 (verdadero) o 0 (falso)";
+const string MSJ_INGRESAR_GENERO_BUSCAR = "Ingrese el genero de las obras que quiere buscar:";
+const string MSJ_MOSTRAR_COLA = "La próxima lectura que podrías leer es:";
+const string MSJ_HA_LEIDO = "¿Ha sido leida la obra? (s/n)";
 const string MSJ_INGRESAR_ID = "Ingrese el ID del escritor:";
 const string MSJ_INGRESAR_NOMBRE = "Ingrese el nombre y apellido del escritor:";
 const string MSJ_INGRESAR_NACIONALIDAD = "Ingrese la nacionalidad del escritor:";
@@ -68,10 +69,6 @@ public:
     // PRE: INGRESAR UN NÚMERO
     void ejecutar_menu();
 
-    Escritor* obtener_autor(Lista<Escritor>* lista_escritores);
-
-    char* obtener_tema(string tema);
-
     void nueva_lectura();
 
     void quitar_lectura();
@@ -93,7 +90,12 @@ public:
 
     void listar_novelas_genero();
 
-    //void crear_cola();
+    void crear_cola();
+
+private:
+    Escritor* obtener_autor(Lista<Escritor>* lista_escritores);
+
+    char* obtener_tema(string tema);
 
 };
 

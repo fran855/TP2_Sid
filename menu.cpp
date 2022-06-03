@@ -1,5 +1,6 @@
 #include <ctime>
 #include "menu.h"
+#include "cola.h"
 #include "funciones.h"
 #include "cuento.h"
 #include "poema.h"
@@ -91,7 +92,7 @@ void Menu::ejecutar_menu()
             break;
 
         case CREAR_COLA:
-            // crear_cola();
+            crear_cola();
             cout << RAYITAS << endl;
             cout << endl;
             break;
@@ -340,7 +341,7 @@ void Menu::listar_lecturas_escritor()
 void Menu::listar_novelas_genero()
 {
     string aux;
-    cout << MSJ_INGRESAR_GENERO << endl;
+    cout << MSJ_INGRESAR_GENERO_BUSCAR << endl;
     cin >> aux;
     genero_t genero = string_to_genero(aux);
 
@@ -353,23 +354,29 @@ void Menu::listar_novelas_genero()
     }
 }
 
-/*
 void Menu::crear_cola(){
     bool fue_leido;
-    Cola<Lectura> la_cola;
+    string auxiliar;
+    
+    Cola<Lectura> cola_lecturas;
 
-    la_cola.encolar(&lista_lecturas);
+    cola_lecturas.encolar(lista_lecturas);
+    
     cout << MSJ_MOSTRAR_COLA << endl;
-    la_cola.consulta();
+    cola_lecturas.consulta();
+
     cout << MSJ_HA_LEIDO << endl;
     cin >> fue_leido;
+    getline(cin, auxiliar, '\n'); // Limpiar buffer
 
-    do {
-        la_cola.baja();
+    fue_leido = tolower(fue_leido);
+
+    while(fue_leido == 's'){
+        cola_lecturas.baja();
         cout << MSJ_MOSTRAR_COLA << endl;
-        la_cola.consulta();
+        cola_lecturas.consulta();
         cout << MSJ_HA_LEIDO << endl;
         cin >> fue_leido;
-    } while (fue_leido == true);
+        getline(cin, auxiliar, '\n'); // Limpiar buffer
+    }
 }
-*/
