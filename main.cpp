@@ -28,7 +28,7 @@ int main(int argc, char * argv[]){
   cout << endl << "Se crea la cola ordenada" << endl;
 
   Cola<Lectura> la_cola;
-  la_cola.encolar(lista_lecturas);
+  la_cola.lista_a_cola(lista_lecturas);
 
   cout << "-------------------------------------------" << endl;
   cout << "Se muestra el proximo elemento de la cola:" << endl;

@@ -242,7 +242,7 @@ void Menu<Tipo>::crear_cola(){
     bool fue_leido;
     Cola<Lectura> la_cola;
             
-    la_cola.encolar(&lista_lecturas);
+    la_cola.lista_a_cola(&lista_lecturas);
     cout << MSJ_MOSTRAR_COLA << endl;
     la_cola.consulta();
     cout << MSJ_HA_LEIDO << endl;

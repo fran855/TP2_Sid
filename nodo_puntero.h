@@ -3,7 +3,6 @@
 
 template <class Tipo>
 
-// Los nodos de la cola tienen como datos, punteros a los Nodos de la lista
 
 class Nodo_puntero{
 private:

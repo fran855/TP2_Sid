@@ -9,7 +9,7 @@ using namespace std;
 template <class Tipo>
 class Lista{
 private:
-	Nodo<Tipo>* primero;   //me alcanza con un puntero al primero solamente
+	Nodo<Tipo>* primero;
 	int cantidad;
 
 public:
@@ -18,7 +18,7 @@ public:
 	//POS: Construye una Lista vacía
 	Lista();
 
-	//Alta por posicion                                    [tomamos 1 como el inicio]
+	//Alta por posicion              [tomamos 1 como el inicio]
 	//PRE: e es un Tipo valido y 1 <= pos <= obtener_cantidad + 1
 	//POS: agrega el elemento en la posición pos (se empieza por 1)
 	void alta(Tipo* elemento, int pos);
@@ -44,47 +44,51 @@ public:
 	Tipo* consulta(int pos, char m);
 	
 	//Mostrar
-	//PRE: -
+	//PRE: la lista no tiene que estar vacia.
 	//POS: muestra por pantalla los elementos de la lista
 	void mostrar();
 
     //Obtener_cantidad
     //PRE: -
-    //POS: devuelve la cantidad de elementos de la lista
+    //POS: devuelve la cantidad de elementos de la lista.
     int obtener_cantidad();
 
 	//Vacía
 	//PRE: -
-	//POS: devuelve true si la Lista está vacía, false de lo contrario
+	//POS: devuelve true si la Lista está vacía, false de lo contrario.
 	bool vacia();
 
 	// Sobrecarga del operador =
+	// PRE: lista_2 tiene que ser una lista no vacia.
+	// POS: -
 	void operator=(Lista<Tipo> lista2);
 
 	// Encuentra el nodo con el menor tiempo de lectura
 	// PRE: minimo_anterior tiene que ser un puntero valido.
-	// POS: Devuelve un puntero al nodo del menor elemento.
+	// POS: Devuelve un puntero al nodo del menor elemento cuyo parametro
+	//		de comparación es mayor o igual al de minimo_anterior, pero no
+	//		es minimo_anterior.
 	Nodo<Tipo>* encontrar_minimo(Nodo<Tipo>* minimo_anterior);
 
 
-	//Destructor
+	// Destructor
 	~Lista();
 
 
-//private:
+// private:
 	
 	Nodo<Tipo>* obtener_nodo(int pos);
 
 };
 
-//Constructor
+// Constructor
 template <class Tipo>
 Lista<Tipo>::Lista(){
 	primero = 0;
 	cantidad = 0;
 }
 
-//Obtener_nodo (privada)
+// Obtener_nodo (privada)
 template <class Tipo>
 Nodo<Tipo>* Lista<Tipo>::obtener_nodo(int pos){
 	Nodo<Tipo>* aux = primero;
@@ -99,7 +103,7 @@ Nodo<Tipo>* Lista<Tipo>::obtener_nodo(int pos){
 }
 
 
- //Alta
+// Alta - Da de alta un elemento en la posicion pos en la lista
 template <class Tipo>
 void Lista<Tipo>::alta(Tipo* elemento, int pos){
 	Nodo<Tipo>* nuevo = new Nodo<Tipo>(elemento);
@@ -116,6 +120,7 @@ void Lista<Tipo>::alta(Tipo* elemento, int pos){
 	cantidad++;
 } 
 
+// Sobrecarga de alta() - Da de alta el elemento en la lista quedando ordenada por el parametro que se busca comparar
 template <class Tipo>
 void Lista<Tipo>::alta(Tipo* elemento){
 Nodo<Tipo>* nuevo = new Nodo<Tipo>(elemento);
@@ -149,7 +154,7 @@ Nodo<Tipo>* nuevo = new Nodo<Tipo>(elemento);
 	}
 }
 
-//Baja
+// Baja
 template <class Tipo>
 void Lista<Tipo>::baja(int pos){
 	Nodo<Tipo>* borrar = primero;
@@ -167,7 +172,7 @@ void Lista<Tipo>::baja(int pos){
 }
 
 
-//Consulta
+// Consulta
 template <class Tipo>
 Tipo* Lista<Tipo>::consulta(int pos){
 	Nodo<Tipo>* aux = primero;
@@ -179,7 +184,7 @@ Tipo* Lista<Tipo>::consulta(int pos){
 	return aux -> obtener_dato();
 }
 
-//Consulta
+// Consulta
 template <class Tipo>
 Tipo* Lista<Tipo>::consulta(int pos, char m){
 	Nodo<Tipo>* aux = primero;
@@ -191,19 +196,7 @@ Tipo* Lista<Tipo>::consulta(int pos, char m){
 	return &(aux -> obtener_dato());
 }
 
-//Vacia
-template <class Tipo>
-bool Lista<Tipo>::vacia(){
-	return (cantidad == 0);
-}
-
-//Obtener_cantidad
-template <class Tipo>
-int Lista<Tipo>::obtener_cantidad(){
-	return cantidad;
-}
-
-//mostrar
+// Mostrar
 template <class Tipo>
 void Lista<Tipo>::mostrar(){
 	Nodo<Tipo>* aux = primero;
@@ -218,14 +211,26 @@ void Lista<Tipo>::mostrar(){
 
 }
 
+// Obtener_cantidad
+template <class Tipo>
+int Lista<Tipo>::obtener_cantidad(){
+	return cantidad;
+}
 
-//Destructor
+// Vacia
+template <class Tipo>
+bool Lista<Tipo>::vacia(){
+	return (cantidad == 0);
+}
+
+// Destructor
 template <class Tipo>
 Lista<Tipo>::~Lista<Tipo>(){
 	while(! vacia())
 		baja(1);
 }
 
+// Sobrecarga del operador =
 template <class Tipo>
 void Lista<Tipo>::operator=(Lista<Tipo> lista2){
 	this -> primero = lista2.primero;
@@ -236,10 +241,10 @@ void Lista<Tipo>::operator=(Lista<Tipo> lista2){
 template <class Tipo>
 Nodo<Tipo>* Lista<Tipo>::encontrar_minimo(Nodo<Tipo>* minimo_anterior){
 	Nodo<Tipo>* minimo = nullptr;
+	Nodo<Tipo>* cursor = primero;
 
-	// Caso con el primer minimo / Voy a tener minimo_anterior = nullptr y minutos anterior != 0
+	// Caso con el primer minimo / Voy a tener minimo_anterior = nullptr
 	if (minimo_anterior == nullptr) {
-		Nodo<Tipo>* cursor = primero;
 		Nodo<Tipo>* minimo_auxiliar = primero;
 
 		while (cursor != nullptr) {
@@ -253,7 +258,6 @@ Nodo<Tipo>* Lista<Tipo>::encontrar_minimo(Nodo<Tipo>* minimo_anterior){
 		}
 		minimo = minimo_auxiliar;
 	} else { // Caso donde ya se encontro un minimo previamente / minimo_anterior != nullptr y minutos_anterior != 0
-		Nodo<Tipo>* cursor = primero;
 		Nodo<Tipo>* minimo_auxiliar = nullptr;
 
 		// Tengo que recorrer la lista hasta que un nodo tenga minutos >= a minutos_anterior y sea != minimo anterior
@@ -263,87 +267,15 @@ Nodo<Tipo>* Lista<Tipo>::encontrar_minimo(Nodo<Tipo>* minimo_anterior){
 			// Caso donde el apuntado por el cursor es >= a los minutos del minimo anterior Y no es el minimo anterior
 			if ((comparacion == 0 || comparacion == 1) && cursor != minimo_anterior && minimo_auxiliar == nullptr){
 				minimo_auxiliar = cursor;
-			} 
-			else if((comparacion == 0 || comparacion == 1) && cursor != minimo_anterior && minimo_auxiliar != nullptr && (cursor -> obtener_dato() -> comparar(minimo_auxiliar -> obtener_dato(), 'm') == -1)) {
+			} else if((comparacion == 0 || comparacion == 1) && cursor != minimo_anterior && minimo_auxiliar != nullptr && (cursor -> obtener_dato() -> comparar(minimo_auxiliar -> obtener_dato(), 'm') == -1)) {
 				minimo_auxiliar = cursor;
 			}
 			// Avanza al siguiente nodo
 			cursor = cursor -> obtener_siguiente();
-		} 
-
+		}
 		minimo = minimo_auxiliar;
 	}
-
 	return minimo;
 }
-
-
-
-
-
-
-
-
-
-
-
-/* template <class Tipo>
-Nodo<Tipo>* Lista<Tipo>::encontrar_minimo(Nodo<Tipo>* minimo_anterior, unsigned int minutos_anterior){
-
-	Nodo<Tipo>* cursor = primero;
-	Nodo<Tipo>* cursor_siguiente = cursor -> obtener_siguiente();
-	Nodo<Tipo>* minimo = primero;
-	
-	while (cursor_siguiente != nullptr) {
-
-		int es_menor = (cursor -> obtener_dato()) -> comparar(cursor_siguiente -> obtener_dato(), 'm');
-		int es_menor_que_minimo = (cursor -> obtener_dato()) -> comparar(minimo -> obtener_dato(), 'm');
-		// if (minimo != nullptr) // Caso donde es la primera vez que recorre 
-		// 	(cursor -> obtener_dato()) -> comparar(minimo -> obtener_dato(), 'm');
-
-		if (es_menor == 1 && es_menor_que_minimo == 1)	// Caso donde es el menor de los dos, y es menor que el minimo
-			minimo = cursor;
-
-		// Avanza al siguiente elemento de la lista
-		cursor = cursor_siguiente;
-		cursor_siguiente = cursor -> obtener_siguiente();
-	}
-
-	if (minimo_anterior == nullptr)
-		minimo_anterior = primero;
-
-	Nodo<Tipo>* cursor = primero;
-	Nodo<Tipo>* cursor_siguiente = cursor -> obtener_siguiente();
-	Nodo<Tipo>* minimo = primero;
-
-
-	while (cursor_siguiente != nullptr) {
-		int es_menor = (cursor -> obtener_dato()) -> comparar(cursor_siguiente -> obtener_dato(), 'm');
-
-		// if (es_menor == -1 && (cursor != minimo_anterior) && (cursor -> obtener_dato() -> obtener_minutos() >= minutos_anterior)){
-		// 	minimo = cursor;
-		// }
-
-		if (minimo == nullptr && es_menor == -1){
-			minimo = cursor;
-		}
-		
-
-		if (es_menor == -1 && (cursor -> obtener_dato()) -> comparar(minimo -> obtener_dato(), 'c') == 1){
-			minimo = cursor;
-		}
-	
-		// Avanza al siguiente elemento de la lista
-		cursor = cursor_siguiente;
-		cursor_siguiente = cursor -> obtener_siguiente();
-	};
-
-	if (minimo == nullptr){
-		minimo = cursor;
-	} 
-	
-	return minimo;
-} */
-
 
 #endif

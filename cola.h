@@ -26,14 +26,13 @@ public:
   void alta(Tipo* elemento);
 
   // Baja
-  // PRE: la Pila no puede estar vacía -> necesito otro método
-  // POS: quita el elemento del principio de la Cola [y  podría, por costumbre,
-  // devolverlo]
+  // PRE: la Cola no puede estar vacía
+  // POS: quita el elemento del principio de la Cola.
   void baja();
 
   // Consulta
-  // PRE: la Pila no puede estar vacía
-  // POS: muestra los datos del elemento al principio de la Cola (pero no modifica)
+  // PRE: la Cola no puede estar vacía
+  // POS: muestra los datos del elemento al principio de la Cola
   void consulta();
 
   // Vacía
@@ -44,7 +43,7 @@ public:
   // Toma una lista y arma una cola ordenada
   // PRE: lista debe ser un puntero valido a una lista
   // POS: -
-  void encolar(Lista<Tipo>* lista);
+  void lista_a_cola(Lista<Tipo>* lista);
 
   // Destructor
   ~Cola();
@@ -99,17 +98,15 @@ Cola<Tipo>::~Cola(){
     baja();
 }
 
-// Voy a recorrer la lista y armar la cola
+// Lista a Cola
+// Toma una lista y crea una cola ordenada de menor a mayor
 template <class Tipo>  
-void Cola<Tipo>::encolar(Lista<Tipo>* lista){
+void Cola<Tipo>::lista_a_cola(Lista<Tipo>* lista){
   Nodo<Tipo>* minimo = nullptr;
-  unsigned int minutos_anterior = 0;
 
   for (int i = 1; i <= lista -> obtener_cantidad(); i++){
     minimo = lista -> encontrar_minimo(minimo);
-    //minimo -> obtener_dato() -> mostrar();
     alta(minimo -> obtener_dato());
-    // minutos_anterior = ((minimo -> obtener_dato()) -> obtener_minutos());
   }
   
 };
