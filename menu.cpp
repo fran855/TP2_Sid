@@ -1,6 +1,12 @@
-#include "menu.h"
 #include <ctime>
+#include "menu.h"
 #include "funciones.h"
+#include "cuento.h"
+#include "poema.h"
+#include "novela.h"
+#include "novela_historica.h"
+
+using namespace std;
 
 Menu::Menu(Lista<Lectura> *lista_lecturas, Lista<Escritor> *listar_escritores)
 {
@@ -10,19 +16,22 @@ Menu::Menu(Lista<Lectura> *lista_lecturas, Lista<Escritor> *listar_escritores)
     srand(time(NULL)); // Inicializar semilla
 }
 
-void Menu::ejecutar_menu(){
+void Menu::ejecutar_menu()
+{
     string auxiliar;
-    do {
+    do
+    {
         cout << MSJ_CABECERA_MENU << endl;
         cin >> eleccion;
         cout << endl;
-        getline(cin, auxiliar, '\n');   // Limpiar buffer
+        getline(cin, auxiliar, '\n'); // Limpiar buffer
         cout << RAYITAS << endl;
 
-        switch (eleccion) {
+        switch (eleccion)
+        {
 
         case NUEVA_LECTURA:
-            //nueva_lectura();
+            nueva_lectura();
             cout << RAYITAS << endl;
             cout << endl;
             break;
@@ -64,7 +73,7 @@ void Menu::ejecutar_menu(){
             break;
 
         case LISTAR_LECTURAS_ANIOS:
-            //listar_lecturas_anios();
+            listar_lecturas_anios();
             cout << RAYITAS << endl;
             cout << endl;
             break;
@@ -82,7 +91,7 @@ void Menu::ejecutar_menu(){
             break;
 
         case CREAR_COLA:
-            //crear_cola();
+            // crear_cola();
             cout << RAYITAS << endl;
             cout << endl;
             break;
@@ -97,47 +106,125 @@ void Menu::ejecutar_menu(){
     } while (eleccion != SALIR);
 }
 
-/*
-void Menu::nueva_lectura(){
-    string titulo;
+Escritor* Menu::obtener_autor(Lista<Escritor> *lista_escritores)
+{
+    string nombre_apellido;
+    cout << MSJ_INRGESAR_REFERENCIA_AUTOR << endl;
+    getline(cin, nombre_apellido, '\n');
+    
+    if (nombre_apellido == "ANONIMO")
+    {
+        return nullptr;
+    }
+
+    Nodo<Escritor>* nodo_escritor = lista_escritores -> obtener_nodo(1);
+    while (nodo_escritor != NULL)
+    {
+        if (nodo_escritor->obtener_dato()->obtener_nombre_apellido() == nombre_apellido)
+        {
+            return nodo_escritor -> obtener_dato() -> obtener_direccion();
+        }
+        nodo_escritor = nodo_escritor->obtener_siguiente();
+    }
+
+    return nullptr; //¿si no lo encuentro es anonimo?    
+}
+
+char* Menu::obtener_tema(string tema)
+{
+    char *copia = new char[tema.size() + 1];
+    copy(tema.begin(), tema.end(), copia);
+    copia[tema.size()] = '\0';
+    return copia;
+}
+
+void Menu::nueva_lectura()
+{
+    char tipo_lectura;
+    string auxiliar, titulo, libro;
     unsigned int minutos;
     unsigned short int anio;
-    Escritor* autor;
+    Escritor *autor;
+    Lectura *nueva_lectura;
 
     cout << MSJ_INGRESAR_TIPO_LECTURA << endl;
-    //Ver parser de lectura
+    cin >> tipo_lectura;
+    tipo_lectura = tolower(tipo_lectura);
+    getline(cin, auxiliar, '\n'); // Limpiar buffer
+
     cout << MSJ_INGRESAR_TITULO << endl;
-    cin >> titulo;
+    getline(cin, titulo, '\n');
+
     cout << MSJ_INGRESAR_MINUTOS << endl;
     cin >> minutos;
+    getline(cin, auxiliar, '\n'); // Limpiar buffer
+
     cout << MSJ_INGRESAR_ANIO << endl;
     cin >> anio;
-    cout << MSJ_INRGESAR_INFO_LECTURA << endl;
-    //Ver parser de lectura
-    cout << MSJ_INRGESAR_REFERENCIA_AUTOR << endl;
+    getline(cin, auxiliar, '\n'); // Limpiar buffer
 
-    Lectura nuevo(titulo, minutos, anio, autor);
-    lista_lecturas.alta(nuevo);
+    if (tipo_lectura == 'c')
+    {
+        cout << MSJ_INGRESAR_LIBRO << endl;
+        getline(cin, libro, '\n');
+        autor = obtener_autor(lista_escritores);
+        nueva_lectura = new Cuento(titulo, minutos, anio, libro, autor);
+        lista_lecturas->alta(nueva_lectura);
+    }
+    else if (tipo_lectura == 'n')
+    {
+        cout << MSJ_INGRESAR_GENERO << endl;
+        getline(cin, auxiliar, '\n');
+        genero_t genero = string_to_genero(auxiliar);
+
+        if (genero == HISTORICA)
+        {
+            cout << MSJ_INGRESAR_TEMA << endl;
+            getline(cin, auxiliar, '\n');
+            char* tema = obtener_tema(auxiliar);
+            autor = obtener_autor(lista_escritores);
+            nueva_lectura = new Novela_historica(titulo, minutos, anio, tema, autor);
+            lista_lecturas->alta(nueva_lectura);
+        }
+        else
+        {
+            autor = obtener_autor(lista_escritores);
+            nueva_lectura = new Novela(titulo, minutos, anio, genero, autor);
+            lista_lecturas->alta(nueva_lectura);
+        }
+    }
+    else if (tipo_lectura == 'p')
+    {
+        cout << MSJ_INGRESAR_VERSOS << endl;
+        int versos;        
+        cin >> versos;
+        getline(cin, auxiliar, '\n'); // Limpiar buffer
+        autor = obtener_autor(lista_escritores);
+        nueva_lectura = new Poema(titulo, minutos, anio, versos, autor);
+        lista_lecturas->alta(nueva_lectura);
+    }
 }
-*/
 
-void Menu::quitar_lectura(){
+void Menu::quitar_lectura()
+{
     string referencia;
     cout << MSJ_BAJA_LISTA << endl;
     getline(cin, referencia, '\n');
     int posicion = 1;
-    Nodo<Lectura>* nodo_lectura = lista_lecturas -> obtener_nodo(1);
-    
-    while (nodo_lectura -> obtener_siguiente() != NULL && nodo_lectura -> obtener_dato() -> obtener_titulo() != referencia){
-        nodo_lectura = nodo_lectura -> obtener_siguiente();
+    Nodo<Lectura> *nodo_lectura = lista_lecturas->obtener_nodo(1);
+
+    while (nodo_lectura->obtener_siguiente() != NULL && nodo_lectura->obtener_dato()->obtener_titulo() != referencia)
+    {
+        nodo_lectura = nodo_lectura->obtener_siguiente();
         posicion++;
     }
 
-    lista_lecturas -> baja(posicion);
+    lista_lecturas->baja(posicion);
 }
 
-void Menu::agregar_escritor(){
-    int ultimo_id = lista_escritores -> obtener_cantidad();
+void Menu::agregar_escritor()
+{
+    int ultimo_id = lista_escritores->obtener_cantidad();
     string auxiliar, nombre_apellido, nacionalidad;
     int anio_nacimiento, anio_fallecimiento;
 
@@ -145,16 +232,17 @@ void Menu::agregar_escritor(){
     getline(cin, nombre_apellido, '\n');
     cout << MSJ_INGRESAR_NACIONALIDAD << endl;
     getline(cin, nacionalidad, '\n');
-    cout << MSJ_INGRESAR_FECHA_NACIMIENTO << endl;
+    cout << MSJ_INGRESAR_NACIMIENTO << endl;
     cin >> anio_nacimiento;
-    cout << MSJ_INGRESAR_FECHA_FALLECIMIENTO << endl;
+    cout << MSJ_INGRESAR_FALLECIMIENTO << endl;
     cin >> anio_fallecimiento;
 
-    Escritor* nuevo_escritor = new Escritor(ultimo_id + 1, nombre_apellido, nacionalidad, anio_nacimiento, anio_fallecimiento);    
-    lista_escritores -> alta(nuevo_escritor, ultimo_id + 1);
+    Escritor *nuevo_escritor = new Escritor(ultimo_id + 1, nombre_apellido, nacionalidad, anio_nacimiento, anio_fallecimiento);
+    lista_escritores->alta(nuevo_escritor, ultimo_id + 1);
 }
 
-void Menu::cambiar_dato_escritor(){
+void Menu::cambiar_dato_escritor()
+{
     int anio_fallecimiento_actualizado;
     string referencia;
     cout << MSJ_ESCRITOR_FALLECIMIENTO << endl;
@@ -163,11 +251,13 @@ void Menu::cambiar_dato_escritor(){
     cin >> anio_fallecimiento_actualizado;
     Nodo<Escritor> *nodo_escritor = lista_escritores->obtener_nodo(1);
 
-    while (nodo_escritor->obtener_siguiente() != NULL){
-        if (nodo_escritor -> obtener_dato() -> obtener_nombre_apellido() == referencia){
-            nodo_escritor -> obtener_dato() -> cambiar_fallecimiento(anio_fallecimiento_actualizado);
+    while (nodo_escritor->obtener_siguiente() != NULL)
+    {
+        if (nodo_escritor->obtener_dato()->obtener_nombre_apellido() == referencia)
+        {
+            nodo_escritor->obtener_dato()->cambiar_fallecimiento(anio_fallecimiento_actualizado);
         }
-        nodo_escritor = nodo_escritor -> obtener_siguiente();
+        nodo_escritor = nodo_escritor->obtener_siguiente();
     }
 }
 
@@ -188,8 +278,6 @@ void Menu::listar_lecturas_todas()
     lista_lecturas->mostrar();
 }
 
-/*
-(ya esta)
 void Menu::listar_lecturas_anios()
 {
     int cota_inferior, cota_superior;
@@ -207,10 +295,11 @@ void Menu::listar_lecturas_anios()
     while (primer_nodo->obtener_dato()->obtener_anio() <= cota_superior)
     {
         primer_nodo->obtener_dato()->mostrar();
+        cout << endl;
         primer_nodo = primer_nodo->obtener_siguiente();
     }
 }
-*/
+
 void Menu::listar_lecturas_escritor()
 {
     string nombre_apellido;
@@ -247,18 +336,20 @@ void Menu::listar_lecturas_escritor()
     }
 }
 
-//REVISAR QUE PASA SI NO HAY COINCIDENCIAS
-void Menu::listar_novelas_genero(){
+// REVISAR QUE PASA SI NO HAY COINCIDENCIAS
+void Menu::listar_novelas_genero()
+{
     string aux;
     cout << MSJ_INGRESAR_GENERO << endl;
     cin >> aux;
     genero_t genero = string_to_genero(aux);
 
-    Nodo<Lectura>* nodo_actual = lista_lecturas -> obtener_nodo(1);
+    Nodo<Lectura> *nodo_actual = lista_lecturas->obtener_nodo(1);
 
-    while(nodo_actual -> obtener_siguiente() != NULL){
-        nodo_actual -> obtener_dato() -> mostrar_si_genero(genero);
-        nodo_actual = nodo_actual -> obtener_siguiente();
+    while (nodo_actual->obtener_siguiente() != NULL)
+    {
+        nodo_actual->obtener_dato()->mostrar_si_genero(genero);
+        nodo_actual = nodo_actual->obtener_siguiente();
     }
 }
 

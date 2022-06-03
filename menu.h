@@ -14,8 +14,11 @@ using namespace std;
 const string MSJ_CABECERA_MENU = "Bienvenido al club de lectura de Sid!\nIngresa a continuacion la opcion deseada:\n\n1. Agregar una lectura a la lista.\n2. Quitar una lectura de la lista.\n3. Agregar un escritor.\n4. Cambiar fecha de fallecimiento de un autor.\n5. Listar los escritores.\n6. Mostrar una lectura random!\n7. Mostrar todas las lecturas.\n8. Mostrar lecturas en un periodo de anios.\n9. Mostrar lecturas segun autor.\n10. Mostrar novelas segun genero.\n11. Generar una cola de lectura segun tiempo aproximado de lectura (menor a mayor).\n12. Salir del club de lectura.";
 const string MSJ_INGRESAR_TIPO_LECTURA = "Ingrese N (Novela), C (Cuento) o P (Poeta):";
 const string MSJ_INGRESAR_TITULO = "Ingrese el titulo de la obra:";
+const string MSJ_INGRESAR_LIBRO = "Ingrese el libro:";
+const string MSJ_INGRESAR_TEMA = "Ingrese el tema:";
+const string MSJ_INGRESAR_VERSOS = "Ingrese la cantidad de versos:";
 const string MSJ_INGRESAR_MINUTOS = "Ingrese los minutos estimados de lectura";
-const string MSJ_INGRESAR_ANIO = "Ingrese el anio de publicacion de la obra:";
+const string MSJ_INGRESAR_ANIO = "Ingrese el año de publicacion de la obra:";
 const string MSJ_INRGESAR_INFO_LECTURA = "Ingrese la informacion correspondiente segun\nSi es novela, va el género\nSi es novela histórica, va el tema\nSi es cuento, va el título del libro en donde está publicado\nSi es un poema, va la cantidad de versos";
 const string MSJ_INRGESAR_REFERENCIA_AUTOR = "Ingrese el nombre y apellido del autor correspondiente:";
 const string MSJ_BAJA_LISTA = "Ingrese el nombre de la lectura que quiere quitar:";
@@ -29,8 +32,8 @@ const string MSJ_HA_LEIDO = "¿Ha sido leida la obra? Ingresar 1 (verdadero) o 0
 const string MSJ_INGRESAR_ID = "Ingrese el ID del escritor:";
 const string MSJ_INGRESAR_NOMBRE = "Ingrese el nombre y apellido del escritor:";
 const string MSJ_INGRESAR_NACIONALIDAD = "Ingrese la nacionalidad del escritor:";
-const string MSJ_INGRESAR_FECHA_NACIMIENTO = "Ingrese la fecha de nacimiento del escritor:";
-const string MSJ_INGRESAR_FECHA_FALLECIMIENTO = "Ingrese la fecha de fallecimiento del escritor:";
+const string MSJ_INGRESAR_NACIMIENTO = "Ingrese el año de nacimiento del escritor:";
+const string MSJ_INGRESAR_FALLECIMIENTO = "Ingrese el año de fallecimiento del escritor:";
 const string RAYITAS = "-----------------------------------------------------";
 
 enum Opciones_menu {
@@ -62,9 +65,14 @@ public:
     ~Menu(){};
 
     // Ejecuta el menu para que el usuario pueda ingresar la accion por realizar
+    // PRE: INGRESAR UN NÚMERO
     void ejecutar_menu();
 
-    //void nueva_lectura();
+    Escritor* obtener_autor(Lista<Escritor>* lista_escritores);
+
+    char* obtener_tema(string tema);
+
+    void nueva_lectura();
 
     void quitar_lectura();
 
@@ -79,8 +87,7 @@ public:
 
     void listar_lecturas_todas();
 
-    //Bien pero para que funcione tiene que estar ordenada la lista !!!
-    //void listar_lecturas_anios();
+    void listar_lecturas_anios();
 
     void listar_lecturas_escritor();
 

@@ -1,14 +1,6 @@
 #include <iostream>
 #include "escritor.h"
 
-/* Escritor::Escritor(){
-    this -> id = 0;
-    this -> nombre_apellido = "ANONIMO";
-    this -> nacionalidad = "¿?";
-    this -> anio_nacimiento = -1;
-    this -> anio_fallecimiento = -1; 
-} */
-
 Escritor::Escritor(int id, string nombre_apellido, string nacionalidad, short int anio_nacimiento, short int anio_fallecimiento){
     this -> id = id;
     this -> nombre_apellido = nombre_apellido;
@@ -49,9 +41,9 @@ void Escritor::cambiar_fallecimiento(short int nuevo_anio){
     anio_fallecimiento = nuevo_anio;
 }
 
-/* Escritor* Escritor::obtener_direccion(){
+Escritor* Escritor::obtener_direccion(){
     return this;
-} */
+}
 
 Escritor::~Escritor(){
 }
