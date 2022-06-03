@@ -105,10 +105,11 @@ void Cola<Tipo>::encolar(Lista<Tipo>* lista){
   Nodo<Tipo>* minimo = nullptr;
   unsigned int minutos_anterior = 0;
 
-  for (int i = 0; i < lista -> obtener_cantidad(); i++){
-    minimo = lista -> encontrar_minimo(minimo, minutos_anterior);
+  for (int i = 1; i <= lista -> obtener_cantidad(); i++){
+    minimo = lista -> encontrar_minimo(minimo);
+    //minimo -> obtener_dato() -> mostrar();
     alta(minimo -> obtener_dato());
-    minutos_anterior = ((minimo -> obtener_dato()) -> obtener_minutos());
+    // minutos_anterior = ((minimo -> obtener_dato()) -> obtener_minutos());
   }
   
 };

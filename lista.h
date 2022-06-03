@@ -64,7 +64,7 @@ public:
 	// Encuentra el nodo con el menor tiempo de lectura
 	// PRE: minimo_anterior tiene que ser un puntero valido.
 	// POS: Devuelve un puntero al nodo del menor elemento.
-	Nodo<Tipo>* encontrar_minimo(Nodo<Tipo>* minimo_anterior, unsigned int minutos_anterior);
+	Nodo<Tipo>* encontrar_minimo(Nodo<Tipo>* minimo_anterior);
 
 
 	//Destructor
@@ -136,8 +136,6 @@ Nodo<Tipo>* nuevo = new Nodo<Tipo>(elemento);
 
 		// Localizando el nodo antes de la insersion
 		Nodo<Tipo>* actual = primero;
-
-		// Cuando tengo 2 o mas elementos / 
 		while (actual -> obtener_siguiente() != nullptr && (nuevo -> obtener_dato()) -> comparar(actual -> obtener_siguiente() -> obtener_dato()) == 1 && fue_ubicada == false) {
 			actual = actual -> obtener_siguiente();
 		};
@@ -234,7 +232,62 @@ void Lista<Tipo>::operator=(Lista<Tipo> lista2){
 	this -> cantidad = cantidad;
 };
 
+
 template <class Tipo>
+Nodo<Tipo>* Lista<Tipo>::encontrar_minimo(Nodo<Tipo>* minimo_anterior){
+	Nodo<Tipo>* minimo = nullptr;
+
+	// Caso con el primer minimo / Voy a tener minimo_anterior = nullptr y minutos anterior != 0
+	if (minimo_anterior == nullptr) {
+		Nodo<Tipo>* cursor = primero;
+		Nodo<Tipo>* minimo_auxiliar = primero;
+
+		while (cursor != nullptr) {
+			int comparacion = (cursor -> obtener_dato()) -> comparar(minimo_auxiliar -> obtener_dato(), 'm');
+
+			if (comparacion == -1) 
+				minimo_auxiliar = cursor;
+			
+			// Avanza al siguiente nodo
+			cursor = cursor -> obtener_siguiente();
+		}
+		minimo = minimo_auxiliar;
+	} else { // Caso donde ya se encontro un minimo previamente / minimo_anterior != nullptr y minutos_anterior != 0
+		Nodo<Tipo>* cursor = primero;
+		Nodo<Tipo>* minimo_auxiliar = nullptr;
+
+		// Tengo que recorrer la lista hasta que un nodo tenga minutos >= a minutos_anterior y sea != minimo anterior
+		while (cursor != nullptr) {
+			int comparacion = (cursor -> obtener_dato()) -> comparar(minimo_anterior -> obtener_dato(), 'm');
+			
+			// Caso donde el apuntado por el cursor es >= a los minutos del minimo anterior Y no es el minimo anterior
+			if ((comparacion == 0 || comparacion == 1) && cursor != minimo_anterior && minimo_auxiliar == nullptr){
+				minimo_auxiliar = cursor;
+			} 
+			else if((comparacion == 0 || comparacion == 1) && cursor != minimo_anterior && minimo_auxiliar != nullptr && (cursor -> obtener_dato() -> comparar(minimo_auxiliar -> obtener_dato(), 'm') == -1)) {
+				minimo_auxiliar = cursor;
+			}
+			// Avanza al siguiente nodo
+			cursor = cursor -> obtener_siguiente();
+		} 
+
+		minimo = minimo_auxiliar;
+	}
+
+	return minimo;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* template <class Tipo>
 Nodo<Tipo>* Lista<Tipo>::encontrar_minimo(Nodo<Tipo>* minimo_anterior, unsigned int minutos_anterior){
 
 	Nodo<Tipo>* cursor = primero;
@@ -256,7 +309,7 @@ Nodo<Tipo>* Lista<Tipo>::encontrar_minimo(Nodo<Tipo>* minimo_anterior, unsigned 
 		cursor_siguiente = cursor -> obtener_siguiente();
 	}
 
-	/* if (minimo_anterior == nullptr)
+	if (minimo_anterior == nullptr)
 		minimo_anterior = primero;
 
 	Nodo<Tipo>* cursor = primero;
@@ -287,10 +340,10 @@ Nodo<Tipo>* Lista<Tipo>::encontrar_minimo(Nodo<Tipo>* minimo_anterior, unsigned 
 
 	if (minimo == nullptr){
 		minimo = cursor;
-	} */
+	} 
 	
 	return minimo;
-}
+} */
 
 
 #endif
