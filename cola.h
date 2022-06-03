@@ -84,7 +84,6 @@ void Cola<Tipo>::baja(){
 template <class Tipo>
 void Cola<Tipo>::consulta(){
   primero -> obtener_dato() -> mostrar();
-  cout << endl;
 }
 
 // Vacia
