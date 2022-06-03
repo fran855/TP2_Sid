@@ -30,7 +30,7 @@ novela_historica.o: novela_historica.cpp novela_historica.h novela.cpp novela.h 
 cuento.o: cuento.cpp cuento.h lectura.cpp lectura.h escritor.cpp escritor.h
 	$(CC) $(CFLAGS) -o cuento.o -c cuento.cpp
 
-genero.o: genero.cpp genero.h
+genero.o: genero.cpp genero.h funciones.cpp funciones.h
 	$(CC) $(CFLAGS) -o genero.o -c genero.cpp
 
 poema.o: poema.cpp poema.h lectura.cpp lectura.h escritor.cpp escritor.h

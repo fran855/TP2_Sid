@@ -76,7 +76,7 @@ void Menu::ejecutar_menu(){
             break;
 
         case LISTAR_NOVELAS_GENERO:
-            //listar_novelas_genero();
+            listar_novelas_genero();
             cout << RAYITAS << endl;
             cout << endl;
             break;
@@ -189,6 +189,7 @@ void Menu::listar_lecturas_todas()
 }
 
 /*
+(ya esta)
 void Menu::listar_lecturas_anios()
 {
     int cota_inferior, cota_superior;
@@ -246,24 +247,20 @@ void Menu::listar_lecturas_escritor()
     }
 }
 
-/*
-ARREGLAR!!
+//REVISAR QUE PASA SI NO HAY COINCIDENCIAS
 void Menu::listar_novelas_genero(){
     string aux;
-    genero_t genero;
     cout << MSJ_INGRESAR_GENERO << endl;
     cin >> aux;
-    genero = string_to_genero(aux);
+    genero_t genero = string_to_genero(aux);
 
     Nodo<Lectura>* nodo_actual = lista_lecturas -> obtener_nodo(1);
 
     while(nodo_actual -> obtener_siguiente() != NULL){
-        if(son_iguales(nodo_actual -> obtener_dato() -> obtener_genero(), genero)){
-            nodo_actual -> obtener_dato() -> mostrar();
-        }
+        nodo_actual -> obtener_dato() -> mostrar_si_genero(genero);
         nodo_actual = nodo_actual -> obtener_siguiente();
     }
-} */
+}
 
 /*
 void Menu::crear_cola(){

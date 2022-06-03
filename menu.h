@@ -84,7 +84,7 @@ public:
 
     void listar_lecturas_escritor();
 
-    //void listar_novelas_genero();
+    void listar_novelas_genero();
 
     //void crear_cola();
 

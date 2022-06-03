@@ -26,6 +26,11 @@ void Novela :: mostrar_genero(){
   cout << "Genero: " << genero_to_string(genero) << endl;
 }
 
+void Novela::mostrar_si_genero(genero_t genero){
+  if(this->genero == genero){
+    mostrar();
+  }
+}
 
 //Obtener genero
 genero_t Novela :: obtener_genero(){

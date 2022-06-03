@@ -17,7 +17,9 @@ public:
   // Mostrar
   // PRE: - 
   // POS: muestra los atributos en pantalla
-    void mostrar(); // es mostrar() sobrecargado, se le agrega la funcionalidad de mostrar los versos
+  void mostrar(); // es mostrar() sobrecargado, se le agrega la funcionalidad de mostrar los versos
+
+  void mostrar_si_genero(genero_t genero){};
 
   //Destructor
   //PRE:

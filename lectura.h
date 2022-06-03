@@ -56,6 +56,8 @@ public:
     // POS: muestra los atributos en pantalla
     virtual void mostrar() = 0;
 
+    virtual void mostrar_si_genero(genero_t genero) = 0;
+    
     // Obtener titulo
     // PRE: -
     // POS: devuelve un string con el titulo

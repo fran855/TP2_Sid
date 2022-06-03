@@ -1,17 +1,18 @@
 #include "genero.h"
+#include "funciones.h"
 
 genero_t string_to_genero(string genero){
-  if (genero == "DRAMA")
+  if (son_iguales(genero, "DRAMA"))
     return DRAMA;
-  else if (genero == "COMEDIA")
+  else if (son_iguales(genero, "COMEDIA"))
     return COMEDIA;
-  else if (genero == "FICCION")
+  else if (son_iguales(genero, "FICCION"))
     return FICCION;
-  else if (genero == "SUSPENSO")
+  else if (son_iguales(genero, "SUSPENSO"))
     return SUSPENSO;
-  else if (genero == "TERROR")
+  else if (son_iguales(genero, "TERROR"))
     return TERROR;
-  else if (genero == "ROMANTICA")
+  else if (son_iguales(genero, "ROMANTICA"))
     return ROMANTICA;
   else 
     return HISTORICA;
