@@ -92,6 +92,7 @@ void Menu::ejecutar_menu(Cola<Lectura>* cola_lecturas)
             break;
 
         case SALIR:
+            cout << MSJ_SALIDA << endl;
             return;
 
         default:
@@ -356,22 +357,34 @@ void Menu::crear_cola(Cola<Lectura>* cola_lecturas){
             cola_creada = true;
         }
     
-        cout << MSJ_MOSTRAR_COLA << endl;
-        cola_lecturas -> consulta();
-
-        cout << MSJ_HA_LEIDO << endl;
-        cin >> fue_leido;
-        getline(cin, auxiliar, '\n'); // Limpiar buffer
-
-        fue_leido = tolower(fue_leido);
-
-        if(cola_lecturas -> vacia()){
-            cout << MSJ_COLA_VACIA << endl;
-        }else{
-            cola_lecturas -> baja();
+        if(!cola_lecturas -> vacia()){
             cout << MSJ_MOSTRAR_COLA << endl;
             cola_lecturas -> consulta();
-        }   
+            cout << endl;
+
+            cout << MSJ_HA_LEIDO << endl;
+            cin >> fue_leido;
+            cout << endl;
+
+            getline(cin, auxiliar, '\n'); // Limpiar buffer
+
+            fue_leido = tolower(fue_leido);
+        }
+
+        if(fue_leido == 's' && !cola_lecturas -> vacia()){
+            cola_lecturas -> baja();
+            if(!cola_lecturas -> vacia()){
+                cout << MSJ_MOSTRAR_COLA << endl;
+                cola_lecturas -> consulta();
+            }else{
+                cout << MSJ_COLA_VACIA << endl;
+            }
+        } else if(fue_leido == 'n' && !cola_lecturas -> vacia()){
+            cout << MSJ_LEER << endl;
+            cola_lecturas -> consulta();
+        } else{
+            cout << MSJ_COLA_VACIA << endl;
+        }
 }
 
 Menu::~Menu(){
