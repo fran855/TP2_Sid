@@ -42,6 +42,8 @@ const string MSJ_INGRESAR_NACIONALIDAD = "Ingrese la nacionalidad del escritor:"
 const string MSJ_INGRESAR_NACIMIENTO = "Ingrese el año de nacimiento del escritor:";
 const string MSJ_INGRESAR_FALLECIMIENTO = "Ingrese el año de fallecimiento del escritor:";
 const string MSJ_COLA_VACIA = "¡No hay más lecturas! Hiciste feliz a Sid :)";
+const string MSJ_LEER = "No seas perezoso como Sid y lee la obra:";
+const string MSJ_SALIDA = "¡Hasta luego!\nSid.";
 const string RAYITAS = "-----------------------------------------------------";
 
 enum Opciones_menu {
