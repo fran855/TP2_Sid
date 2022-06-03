@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <string>
+#include <iostream>
 #include "escritor.h"
 #include "lista.h"
 

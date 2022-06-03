@@ -1,11 +1,4 @@
-#include <ctime>
 #include "menu.h"
-#include "cola.h"
-#include "funciones.h"
-#include "cuento.h"
-#include "poema.h"
-#include "novela.h"
-#include "novela_historica.h"
 
 using namespace std;
 
@@ -129,7 +122,7 @@ Escritor* Menu::obtener_autor(Lista<Escritor> *lista_escritores)
         nodo_escritor = nodo_escritor->obtener_siguiente();
     }
 
-    return nullptr; //¿si no lo encuentro es anonimo?    
+    return nullptr; //si no lo encuentro es anonimo    
 }
 
 char* Menu::obtener_tema(string tema)
@@ -338,7 +331,6 @@ void Menu::listar_lecturas_escritor()
     }
 }
 
-// REVISAR QUE PASA SI NO HAY COINCIDENCIAS
 void Menu::listar_novelas_genero()
 {
     string aux;

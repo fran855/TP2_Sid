@@ -1,5 +1,3 @@
-#include <iostream>
-#include <string>
 #include "poema.h"
 
 using namespace std;

@@ -1,5 +1,4 @@
 #include "genero.h"
-#include "funciones.h"
 
 genero_t string_to_genero(string genero){
   if (son_iguales(genero, "DRAMA"))

@@ -1,6 +1,7 @@
 #ifndef ESCRITOR_H_INCLUDED
 #define ESCRITOR_H_INCLUDED
 
+#include <iostream>
 #include <string>
 
 using namespace std;

@@ -1,4 +1,3 @@
-#include <iostream>
 #include "escritor.h"
 
 Escritor::Escritor(int id, string nombre_apellido, string nacionalidad, short int anio_nacimiento, short int anio_fallecimiento){

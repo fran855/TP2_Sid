@@ -1,14 +1,19 @@
 #ifndef MENU_H
 #define MENU_H
 
+#include <ctime>
 #include <iostream>
 #include <string>
 #include "lista.h"
 #include "escritor.h"
 #include "lectura.h"
-#include "novela.h"
-#include "genero.h"
 #include "cola.h"
+#include "funciones.h"
+#include "cuento.h"
+#include "poema.h"
+#include "novela.h"
+#include "novela_historica.h"
+#include "genero.h"
 
 using namespace std;
 
@@ -97,8 +102,8 @@ public:
     void crear_cola(Cola<Lectura>* cola_lecturas);
 
 private:
+    Escritor* encontrar_escritor_nombre(string nombre_apellido);
     Escritor* obtener_autor(Lista<Escritor>* lista_escritores);
-
     char* obtener_tema(string tema);
 
 };
