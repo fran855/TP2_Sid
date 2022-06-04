@@ -1,16 +1,17 @@
 #include "novela_historica.h"
 
-//Constructor
+// Constructor
 Novela_historica :: Novela_historica(string titulo, unsigned int minutos, unsigned short int anio, char* tema, Escritor* autor): Novela(titulo, minutos, anio, genero, autor){
   this->tema = tema;
   this->genero = HISTORICA;
 }
 
-//Obtener tema
+// Obtener tema
 char* Novela_historica::obtener_tema(){
   return tema;
 }
 
+// Mostrar datos de la novela historica
 void Novela_historica::mostrar(){
   cout << "Titulo: " << titulo << endl;
   cout << "Minutos aproximados: " << minutos << endl;
@@ -24,7 +25,7 @@ void Novela_historica::mostrar(){
   }
 }
 
-//Destructor
+// Destructor
 Novela_historica::~Novela_historica(){
   delete[] tema;
 }

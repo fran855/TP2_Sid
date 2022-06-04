@@ -6,7 +6,7 @@ Novela :: Novela(string titulo, unsigned int minutos, unsigned short int anio, g
    this->genero = genero;
 }
 
-// Mostrar
+// Mostrar datos de la novela
 void Novela::mostrar(){ 
     cout << "Titulo: " << titulo << endl;
     cout << "Minutos aproximados: " << minutos << endl;

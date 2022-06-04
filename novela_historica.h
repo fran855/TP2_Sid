@@ -8,34 +8,36 @@
 using namespace std;
 
 class Novela_historica : public Novela{
+  // Atributos
 private:
   char* tema;
 
+  // Metodos
 public: 
-//Constructor
-//PRE: 
-//POS:
+  // Constructor
+  // PRE: titulo string no vacío, minutos >= 0, anio > 0, tema puntero valido, autor puntero valido
+  // POS: -
   Novela_historica(string titulo, unsigned int minutos, unsigned short int anio, char* tema, Escritor* autor);
 
-
-//Mostrar_tema
-//PRE:
-//POS: Muestra el tema de la novela
+  // Mostrar tema
+  // PRE: -
+  // POS: Muestra el tema de la novela
   void mostrar_tema();
 
-
-//Obtener tema
-//PRE:
-//POS: Obtiene el tema de la novela historica
+  // Obtener tema
+  // PRE: -
+  // POS: Obtiene el tema de la novela historica
   char* obtener_tema();
 
+  // Mostrar
+  // PRE: -
+  // POS: Muestra los datos de la novela historica
   void mostrar();
 
-//DESTRUCTOR
-//PRE:
-//POS:
+  // Destructor
+  // PRE: -
+  // POS: -
   ~Novela_historica();
-
 };
 
 #endif
