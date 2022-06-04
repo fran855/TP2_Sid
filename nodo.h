@@ -1,6 +1,8 @@
 #ifndef NODO_TEMPLATE_INCLUDED
 #define NODO_TEMPLATE_INCLUDED
 
+#include <iostream>
+using namespace std;
 template <class Tipo>
 
 class Nodo{
@@ -49,7 +51,6 @@ Nodo<Tipo>* Nodo<Tipo>::obtener_siguiente(){
 
 template <class Tipo>
 Nodo<Tipo>::~Nodo<Tipo>(){
-	delete dato;
 }
 
 
