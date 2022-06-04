@@ -2,9 +2,6 @@
 #define FUNCIONES_H_INCLUDED
 
 #include <string>
-/* #include "lectura.h"
-#include "escritor.h"
-#include "lista.h" */
 
 using namespace std;
 
