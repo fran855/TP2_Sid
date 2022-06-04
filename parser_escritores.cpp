@@ -2,11 +2,13 @@
 
 using namespace std;
 
+// Constructor
 Parser_escritores::Parser_escritores(Lista<Escritor> * lista, char ** argv){
     entrada = argv[1];
     lista_escritores = lista;
 }
 
+// Generar escritor anonimo
 void Parser_escritores::generar_anonimo(){
     id = 0;
     nombre_apellido = "ANONIMO";
@@ -15,6 +17,7 @@ void Parser_escritores::generar_anonimo(){
     anio_fallecimiento = -1;
 }
 
+// Procesar datos a partir de un archivo pasado por linea de comandos
 void Parser_escritores::procesar_datos(){
     ifstream archivo(entrada);
 	
@@ -50,5 +53,5 @@ void Parser_escritores::procesar_datos(){
     return;
 }
 
-Parser_escritores::~Parser_escritores(){
-}
+// Destructor
+Parser_escritores::~Parser_escritores(){}

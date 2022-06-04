@@ -1,10 +1,12 @@
 #include "parser_lecturas.h"
 using namespace std;
 
+// Constructor
 Parser_lectura::Parser_lectura(char** argv) {
   archivo_lectura.open(argv[2]);
 }
 
+// Obtener puntero a autor a partir de una lista
 Escritor* Parser_lectura::obtener_autor(Lista<Escritor>* lista_escritores){
   getline(archivo_lectura, auxiliar);
   if(auxiliar == "ANONIMO"){
@@ -15,6 +17,7 @@ Escritor* Parser_lectura::obtener_autor(Lista<Escritor>* lista_escritores){
   return lista_escritores -> consulta(id);
 }
 
+// Obtener puntero a lectura a partir de un string 
 char* Parser_lectura::obtener_tema(string tema){
   char * copia = new char[tema.size() + 1];
   copy(tema.begin(), tema.end(), copia);
@@ -22,6 +25,7 @@ char* Parser_lectura::obtener_tema(string tema){
   return copia;
 }
 
+// Procesar datos. Lee el archivo y crea una lista de lecturas.
 void Parser_lectura:: procesar_datos(Lista<Escritor>* lista_escritores, Lista<Lectura>* lista_lecturas){
   Lectura* nueva_lectura;
   while(!archivo_lectura.eof()){
@@ -65,16 +69,3 @@ void Parser_lectura:: procesar_datos(Lista<Escritor>* lista_escritores, Lista<Le
     getline(archivo_lectura, auxiliar); //saca el separador
   }
 }
-
-/*
-Lista<Lectura> Parser_lectura:: listar_lecturas(Lista<Escritor>* lista_escritores){
-  Lista<Lectura> lista_lecturas;
-  int contador = 0;
-  
-  while(!archivo_lectura.eof()){
-    lista_lecturas.alta(procesar_datos(lista_escritores), ++contador);
-    getline(archivo_lectura, auxiliar);
-  }
-  return lista_lecturas;
-}
-*/
