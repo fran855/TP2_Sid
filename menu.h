@@ -72,43 +72,91 @@ private:
 
 public:
     // Constructor por defecto
-    Menu(Lista<Lectura>* lista_lecturas, Lista<Escritor>* listar_escritores);
+    // PRE: lista_lectura y lista_escritores son punteros a listas válidas
+    // POS: se crea un objeto de tipo Menu
+    Menu(Lista<Lectura>* lista_lecturas, Lista<Escritor>* lista_escritores);
 
     // Destructor por defecto
+    // PRE: -
+    // POS: se elimina el objeto de tipo Menu
     ~Menu();
 
     // Ejecuta el menu para que el usuario pueda ingresar la accion por realizar
-    // PRE: INGRESAR UN NÚMERO
+    // PRE: cola_lecturas es un puntero a Cola<Lectura> con memoria reservada
+    // POS: se ejecuta el menu
     void ejecutar_menu(Cola<Lectura>* cola_lecturas);
-
-    void nueva_lectura();
-
-    void quitar_lectura();
-
-    void agregar_escritor();
-
-    //PRE: autor válido (no puede ser anónimo)
-    void cambiar_dato_escritor();
-
-    void listar_escritores();
-
-    void mostrar_lectura_random();
-
-    void listar_lecturas_todas();
-
-    void listar_lecturas_anios();
-
-    void listar_lecturas_escritor();
-
-    void listar_novelas_genero();
-
-    void crear_cola(Cola<Lectura>* cola_lecturas);
+   
 
 private:
+    // Encontrar esccritor por nombre
+    // PRE: nombre_apellido es un string con el nombre y apellido del escritor existente
+    // POS: devuelve un puntero al escritor
     Escritor* encontrar_escritor_nombre(string nombre_apellido);
+    
+    // Obtener el puntero al escritor en la lista de escritores
+    // PRE: lista_escritores puntero a lista válido
+    // POS: devuelve un puntero al escritor
     Escritor* obtener_autor(Lista<Escritor>* lista_escritores);
+    
+    // Obtener tema
+    // PRE: tema cadena válida
+    // POS: devuelve un puntero al tema con memoria creada
     char* obtener_tema(string tema);
 
+    // Nueva lectura
+    // PRE: -
+    // POS: se agrega una lectura a la lista de lecturas (de forma ordenada)
+    void nueva_lectura();
+
+    // Quitar lectura
+    // PRE: -
+    // POS: se elimina una lectura de la lista de lecturas
+    void quitar_lectura();
+
+    // Agregar escritor
+    // PRE: -
+    // POS: se agrega un escritor a la lista de escritores
+    void agregar_escritor();
+
+    // Cambiar dato escritor
+    //PRE: -
+    //POS: se cambia el dato del escritor
+    void cambiar_dato_escritor();
+
+    // Listar escritores
+    // PRE: -
+    // POS: se listan todos los escritores
+    void listar_escritores();
+
+    // Lectura random
+    // PRE: -
+    // POS: se muestra una lectura aleatoria
+    void mostrar_lectura_random();
+
+    // Listar todas las lecturas
+    // PRE: -
+    // POS: se listan todas las lecturas
+    void listar_lecturas_todas();
+
+    // Listar lecturas por años
+    // PRE: -
+    // POS: se listan todas las lecturas por años
+    void listar_lecturas_anios();
+
+    // Listar lecturas por escritor
+    // PRE: -
+    // POS: se listan todas las lecturas por escritor
+    void listar_lecturas_escritor();
+
+    // Listar novelas por genero
+    // PRE: -
+    // POS: se listan todas las novelas por genero
+    void listar_novelas_genero();
+
+    // Crear cola
+    // PRE: -
+    // POS: se crea una cola de lecturas
+    void crear_cola(Cola<Lectura>* cola_lecturas);
 };
 
 #endif
