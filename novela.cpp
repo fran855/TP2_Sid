@@ -6,7 +6,6 @@ Novela :: Novela(string titulo, unsigned int minutos, unsigned short int anio, g
    this->genero = genero;
 }
 
-
 // Mostrar
 void Novela::mostrar(){ 
     cout << "Titulo: " << titulo << endl;
@@ -20,12 +19,12 @@ void Novela::mostrar(){
     }
 }
 
-
 //Mostrar genero
 void Novela :: mostrar_genero(){
   cout << "Genero: " << genero_to_string(genero) << endl;
 }
 
+// Mostrar si una obra pertenece a un genero determinado
 void Novela::mostrar_si_genero(genero_t genero){
   if(this->genero == genero){
     mostrar();
@@ -36,7 +35,6 @@ void Novela::mostrar_si_genero(genero_t genero){
 genero_t Novela :: obtener_genero(){
   return genero;
 }
-
 
 //Destructor
 Novela :: ~Novela(){}

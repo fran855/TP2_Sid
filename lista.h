@@ -9,7 +9,7 @@ using namespace std;
 template <class Tipo>
 class Lista{
 private:
-	Nodo<Tipo>* primero;   //me alcanza con un puntero al primero solamente
+	Nodo<Tipo>* primero;
 	int cantidad;
 
 public:
@@ -18,7 +18,7 @@ public:
 	//POS: Construye una Lista vacía
 	Lista();
 
-	//Alta por posicion                                    [tomamos 1 como el inicio]
+	//Alta por posicion                 [tomamos 1 como el inicio]
 	//PRE: e es un Tipo valido y 1 <= pos <= obtener_cantidad + 1
 	//POS: agrega el elemento en la posición pos (se empieza por 1)
 	void alta(Tipo* elemento, int pos);
@@ -72,7 +72,9 @@ public:
 
 
 //private:
-	
+	// Obtener nodo
+	// PRE: 1 <= pos <= obtener_cantidad()
+	// POS: devuelve el puntero al nodo que está en pos (se empieza por 1)
 	Nodo<Tipo>* obtener_nodo(int pos);
 
 };
@@ -98,8 +100,7 @@ Nodo<Tipo>* Lista<Tipo>::obtener_nodo(int pos){
 	return aux;
 }
 
-
- //Alta
+//Alta
 template <class Tipo>
 void Lista<Tipo>::alta(Tipo* elemento, int pos){
 	Nodo<Tipo>* nuevo = new Nodo<Tipo>(elemento);
@@ -108,7 +109,6 @@ void Lista<Tipo>::alta(Tipo* elemento, int pos){
 		primero = nuevo;
 	}
 	else{
-		//tengo un dato que quiero agregar entre dos nodos -> busco la posicion (menos uno porque tengo que configurar el puntero así me guardo el anterior), mi nuevo dato apunta al siguiente del anterior y ese anterior ahora tiene que apuntar al nuevo dato
 		Nodo<Tipo>* anterior = obtener_nodo(pos - 1);
 		nuevo -> cambiar_siguiente(anterior -> obtener_siguiente());
 		anterior -> cambiar_siguiente(nuevo);
@@ -116,10 +116,10 @@ void Lista<Tipo>::alta(Tipo* elemento, int pos){
 	cantidad++;
 } 
 
+// Alta ordenada
 template <class Tipo>
 void Lista<Tipo>::alta(Tipo* elemento){
 Nodo<Tipo>* nuevo = new Nodo<Tipo>(elemento);
-	
 	bool fue_ubicada = false;
 
 	// Caso donde la lista se encuentra vacia
@@ -133,13 +133,12 @@ Nodo<Tipo>* nuevo = new Nodo<Tipo>(elemento);
 		cantidad++;
 		fue_ubicada = true;
 	} else if (fue_ubicada == false) {
-
 		// Localizando el nodo antes de la insersion
 		Nodo<Tipo>* actual = primero;
 		while (actual -> obtener_siguiente() != nullptr && (nuevo -> obtener_dato()) -> comparar(actual -> obtener_siguiente() -> obtener_dato()) == 1 && fue_ubicada == false) {
 			actual = actual -> obtener_siguiente();
 		};
-
+		// Insersion el nodo en la lista
 		if (fue_ubicada == false){
 			nuevo -> cambiar_siguiente(actual -> obtener_siguiente());
 			actual -> cambiar_siguiente(nuevo);
@@ -155,9 +154,7 @@ void Lista<Tipo>::baja(int pos){
 	Nodo<Tipo>* borrar = primero;
 	if(pos == 1){
 		primero = primero -> obtener_siguiente();
-	}
-	else{
-		//busco la posición que quiero borrar (el anterior), guardo su siguiente (el que quiero borrar) y hago que ese anterior lo saltee (apunta al siguiente del siguiente, es decir, al siguiente de borrar)
+	} else{
 		Nodo<Tipo>* anterior = obtener_nodo(pos - 1);
 		borrar = anterior -> obtener_siguiente();
 		anterior -> cambiar_siguiente(borrar -> obtener_siguiente());

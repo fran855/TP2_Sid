@@ -9,17 +9,18 @@
 using namespace std;
 
 class Lectura {
-
+    // Atributos
 protected:
     string titulo;
     unsigned int minutos;
     unsigned short int anio;
     Escritor* autor;
 
+    // Metodos
 public:
 
-    // Constructor
-    // PRE: -
+    // Constructor con parametros
+    // PRE: minutos >= 0, anio >= 0
     // POS: realiza la carga de los datos al objeto Lectura. 
     //      - en caso de ser proveniente de un autor anonimo, autor = nullptr;
     Lectura(string titulo, unsigned int minutos, unsigned short int anio, Escritor* autor);
@@ -27,18 +28,13 @@ public:
     // Constructor por defecto  
     Lectura();
 
-    //Sobrecarga operador
-    //PRE:
-    //POS:
-    //void operator= (Lectura lectura2);
-
-// Destructor
+    // Destructor
     // PRE: -
     // POS: -
     virtual ~Lectura();
 
     // Comparar anios
-    // PRE:  lectura debe ser un puntero valido
+    // PRE:  lectura debe ser un puntero a Lectura valido
     // POS:  devuelve – 1 si la lectura que llama es menor a la que se pasa por parámetro
     //       devuelve 1 si la que llama es mayor a la que se pasa por parámetro
     //       devuelve 0 si son iguales
@@ -56,16 +52,19 @@ public:
     // POS: muestra los atributos en pantalla
     virtual void mostrar() = 0;
 
+    // Mostrar si una obra pertenece a un genero determinado
+    // PRE: -
+    // POS: muestra los atributos en pantalla si pertenece a un genero determinado
     virtual void mostrar_si_genero(genero_t genero) = 0;
     
     // Obtener titulo
     // PRE: -
-    // POS: devuelve un string con el titulo
+    // POS: devuelve un string con el titulo de la Lectura
     string obtener_titulo();
 
     // Obtener minutos
     // PRE: -
-    // POS: devuelve un entero sin signo con los minutos de lectura
+    // POS: devuelve un entero sin signo con los minutos aproximados de lectura
     unsigned int obtener_minutos();
 
     // Obtener anio
