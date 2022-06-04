@@ -159,7 +159,8 @@ void Lista<Tipo>::baja(int pos){
 		borrar = anterior -> obtener_siguiente();
 		anterior -> cambiar_siguiente(borrar -> obtener_siguiente());
 	}
-	cantidad--;	
+	cantidad--;
+	delete borrar -> obtener_dato();	
 	delete borrar;
 }
 

@@ -2,7 +2,7 @@
 #define COLA_H_INCLUDED
 
 #include "lectura.h"
-#include "nodo_puntero.h"
+#include "nodo.h"
 #include "lista.h"
 
 using namespace std;
@@ -11,8 +11,8 @@ template <class Tipo>
 class Cola {
   // Atributos
 private:
-  Nodo_puntero<Tipo>* primero;
-  Nodo_puntero<Tipo>* ultimo;
+  Nodo<Tipo>* primero;
+  Nodo<Tipo>* ultimo;
 
   // Metodos
 public:
@@ -60,7 +60,7 @@ Cola<Tipo>::Cola(){
 // Alta
 template <class Tipo>
 void Cola<Tipo>::alta(Tipo* elemento){
-	Nodo_puntero<Tipo>* nuevo = new Nodo_puntero<Tipo>(elemento);
+	Nodo<Tipo>* nuevo = new Nodo<Tipo>(elemento);
 	if (primero)
     ultimo -> cambiar_siguiente(nuevo);
   else 
@@ -71,7 +71,7 @@ void Cola<Tipo>::alta(Tipo* elemento){
 // Baja
 template <class Tipo>
 void Cola<Tipo>::baja(){
-  Nodo_puntero<Tipo>* borrar = primero;
+  Nodo<Tipo>* borrar = primero;
   primero = primero -> obtener_siguiente();
   if (ultimo -> obtener_siguiente()){
     ultimo = ultimo -> obtener_siguiente();
