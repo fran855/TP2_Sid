@@ -7,7 +7,6 @@ Poema::Poema (string titulo, unsigned int minutos, unsigned short int anio, unsi
     this -> versos = versos;
 }
 
-
 // Mostrar
 void Poema::mostrar(){ 
     cout << "Titulo: " << titulo << endl;
@@ -16,11 +15,10 @@ void Poema::mostrar(){
     cout << "Versos: " << versos << endl;
     if(!autor){
       cout << "Autor: ANONIMO" << endl;
-    }else{
+    } else{
       cout << "Autor: " << autor -> obtener_nombre_apellido() << endl;
     }
 }
-
 
 //Destructor
 Poema::~Poema(){}

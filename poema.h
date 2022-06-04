@@ -6,30 +6,31 @@
 #include "lectura.h"
 
 class Poema: public Lectura {
-
+  // Atributos
 protected:
     unsigned int versos;
 
+  // Metodos
 public:
-  //Constructor
-  //PRE:
-  //POS:
-    Poema(string titulo, unsigned int minutos, unsigned short int anio, unsigned int versos, Escritor* autor);
+  // Constructor
+  // PRE: titulo string no vacío, minutos >= 0, anio > 0, versos > 0, autor puntero valido
+  // POS: -
+  Poema(string titulo, unsigned int minutos, unsigned short int anio, unsigned int versos, Escritor* autor);
   
   // Mostrar
   // PRE: - 
-  // POS: muestra los atributos en pantalla
-  void mostrar(); // es mostrar() sobrecargado, se le agrega la funcionalidad de mostrar los versos
+  // POS: muestra los daots del Poema en pantalla
+  void mostrar(); 
 
+  // Mostrar si pertenece a un determinado genero
+  // Virtual - Se ejecuta solo en la Novela
   void mostrar_si_genero(genero_t genero){};
 
-  //Destructor
-  //PRE:
-  //POS:
-    ~Poema();
+  // Destructor
+  // PRE: -
+  // POS: -
+  ~Poema();
 
 };
-
-
   
 #endif
