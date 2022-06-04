@@ -13,6 +13,8 @@ TERROR, ROMANTICA, HISTORICA} genero_t;
 //POS: devuelve el genero_t asociado
 genero_t string_to_genero(string genero);
 
+//PRE: genero es un genero válido
+//POS: devuelve la string asociada
 string genero_to_string(genero_t genero);
 
 #endif
