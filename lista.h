@@ -13,49 +13,49 @@ private:
 	int cantidad;
 
 public:
-	//Constructor
-	//PRE: -
-	//POS: Construye una Lista vacía
+	// Constructor
+	// PRE: -
+	// POS: Construye una Lista vacía
 	Lista();
 
-	//Alta por posicion                 [tomamos 1 como el inicio]
-	//PRE: e es un Tipo valido y 1 <= pos <= obtener_cantidad + 1
-	//POS: agrega el elemento en la posición pos (se empieza por 1)
+	// Alta por posicion                 [tomamos 1 como el inicio]
+	// PRE: elemento es un puntero a Tipo valido, 1 <= pos <= cantidad + 1, cantidad > 0
+	// POS: agrega el elemento en la posición pos (se empieza por 1)
 	void alta(Tipo* elemento, int pos);
 
-	//Alta ordenada
-	//PRE: elemento es un puntero valido
-	//POS: inserta de manera ordenada el elemento en la lista
+	// Alta ordenada
+	// PRE: elemento es un puntero valido
+	// POS: inserta de manera ordenada el elemento en la lista
 	void alta(Tipo* elemento);
 
-	//Baja
-	//PRE: 1 <= pos <= obtener_cantidad()
-	//POS: da de baja al elemento que está en pos (se empieza por 1)
+	// Baja
+	// PRE: 1 <= pos <= cantidad, cantidad > 0
+	// POS: da de baja al elemento que está en pos (se empieza por 1)
 	void baja(int pos);
 	
-	//Consulta
-	//PRE: 1 <= pos <= obtener_cantidad()
-	//POS: devuelve el elemento que está en pos (se empieza por 1)
+	// Consulta
+	// PRE: 1 <= pos <= cantidad, cantidad > 0
+	// POS: devuelve el elemento que está en pos (se empieza por 1)
 	Tipo* consulta(int pos);
 
-	//Consulta
-	//PRE: 1 <= pos <= obtener_cantidad()
-	//POS: devuelve el elemento que está en pos (se empieza por 1)
+	// Consulta
+	// PRE: 1 <= pos <= cantidad, cantidad > 0
+	// POS: devuelve el elemento que está en pos (se empieza por 1)
 	Tipo* consulta(int pos, char m);
 	
-	//Mostrar
-	//PRE: -
-	//POS: muestra por pantalla los elementos de la lista
+	// Mostrar
+	// PRE: la lista debe ser no vacia
+	// POS: muestra por pantalla los elementos de la lista
 	void mostrar();
 
-    //Obtener_cantidad
-    //PRE: -
-    //POS: devuelve la cantidad de elementos de la lista
+    // Obtener_cantidad
+    // PRE: -
+    // POS: devuelve la cantidad de elementos de la lista
     int obtener_cantidad();
 
-	//Vacía
-	//PRE: -
-	//POS: devuelve true si la Lista está vacía, false de lo contrario
+	// Vacía
+	// PRE: -
+	// POS: devuelve true si la Lista está vacía, false de lo contrario
 	bool vacia();
 
 	// Sobrecarga del operador =
@@ -63,13 +63,13 @@ public:
 
 	// Encuentra el nodo con el menor tiempo de lectura
 	// PRE: minimo_anterior tiene que ser un puntero valido.
-	// POS: Devuelve un puntero al nodo del menor elemento.
+	// POS: Devuelve un puntero al nodo del menor elemento cuyo parametro
+	// 		de comparacion es mayor o igual al de minimo_anterior, pero no
+	// 		es minimo_anterior.
 	Nodo<Tipo>* encontrar_minimo(Nodo<Tipo>* minimo_anterior);
 
-
-	//Destructor
+	// Destructor
 	~Lista();
-
 
 //private:
 	// Obtener nodo
@@ -163,7 +163,6 @@ void Lista<Tipo>::baja(int pos){
 	delete borrar;
 }
 
-
 //Consulta
 template <class Tipo>
 Tipo* Lista<Tipo>::consulta(int pos){
@@ -188,19 +187,19 @@ Tipo* Lista<Tipo>::consulta(int pos, char m){
 	return &(aux -> obtener_dato());
 }
 
-//Vacia
+// Vacia
 template <class Tipo>
 bool Lista<Tipo>::vacia(){
 	return (cantidad == 0);
 }
 
-//Obtener_cantidad
+// Obtener_cantidad
 template <class Tipo>
 int Lista<Tipo>::obtener_cantidad(){
 	return cantidad;
 }
 
-//mostrar
+// Mostrar
 template <class Tipo>
 void Lista<Tipo>::mostrar(){
 	Nodo<Tipo>* aux = primero;
@@ -215,7 +214,6 @@ void Lista<Tipo>::mostrar(){
 
 }
 
-
 //Destructor
 template <class Tipo>
 Lista<Tipo>::~Lista<Tipo>(){
@@ -228,7 +226,6 @@ void Lista<Tipo>::operator=(Lista<Tipo> lista2){
 	this -> primero = lista2.primero;
 	this -> cantidad = cantidad;
 };
-
 
 template <class Tipo>
 Nodo<Tipo>* Lista<Tipo>::encontrar_minimo(Nodo<Tipo>* minimo_anterior){
@@ -267,86 +264,9 @@ Nodo<Tipo>* Lista<Tipo>::encontrar_minimo(Nodo<Tipo>* minimo_anterior){
 			// Avanza al siguiente nodo
 			cursor = cursor -> obtener_siguiente();
 		} 
-
 		minimo = minimo_auxiliar;
 	}
-
 	return minimo;
 }
-
-
-
-
-
-
-
-
-
-
-
-/* template <class Tipo>
-Nodo<Tipo>* Lista<Tipo>::encontrar_minimo(Nodo<Tipo>* minimo_anterior, unsigned int minutos_anterior){
-
-	Nodo<Tipo>* cursor = primero;
-	Nodo<Tipo>* cursor_siguiente = cursor -> obtener_siguiente();
-	Nodo<Tipo>* minimo = primero;
-	
-	while (cursor_siguiente != nullptr) {
-
-		int es_menor = (cursor -> obtener_dato()) -> comparar(cursor_siguiente -> obtener_dato(), 'm');
-		int es_menor_que_minimo = (cursor -> obtener_dato()) -> comparar(minimo -> obtener_dato(), 'm');
-		// if (minimo != nullptr) // Caso donde es la primera vez que recorre 
-		// 	(cursor -> obtener_dato()) -> comparar(minimo -> obtener_dato(), 'm');
-
-		if (es_menor == 1 && es_menor_que_minimo == 1)	// Caso donde es el menor de los dos, y es menor que el minimo
-			minimo = cursor;
-
-		// Avanza al siguiente elemento de la lista
-		cursor = cursor_siguiente;
-		cursor_siguiente = cursor -> obtener_siguiente();
-	}
-
-	if (minimo_anterior == nullptr)
-		minimo_anterior = primero;
-
-	Nodo<Tipo>* cursor = primero;
-	Nodo<Tipo>* cursor_siguiente = cursor -> obtener_siguiente();
-	Nodo<Tipo>* minimo = primero;
-
-
-<<<<<<< HEAD
-		int comparacion = (cursor -> obtener_dato()) -> comparar(minimo -> obtener_dato(), 'm');
-
-		if ((comparacion == -1) && (cursor != nodo_1) && ((cursor -> obtener_dato()) -> obtener_minutos() >= minutos_anterior))
-=======
-	while (cursor_siguiente != nullptr) {
-		int es_menor = (cursor -> obtener_dato()) -> comparar(cursor_siguiente -> obtener_dato(), 'm');
-
-		// if (es_menor == -1 && (cursor != minimo_anterior) && (cursor -> obtener_dato() -> obtener_minutos() >= minutos_anterior)){
-		// 	minimo = cursor;
-		// }
-
-		if (minimo == nullptr && es_menor == -1){
->>>>>>> version_funcional_chipi
-			minimo = cursor;
-		}
-		
-
-		if (es_menor == -1 && (cursor -> obtener_dato()) -> comparar(minimo -> obtener_dato(), 'c') == 1){
-			minimo = cursor;
-		}
-	
-		// Avanza al siguiente elemento de la lista
-		cursor = cursor_siguiente;
-		cursor_siguiente = cursor -> obtener_siguiente();
-	};
-
-	if (minimo == nullptr){
-		minimo = cursor;
-	} 
-	
-	return minimo;
-} */
-
 
 #endif
