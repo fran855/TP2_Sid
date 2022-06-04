@@ -17,7 +17,7 @@
 
 using namespace std;
 
-const string MSJ_CABECERA_MENU = "Bienvenido al club de lectura de Sid!\nIngresa a continuacion la opcion deseada:\n\n1. Agregar una lectura a la lista.\n2. Quitar una lectura de la lista.\n3. Agregar un escritor.\n4. Cambiar fecha de fallecimiento de un autor.\n5. Listar los escritores.\n6. Mostrar una lectura random!\n7. Mostrar todas las lecturas.\n8. Mostrar lecturas en un periodo de anios.\n9. Mostrar lecturas segun autor.\n10. Mostrar novelas segun genero.\n11. Generar una cola de lectura segun tiempo aproximado de lectura (menor a mayor).\n12. Salir del club de lectura.";
+const string MSJ_CABECERA_MENU = "Bienvenido al club de lectura de Sid!\nIngresa a continuacion la opcion deseada:\n\n1. Agregar una lectura a la lista.\n2. Quitar una lectura de la lista.\n3. Agregar un escritor.\n4. Cambiar fecha de fallecimiento de un autor.\n5. Listar los escritores.\n6. Mostrar una lectura random!\n7. Mostrar todas las lecturas.\n8. Mostrar lecturas en un periodo de años.\n9. Mostrar lecturas segun autor.\n10. Mostrar novelas segun genero.\n11. Mostrar el próximo elemento de menor cantidad de minutos sin  leer.\n12. Salir del club de lectura.";
 const string MSJ_INGRESAR_TIPO_LECTURA = "Ingrese N (Novela), C (Cuento) o P (Poeta):";
 const string MSJ_INGRESAR_TITULO = "Ingrese el titulo de la obra:";
 const string MSJ_INGRESAR_LIBRO = "Ingrese el libro:";
@@ -30,8 +30,9 @@ const string MSJ_INRGESAR_INFO_LECTURA = "Ingrese la informacion correspondiente
 const string MSJ_INRGESAR_REFERENCIA_AUTOR = "Ingrese el nombre y apellido del autor correspondiente:";
 const string MSJ_BAJA_LISTA = "Ingrese el nombre de la lectura que quiere quitar:";
 const string MSJ_ESCRITOR_FALLECIMIENTO = "Inrgese el nombre y apellido del autor cuyo fallecimiento quiere actualizar:";
-const string MSJ_ANIO_FALLECIMIENTO = "Inrgese el anio actualizado de fallecimiento:";
-const string MSJ_INTERVALO_ANIOS = "Ingrese el intervalo de anios deseado:";
+const string MSJ_ANIO_FALLECIMIENTO = "Inrgese el año actualizado de fallecimiento:";
+const string MSJ_INTERVALO_ANIOS_DESDE = "Ingrese el año de inicio:";
+const string MSJ_INTERVALO_ANIOS_HASTA = "Ingrese el año de fin:";
 const string MSJ_LISTAR_LECTURAS_ESCRITOR = "Ingrese el nombre y apellido del escritor para ver sus obras:";
 const string MSJ_INGRESAR_GENERO_BUSCAR = "Ingrese el genero de las obras que quiere buscar:";
 const string MSJ_MOSTRAR_COLA = "La próxima lectura que podrías leer es:";
@@ -42,6 +43,8 @@ const string MSJ_INGRESAR_NACIONALIDAD = "Ingrese la nacionalidad del escritor:"
 const string MSJ_INGRESAR_NACIMIENTO = "Ingrese el año de nacimiento del escritor:";
 const string MSJ_INGRESAR_FALLECIMIENTO = "Ingrese el año de fallecimiento del escritor:";
 const string MSJ_COLA_VACIA = "¡No hay más lecturas! Hiciste feliz a Sid :)";
+const string MSJ_NO_HA_LEIDO = "No seas perezoso como Sid, lee la obra:";
+const string MSJ_SALIDA = "¡Hasta luego!\nSid.";
 const string RAYITAS = "-----------------------------------------------------";
 
 enum Opciones_menu {

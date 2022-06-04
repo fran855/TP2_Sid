@@ -276,8 +276,9 @@ void Menu::listar_lecturas_todas()
 void Menu::listar_lecturas_anios()
 {
     int cota_inferior, cota_superior;
-    cout << MSJ_INTERVALO_ANIOS << endl;
+    cout << MSJ_INTERVALO_ANIOS_DESDE << endl;
     cin >> cota_inferior;
+    cout << MSJ_INTERVALO_ANIOS_HASTA << endl;
     cin >> cota_superior;
 
     Nodo<Lectura> *primer_nodo = lista_lecturas->obtener_nodo(1);
@@ -287,7 +288,7 @@ void Menu::listar_lecturas_anios()
         primer_nodo = primer_nodo->obtener_siguiente();
     }
 
-    while (primer_nodo->obtener_dato()->obtener_anio() <= cota_superior)
+    while (primer_nodo != NULL && primer_nodo->obtener_dato()-> obtener_anio() <= cota_superior)
     {
         primer_nodo->obtener_dato()->mostrar();
         cout << endl;
@@ -365,13 +366,21 @@ void Menu::crear_cola(Cola<Lectura>* cola_lecturas){
 
         fue_leido = tolower(fue_leido);
 
-        if(cola_lecturas -> vacia()){
-            cout << MSJ_COLA_VACIA << endl;
-        }else{
+        if(fue_leido == 's'){
             cola_lecturas -> baja();
+            if(!cola_lecturas -> vacia()){
+                cout << MSJ_MOSTRAR_COLA << endl;
+                cola_lecturas -> consulta();
+            }else{
+                cout << MSJ_COLA_VACIA << endl;
+                cola_creada = false;
+            }
+        }else{
+            cout << MSJ_NO_HA_LEIDO << endl;
             cout << MSJ_MOSTRAR_COLA << endl;
             cola_lecturas -> consulta();
-        }   
+        }
+
 }
 
 Menu::~Menu(){
