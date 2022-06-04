@@ -2,10 +2,10 @@
 
 using namespace std;
 
-Menu::Menu(Lista<Lectura> *lista_lecturas, Lista<Escritor> *listar_escritores)
+Menu::Menu(Lista<Lectura> *lista_lecturas, Lista<Escritor> *lista_escritores)
 {
     this->lista_lecturas = lista_lecturas;
-    this->lista_escritores = listar_escritores;
+    this->lista_escritores = lista_escritores;
     this -> cola_creada = false;
 
     srand(time(NULL)); // Inicializar semilla
